@@ -31,16 +31,13 @@ p {
 }
 
 :root{
-  --bg: #0b1b2a;
-  --bg-alt: #10202f;
-  --surface: #16283a;
-  --surface-2: #1d3245;
-  --border: rgba(217,196,153,0.14);
-  --accent: #cb753c;
-  --accent-2: #d9a84e;
-  --accent-3: #396449;
-  --maroon: #833d3b;
-  --cream: #d9c499;
+  --bg: #061924;          /* Ink Black */
+  --surface: #10202f;     /* (Un tono derivado para tarjetas) */
+  --accent: #CC753C;      /* Chocolate */
+  --accent-2: #DAA84E;    /* Honey Bronze */
+  --accent-3: #396449;    /* Hunter Green */
+  --maroon: #833D3B;      /* Burnt Rose */
+  --cream: #D9C499;       /* Soft Fawn */
   --text: #f4ecd8;
   --text-dim: rgba(217,196,153,0.78);
   --text-dimmer: rgba(217,196,153,0.52);
