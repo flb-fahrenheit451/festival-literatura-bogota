@@ -1,12 +1,34 @@
-/*
-  Optima LT Std, MOKOTO y Nikoleta son fuentes comerciales que no se distribuyen por Google Fonts.
-  Estos @font-face usan la fuente si el visitante ya la tiene instalada (local()); si no,
-  cada regla cae en su fallback. Para que se vean igual en cualquier computador, agrega los
-  archivos .woff2/.otf con licencia en una carpeta /fonts y añade ahí un src: url(...).
-*/
-@font-face{ font-family: 'Optima LT Std'; src: local('Optima LT Std'), local('OptimaLTStd'), local('Optima'); }
-@font-face{ font-family: 'MOKOTO'; src: local('MOKOTO'), local('Mokoto'); }
-@font-face{ font-family: 'Nikoleta'; src: local('Nikoleta'); }
+/* --- CONFIGURACIÓN DE TIPOGRAFÍAS --- */
+
+/* 1. Títulos principales (H1) -> Usando TOMORROW */
+h1 {
+  font-family: 'Tomorrow', sans-serif;
+  font-weight: 700; /* Negrita */
+  text-transform: uppercase; /* Para ese look de titular */
+  letter-spacing: 2px; /* Un poco de aire para que se vea pro */
+}
+
+/* 2. Subtítulos (H2, H3) -> Usando BARLOW (en negrita) */
+h2, h3 {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600; /* Seminegrita */
+  text-transform: uppercase;
+}
+
+/* 3. Texto largo / Párrafos (p) -> Usando BARLOW (normal) */
+p {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400; /* Regular */
+  line-height: 1.6; /* Mejora la legibilidad en bloques de texto */
+  color: #333; /* Un gris oscuro para que sea más legible que el negro puro */
+}
+
+/* 4. Clase extra por si quieres un texto resaltado */
+.destacado {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
 
 :root{
   --bg: #0b1b2a;
