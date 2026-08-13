@@ -123,7 +123,7 @@ nav{
 /* Logo pequeño (esquina superior izquierda) */
 .brand img{
   display: block;
-  height: 24px; /* mucho más pequeño como pediste */
+  height: 32px; /* mucho más pequeño como pediste */
   width: auto;
 }
 @media (max-width: 480px){ .brand img{ height: 20px; } }
