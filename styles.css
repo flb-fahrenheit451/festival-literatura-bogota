@@ -1,31 +1,31 @@
 /* --- CONFIGURACIÓN DE TIPOGRAFÍAS --- */
 
-/* 1. Títulos principales (H1) -> Usando TOMORROW */
+/* 1. Títulos principales generales del sitio (fuente limpia general) */
 h1 {
-  font-family: 'Tomorrow', sans-serif;
-  font-weight: 700; /* Negrita */
-  text-transform: uppercase; /* Para ese look de titular */
-  letter-spacing: 2px; /* Un poco de aire para que se vea pro */
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-/* 2. Subtítulos (H2, H3) -> Usando BARLOW (en negrita) */
+/* 2. Subtítulos generales (H2, H3) */
 h2, h3 {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 600; /* Seminegrita */
+  font-family: var(--font-body);
+  font-weight: 600;
   text-transform: uppercase;
 }
 
-/* 3. Texto largo / Párrafos (p) -> Usando BARLOW (normal) */
+/* 3. Texto largo / Párrafos (p) */
 p {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400; /* Regular */
-  line-height: 1.6; /* Mejora la legibilidad en bloques de texto */
-  color: #333; /* Un gris oscuro para que sea más legible que el negro puro */
+  font-family: var(--font-long);
+  font-weight: 400;
+  line-height: 1.6;
+  color: #333;
 }
 
-/* 4. Clase extra por si quieres un texto resaltado */
+/* 4. Clase extra para texto resaltado */
 .destacado {
-  font-family: 'Barlow', sans-serif;
+  font-family: var(--font-long);
   font-weight: 600;
   font-style: italic;
 }
@@ -42,10 +42,10 @@ p {
   --text-dim: rgba(217,196,153,0.78);
   --text-dimmer: rgba(217,196,153,0.52);
   --font-body: 'Barlow', sans-serif;
-  --font-lema-1: 'Tomorrow', sans-serif;
+  --font-lema-1: 'Tomorrow', sans-serif; /* Fuente robótica exclusiva para la Edición 15 */
   --font-lema-2: 'Barlow', sans-serif;
   --font-long: 'Barlow', sans-serif;
-  --font-name: 'Tomorrow', sans-serif;
+  --font-name: 'Barlow', sans-serif;
 }
 
 *{ box-sizing: border-box; margin:0; padding:0; }
@@ -459,7 +459,7 @@ nav{
 .participant-card .name{ font-family:var(--font-body); font-size:0.92rem; margin-bottom: 4px; }
 .participant-card .role{ font-size: 0.8rem; color: var(--text-dimmer); }
 
-/* Divisor de grupo dentro de la grilla (p.ej. "Invitados internacionales") */
+/* Divisor de grupo dentro de la grilla */
 .grid-divider{
   grid-column: 1 / -1;
   display: flex;
@@ -560,8 +560,6 @@ nav{
 }
 
 /* ---------- EDICIONES ---------- */
-/* .edicion-detail = caja base compartida por TODAS las páginas de edición.
-   .edicion-actual = modificador exclusivo de la edición vigente (resplandor granate + tipografía especial). */
 .edicion-detail{
   border: 1px solid var(--border);
   background: var(--surface);
@@ -804,7 +802,7 @@ a.edicion-detail:hover{ transform: translateY(-3px); border-color: rgba(203,117,
 .timeline-detail .td-roman{ font-family:var(--font-body); font-size: 1.6rem; color: var(--accent); font-weight: 700; }
 .timeline-detail .td-year{ font-family:var(--font-body); color: var(--text-dimmer); font-size: 0.9rem; }
 .timeline-detail p{ color: var(--text-dim); }
-.timeline-detail .td-link{ display:inline-block; margin-top: 14px; font-family: var(--font-name); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.timeline-detail .td-link{ display:inline-block; margin-top: 14px; font-family: var(--font-body); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
 
 /* ---------- FOOTER ---------- */
 footer{
@@ -816,38 +814,14 @@ footer{
   font-family: var(--font-body);
 }
 
-/* ---------- TIPOGRAFÍA ESPECIAL: EDICIÓN ACTUAL "VENDRÁN LLUVIAS SUAVES" ---------- */
-/* Lema del festival (título/hero): MOKOTO + Nikoleta */
+/* ---------- TIPOGRAFÍA ESPECIAL: ÚNICAMENTE EDICIÓN 15 "VENDRÁN LLUVIAS SUAVES" ---------- */
 .hero h1,
 .edicion-actual h3{
-  font-family: var(--font-lema-1);
+  font-family: var(--font-lema-1) !important;
 }
 .hero h1 em,
 .edicion-actual h3 em{
-  font-family: var(--font-lema-2);
+  font-family: var(--font-lema-1) !important;
   font-style: normal;
   color: var(--accent);
-}
-
-/* Nombre del festival / etiquetas de identidad: Tomorrow */
-.hero .eyebrow,
-.hero-visual .caption .tag,
-.hero-visual .caption strong,
-.countdown .cell .num,
-.edicion-actual .badge,
-.edicion-actual .subtitle-tag,
-.edicion-actual .ea-block h4,
-.edicion-actual .fecha-pill{
-  font-family: var(--font-name);
-}
-
-/* Textos largos de la edición actual: Barlow */
-.hero p.lede,
-.countdown-label,
-.countdown .cell .unit,
-.countdown-date-note,
-.edicion-actual .ea-block p,
-.edicion-actual .cronograma-list li,
-.edicion-actual .invitado-mini span{
-  font-family: var(--font-long);
 }
