@@ -44,11 +44,11 @@ p {
   --text: #f4ecd8;
   --text-dim: rgba(217,196,153,0.78);
   --text-dimmer: rgba(217,196,153,0.52);
-  --font-body: 'Optima LT Std', Optima, Candara, 'Trebuchet MS', sans-serif;
-  --font-lema-1: 'MOKOTO', 'Tomorrow', sans-serif;
-  --font-lema-2: 'Nikoleta', 'Barlow', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --font-lema-1: 'Tomorrow', sans-serif;
+  --font-lema-2: 'Barlow', sans-serif;
   --font-long: 'Barlow', sans-serif;
-  --font-name: 'Tomorrow', 'Barlow', sans-serif;
+  --font-name: 'Tomorrow', sans-serif;
 }
 
 *{ box-sizing: border-box; margin:0; padding:0; }
