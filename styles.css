@@ -31,7 +31,7 @@ p {
 }
 
 :root{
-  --bg: #061924;          /* Ink Black */
+  --bg: #0b1b2a;          /* Ink Black */
   --surface: #10202f;     /* (Un tono derivado para tarjetas) */
   --accent: #CC753C;      /* Chocolate */
   --accent-2: #DAA84E;    /* Honey Bronze */
