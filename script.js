@@ -67,6 +67,68 @@
   renderDetail(timelineData.length - 1);
 })();
 
+// ---- Avatares de participantes ----
+(function(){
+  // Normaliza el primer nombre: quita diacríticos, caracteres no-alfanum y lo devuelve en MAYÚSCULAS
+  function normalizeName(name){
+    if(!name) return '';
+    const first = name.trim().split(/\s+/)[0] || '';
+    // usa Unicode normalization para quitar acentos
+    let s = first.normalize('NFD').replace(/\p{Diacritic}/gu, '');
+    // eliminar caracteres no alfanuméricos
+    s = s.replace(/[^A-Za-z0-9]/g, '');
+    return s.toUpperCase();
+  }
+
+  // Crea un elemento <img> apuntando al avatar (intenta .png y cae a .jpg). size en px
+  window.getParticipantAvatarElement = function(name, size = 84){
+    const base = normalizeName(name);
+    if(!base) return null;
+    const pathPng = `IMAGENES/PARTICIPANTES 2026/${base}.png`;
+    const pathJpg = `IMAGENES/PARTICIPANTES 2026/${base}.jpg`;
+    const img = document.createElement('img');
+    img.alt = name || '';
+    img.loading = 'lazy';
+    img.width = size;
+    img.height = size;
+    img.style.objectFit = 'cover';
+    img.style.borderRadius = '50%';
+    img.onerror = function(){
+      // si falla el PNG, intenta JPG; si falla el JPG, se remueve para permitir fallback a inicial
+      if(this.src && this.src.toLowerCase().endsWith('.png')){
+        this.src = pathJpg;
+      } else {
+        this.remove();
+      }
+    };
+    img.src = pathPng;
+    return img;
+  };
+
+  // Reemplaza los <div class="avatar">? con <img> cuando exista
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.participant-card').forEach(card => {
+      const name = card.dataset.name || '';
+      const avatarDiv = card.querySelector('.avatar');
+      if(!avatarDiv) return;
+      const img = window.getParticipantAvatarElement(name, 84);
+      if(img){
+        // adapta el img para ocupar el contenedor
+        img.style.width = '100%';
+        img.style.height = '100%';
+        img.style.display = 'block';
+        img.className = 'participant-avatar-img';
+        // limpiar y poner imagen
+        avatarDiv.textContent = '';
+        avatarDiv.appendChild(img);
+      } else {
+        // fallback: dejar inicial (como venía)
+        avatarDiv.textContent = (name || '?').charAt(0);
+      }
+    });
+  });
+})();
+
 // ---- Modal de biografía (usado en participantes.html) ----
 (function(){
   const modal = document.getElementById('bio-modal');
@@ -87,7 +149,18 @@
     modalName.textContent = card.dataset.name || '';
     modalRole.textContent = card.dataset.role || '';
     modalBio.textContent = card.dataset.bio || '';
-    modalAvatar.textContent = (card.dataset.name || '?').charAt(0);
+    // intentar mostrar imagen en el modal (misma lógica de nombre)
+    modalAvatar.innerHTML = '';
+    const avatarEl = window.getParticipantAvatarElement(card.dataset.name || '', 84);
+    if(avatarEl){
+      // estilo para el modal (84x84 con border-radius ya aplicado)
+      avatarEl.style.width = '84px';
+      avatarEl.style.height = '84px';
+      modalAvatar.appendChild(avatarEl);
+    } else {
+      modalAvatar.textContent = (card.dataset.name || '?').charAt(0);
+    }
+
     lastFocused = document.activeElement;
     modal.hidden = false;
     closeBtn.focus();
