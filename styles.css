@@ -233,6 +233,14 @@ nav{
   to{ transform: translateY(160%); }
 }
 
+.hero-visual img{
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
 .hero-visual .caption{
   position: absolute;
   inset: auto 0 0 0;
