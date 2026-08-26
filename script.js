@@ -3,7 +3,7 @@
   const daysEl = document.getElementById('cd-days');
   if(!daysEl) return;
 
-  const target = new Date("2026-10-26T00:00:00-05:00").getTime();
+  const target = new Date("2026-10-05T14:00:00-05:00").getTime();
   function updateCountdown(){
     const now = Date.now();
     const diff = Math.max(0, target - now);
