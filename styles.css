@@ -764,3 +764,89 @@ footer {
   line-height: 1.5;
   color: #c5d1df;
 }
+
+/* ---------- ESTILOS DE LA PÁGINA EDICIÓN XV ---------- */
+.fecha-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 32px;
+  color: var(--text-dim);
+}
+
+.fecha-pill .provisional {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-2);
+  background: rgba(218,168,78,0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.ea-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+@media (max-width: 768px) {
+  .ea-grid { grid-template-columns: 1fr; }
+}
+
+.ea-block h4 {
+  font-size: 1rem;
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.invitados-grid {
+  display: flex;
+  gap: 12px;
+}
+
+.invitado-mini {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.invitado-mini .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  margin-bottom: 6px;
+}
+
+.cronograma-list {
+  list-style: none;
+}
+
+.cronograma-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(217,196,153,0.1);
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.day-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--accent-2);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
