@@ -69,16 +69,20 @@
 
 // ---- Avatares de participantes ----
 (function(){
-  // Normaliza el primer nombre: quita diacríticos, caracteres no-alfanum y lo devuelve en MAYÚSCULAS
-  function normalizeName(name){
-    if(!name) return '';
-    const first = name.trim().split(/\s+/)[0] || '';
-    // usa Unicode normalization para quitar acentos
-    let s = first.normalize('NFD').replace(/\p{Diacritic}/gu, '');
-    // eliminar caracteres no alfanuméricos
-    s = s.replace(/[^A-Za-z0-9]/g, '');
-    return s.toUpperCase();
-  }
+  window.getParticipantAvatarElement = function(name, size = 84){
+    return null; 
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.participant-card .avatar img').forEach(img => {
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+      img.style.display = 'block';
+      img.style.borderRadius = '50%';
+    });
+  });
+})();
 
   // Crea un elemento <img> apuntando al avatar (intenta .png y cae a .jpg). size en px
   window.getParticipantAvatarElement = function(name, size = 84){
