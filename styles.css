@@ -660,22 +660,38 @@ a.edicion-detail{ display:block; color: inherit; transition: transform .2s ease,
   letter-spacing: 0.05em;
 }
 
+footer {
+  background-color: #0b131d;
+  border-top: 1px solid rgba(210, 196, 233, 0.15);
+  padding: 50px 30px; /* Margen generoso para que no quede pegado al borde */
+  margin-top: 80px;
+  color: #d2c4e9; /* Texto claro con el tono suave de la paleta para alta accesibilidad */
+  font-family: 'Barlow', sans-serif;
+}
+
 .footer-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 15px;
-  padding: 40px 20px;
+  gap: 12px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .footer-logo img {
-  height: 60px; /* Puedes cambiar este número si quieres el logo más grande o pequeño */
+  height: 32px; /* Logo sutil, elegante y pequeño */
   width: auto;
+  opacity: 0.9;
 }
 
 .footer-text p {
   margin: 4px 0;
-  font-size: 0.9rem;
-  color: #a0aab8;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #c5d1df; /* Color con excelente contraste sobre fondo oscuro */
+}
+
+.footer-text strong {
+  color: #ffffff; /* Destaca el nombre de la fundación para que resalte bien */
 }
