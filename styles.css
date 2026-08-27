@@ -734,3 +734,12 @@ footer {
   object-fit: contain;
   display: block;
 }
+
+/* Zoom exclusivo para logos específicos que necesitan más presencia */
+.logo-zoom-bosque img {
+  transform: scale(1.45); /* Aumenta el tamaño del logo de El Bosque */
+}
+
+.logo-zoom-urapan img {
+  transform: scale(1.40); /* Aumenta el tamaño del logo de Urapán */
+}
