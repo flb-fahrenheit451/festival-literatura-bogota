@@ -185,22 +185,20 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     const footerHTML = `
-        <footer>
-          <div class="container footer-content">
-            <div class="footer-logo">
-              <img src="IMAGENES/LOGOS/FUNDFAH.png" alt="Fundación Fahrenheit 451">
-            </div>
-            <div class="footer-text">
-              <p><strong>Fundación Fahrenheit 451</strong> — Organización cultural independiente sin ánimo de lucro.</p>
-              <p>&copy; 2026 Festival de Literatura de Bogotá. Todos los derechos reservados.</p>
-            </div>
-          </div>
-        </footer>
+      <div class="container footer-content">
+        <div class="footer-logo">
+          <img src="IMAGENES/LOGOS/FUNDFAH.png" alt="Fundación Fahrenheit 451">
+        </div>
+        <div class="footer-text">
+          <p><strong>Fundación Fahrenheit 451</strong> — Organización cultural independiente sin ánimo de lucro.</p>
+          <p>&copy; 2026 Festival de Literatura de Bogotá. Todos los derechos reservados.</p>
+        </div>
+      </div>
     `;
 
-    // Inserta el footer en un contenedor con id="footer-placeholder" en tus HTML
-    const placeholder = document.getElementById("footer-placeholder");
-    if (placeholder) {
-        placeholder.innerHTML = footerHTML;
+    // Esto busca tu footer viejito y le inyecta el nuevo diseño
+    const existingFooter = document.querySelector("footer");
+    if (existingFooter) {
+        existingFooter.innerHTML = footerHTML;
     }
 });
