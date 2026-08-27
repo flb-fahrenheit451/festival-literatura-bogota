@@ -4,17 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edición XV — Vendrán Lluvias Suaves</title>
-<!-- 👉 AQUÍ SE PEGAN LOS LINKS DE GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Tomorrow:wght@700&display=swap" rel="stylesheet">
-
-    <!-- 👉 Y AQUÍ CONECTAS TU ARCHIVO CSS QUE ESTÁ EN GITHUB -->
-    <link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Tomorrow:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  
 <header>
   <nav>
     <a href="index.html" class="brand" aria-label="Festival de Literatura de Bogotá">
@@ -35,20 +31,23 @@
 
   <div class="edicion-detail edicion-actual">
     <span class="badge">Edición XV · Actual</span>
-    <h3>Vendrán <em>Lluvias Suaves</em></h3>
-    <span class="subtitle-tag">Ciencia ficción — en honor al cuento de Ray Bradbury "There Will Come Soft Rains" ("Vendrán lluvias suaves")</span>
+    
+    <!-- Título con la fuente futurística Tomorrow -->
+    <h3 style="font-family: 'Tomorrow', sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; letter-spacing: 0.03em;">
+      Vendrán <em style="font-style: normal; color: var(--accent);">Lluvias Suaves</em>
+    </h3>
+    
+    <span class="subtitle-tag" style="margin-top: 8px;">Ciencia ficción — en honor al cuento de Ray Bradbury "There Will Come Soft Rains" ("Vendrán lluvias suaves")</span>
 
     <div class="fecha-pill">
-      📅 26 de octubre de 2026
+      📅 5 de octubre al 12 de noviembre de 2026
       <span class="provisional">Fecha provisional</span>
     </div>
 
     <div class="ea-grid">
       <div class="ea-block">
         <h4>Tema e inspiración</h4>
-        <p>La 15ª edición del Festival rendirá un homenaje especial a la obra maestra "Crónicas Marcianas". Bajo el lema "Vendrán lluvias suaves", exploraremos la ciencia ficción no solo com[...]
-
-</p>
+        <p>La edición XV toma su nombre y temática del célebre cuento de ciencia ficción de Ray Bradbury, que imagina una casa automatizada que sigue funcionando después de la desaparición de sus habitantes. El festival explora, a partir de esta inspiración, la ciencia ficción como género literario: sus autores, su relación con la tecnología, el futuro y la condición humana.</p>
       </div>
       <div class="ea-block">
         <h4>Invitados</h4>
@@ -60,7 +59,7 @@
       </div>
     </div>
 
-    <div class="ea-grid">
+    <div class="ea-grid" style="margin-bottom: 0;">
       <div class="ea-block">
         <h4>Cronograma</h4>
         <ul class="cronograma-list">
@@ -83,5 +82,6 @@
   </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
