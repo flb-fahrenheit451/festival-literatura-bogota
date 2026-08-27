@@ -704,3 +704,16 @@ footer {
   object-fit: cover;
   border-radius: 12px;
 }
+
+/* Grilla específica para 2 elementos centrados */
+.aliados-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 400px));
+  gap: 20px;
+  justify-content: center;
+}
+@media (max-width: 800px) {
+  .aliados-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
