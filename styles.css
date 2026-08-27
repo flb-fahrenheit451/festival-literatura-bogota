@@ -660,3 +660,22 @@ a.edicion-detail{ display:block; color: inherit; transition: transform .2s ease,
   letter-spacing: 0.05em;
 }
 
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  padding: 40px 20px;
+}
+
+.footer-logo img {
+  height: 60px; /* Puedes cambiar este número si quieres el logo más grande o pequeño */
+  width: auto;
+}
+
+.footer-text p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #a0aab8;
+}
