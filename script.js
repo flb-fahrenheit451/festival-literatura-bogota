@@ -84,8 +84,8 @@
   window.getParticipantAvatarElement = function(name, size = 84){
     const base = normalizeName(name);
     if(!base) return null;
-    const pathPng = `IMAGENES/PARTICIPANTES 2026/${base}.png`;
-    const pathJpg = `IMAGENES/PARTICIPANTES 2026/${base}.jpg`;
+    const pathPng = `IMAGENES/PARTICIPANTES/${base}.png`;
+    const pathJpg = `IMAGENES/PARTICIPANTES/${base}.jpg`;
     const img = document.createElement('img');
     img.alt = name || '';
     img.loading = 'lazy';
