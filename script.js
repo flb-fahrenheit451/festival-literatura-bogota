@@ -190,13 +190,12 @@ document.addEventListener("DOMContentLoaded", function() {
           <img src="IMAGENES/LOGOS/FUNDFAH.png" alt="Fundación Fahrenheit 451">
         </div>
         <div class="footer-text">
-          <p><strong>Fundación Fahrenheit 451</strong> — Organización cultural independiente sin ánimo de lucro.</p>
+          <p>Organización cultural independiente sin ánimo de lucro.</p>
           <p>&copy; 2026 Festival de Literatura de Bogotá. Todos los derechos reservados.</p>
         </div>
       </div>
     `;
 
-    // Esto busca tu footer viejito y le inyecta el nuevo diseño
     const existingFooter = document.querySelector("footer");
     if (existingFooter) {
         existingFooter.innerHTML = footerHTML;
