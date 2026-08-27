@@ -70,26 +70,21 @@
 // ---- Avatares de participantes ----
 (function(){
   window.getParticipantAvatarElement = function(name, size = 84){
-    return null; 
-  };
+    if(!name) return null;
+    
+    // Mapeo exacto para los nombres compuestos que requieren archivos específicos
+    let fileName = '';
+    const cleanName = name.trim().toLowerCase();
+    
+    if(cleanName.includes('andrea salgado')) fileName = 'ANDREASALGADO';
+    else if(cleanName.includes('andrea chapela')) fileName = 'ANDREACHAPELA';
+    else if(cleanName.includes('fernanda')) fileName = 'FERNANDA';
+    else {
+      let first = name.trim().split(/\s+/)[0] || '';
+      fileName = first.normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[^A-Za-z0-9]/g, '').toUpperCase();
+    }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.participant-card .avatar img').forEach(img => {
-      img.style.width = '100%';
-      img.style.height = '100%';
-      img.style.objectFit = 'cover';
-      img.style.display = 'block';
-      img.style.borderRadius = '50%';
-    });
-  });
-})();
-
-  // Crea un elemento <img> apuntando al avatar (intenta .png y cae a .jpg). size en px
-  window.getParticipantAvatarElement = function(name, size = 84){
-    const base = normalizeName(name);
-    if(!base) return null;
-    const pathPng = `IMAGENES/PARTICIPANTES/${base}.png`;
-    const pathJpg = `IMAGENES/PARTICIPANTES/${base}.jpg`;
+    const pathPng = `IMAGENES/PARTICIPANTES/${fileName}.png`;
     const img = document.createElement('img');
     img.alt = name || '';
     img.loading = 'lazy';
@@ -97,36 +92,38 @@
     img.height = size;
     img.style.objectFit = 'cover';
     img.style.borderRadius = '50%';
+    
     img.onerror = function(){
-      // si falla el PNG, intenta JPG; si falla el JPG, se remueve para permitir fallback a inicial
-      if(this.src && this.src.toLowerCase().endsWith('.png')){
-        this.src = pathJpg;
-      } else {
-        this.remove();
-      }
+      this.remove();
     };
+    
     img.src = pathPng;
     return img;
   };
 
-  // Reemplaza los <div class="avatar">? con <img> cuando exista
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.participant-card').forEach(card => {
       const name = card.dataset.name || '';
       const avatarDiv = card.querySelector('.avatar');
       if(!avatarDiv) return;
+      
+      // Si el HTML ya tiene una imagen adentro, la respetamos y estilizamos
+      const existingImg = avatarDiv.querySelector('img');
+      if(existingImg){
+        existingImg.style.width = '100%';
+        existingImg.style.height = '100%';
+        existingImg.style.objectFit = 'cover';
+        existingImg.style.display = 'block';
+        existingImg.style.borderRadius = '50%';
+        return;
+      }
+
+      // Si no la tiene, el script la genera usando el mapeo
       const img = window.getParticipantAvatarElement(name, 84);
       if(img){
-        // adapta el img para ocupar el contenedor
-        img.style.width = '100%';
-        img.style.height = '100%';
-        img.style.display = 'block';
-        img.className = 'participant-avatar-img';
-        // limpiar y poner imagen
         avatarDiv.textContent = '';
         avatarDiv.appendChild(img);
       } else {
-        // fallback: dejar inicial (como venía)
         avatarDiv.textContent = (name || '?').charAt(0);
       }
     });
