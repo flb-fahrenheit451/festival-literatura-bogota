@@ -680,7 +680,7 @@ footer {
 }
 
 .footer-logo img {
-  height: 65px; /* Tamaño perfecto: visible, legible pero sin acaparar la pantalla */
+  height: 100px; /* Tamaño perfecto: visible, legible pero sin acaparar la pantalla */
   width: auto;
 }
 
