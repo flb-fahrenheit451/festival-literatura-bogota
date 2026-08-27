@@ -706,7 +706,7 @@ a.edicion-detail{ display:block; color: inherit; transition: transform .2s ease,
 
 /* Zoom exclusivo para logos específicos que necesitan más presencia */
 .logo-zoom-bosque img {
-  transform: scale(1.45);
+  transform: scale(1.65);
 }
 
 .logo-zoom-urapan img {
@@ -715,9 +715,9 @@ a.edicion-detail{ display:block; color: inherit; transition: transform .2s ease,
 
 /* Control estricto y blindado para que las fotos de participantes sean circulares y midan exactamente 90x90px */
 .participant-card .avatar {
-  width: 90px !important;
-  height: 90px !important;
-  margin: 20px auto 10px !important;
+  width: 130px !important;
+  height: 130px !important;
+  margin: 24px auto 14px !important;
   border-radius: 50% !important;
   overflow: hidden !important;
   background: var(--surface-2) !important;
