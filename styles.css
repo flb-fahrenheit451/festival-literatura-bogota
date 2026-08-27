@@ -18,16 +18,16 @@
 
 /* 1. Estilo general para el contenedor H1 */
 h1 {
-  font-family: 'AudexRegular', sans-serif; /* Por defecto usa la normal para 'VENDRÁN' */
+  font-family: 'AudexRegular', sans-serif !important;
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-/* Forzamos a que las etiquetas <em> o i dentro del h1 usen la versión itálica */
+/* Forzamos la parte en cursiva */
 h1 em, h1 i {
-  font-family: 'AudexItalic', sans-serif;
-  font-style: normal; /* Evitamos que el navegador intente inclinarla por su cuenta */
+  font-family: 'AudexItalic', sans-serif !important;
+  font-style: normal;
 }
 
 /* 2. Subtítulos generales (H2, H3) */
