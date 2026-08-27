@@ -188,7 +188,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const footerHTML = `
       <div class="container footer-content">
         <div class="footer-logo">
-          <img src="IMAGENES/LOGOS/FUNDFAH.png" alt="Fundación Fahrenheit 451">
+          <a href="https://www.fundacion451.com/" target="_blank" rel="noopener noreferrer">
+            <img src="IMAGENES/LOGOS/FUNDFAH.png" alt="Fundación Fahrenheit 451">
+          </a>
         </div>
         <div class="footer-text">
           <p>Organización cultural independiente sin ánimo de lucro.</p>
