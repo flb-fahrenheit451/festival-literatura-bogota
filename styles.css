@@ -715,9 +715,9 @@ a.edicion-detail{ display:block; color: inherit; transition: transform .2s ease,
 
 /* Control estricto y blindado para que las fotos de participantes sean circulares y midan exactamente 90x90px */
 .participant-card .avatar {
-  width: 130px !important;
-  height: 130px !important;
-  margin: 24px auto 14px !important;
+  width: 180px !important;
+  height: 180px !important;
+  margin: 30px auto 18px !important;
   border-radius: 50% !important;
   overflow: hidden !important;
   background: var(--surface-2) !important;
