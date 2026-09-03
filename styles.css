@@ -850,3 +850,50 @@ footer {
   padding: 2px 8px;
   border-radius: 4px;
 }
+
+/* Estilos para la ventana emergente (modal) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+}
+
+/* Hace que se abra cuando la URL tenga el #modal-talleres */
+.modal-overlay:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: #111; /* Ajusta según el fondo oscuro de tu web */
+  color: #fff;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
