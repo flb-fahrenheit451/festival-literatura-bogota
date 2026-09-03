@@ -910,3 +910,54 @@ footer {
   aspect-ratio: 4 / 3 !important;
   object-fit: cover !important;
 }
+
+/* --- MODAL DE BIOGRAFÍA CORREGIDO Y FORZADO A VISIBLE --- */
+.modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(11, 27, 42, 0.85) !important;
+  backdrop-filter: blur(4px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 24px !important;
+  z-index: 99999 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: none !important;
+}
+
+/* Cuando tenga el atributo hidden, se oculta de verdad */
+.modal-overlay[hidden] {
+  display: none !important;
+}
+
+.modal-box {
+  position: relative !important;
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  padding: 40px 32px 32px !important;
+  max-width: 480px !important;
+  width: 100% !important;
+  max-height: 85vh !important;
+  overflow-y: auto !important;
+  text-align: center !important;
+  z-index: 100000 !important;
+}
+
+.modal-close {
+  position: absolute !important;
+  top: 14px !important;
+  right: 14px !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  border: 1px solid var(--border) !important;
+  background: var(--surface-2) !important;
+  color: var(--text-dim) !important;
+  font-size: 1.1rem !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  z-index: 100001 !important;
+}
