@@ -150,11 +150,10 @@
     modalName.textContent = card.dataset.name || '';
     modalRole.textContent = card.dataset.role || '';
     modalBio.textContent = card.dataset.bio || '';
-    // intentar mostrar imagen en el modal (misma lógica de nombre)
+    
     modalAvatar.innerHTML = '';
     const avatarEl = window.getParticipantAvatarElement(card.dataset.name || '', 84);
     if(avatarEl){
-      // estilo para el modal (84x84 con border-radius ya aplicado)
       avatarEl.style.width = '84px';
       avatarEl.style.height = '84px';
       modalAvatar.appendChild(avatarEl);
@@ -164,12 +163,14 @@
 
     lastFocused = document.activeElement;
     modal.hidden = false;
+    document.body.style.overflow = 'hidden'; // Bloquea scroll de fondo
     closeBtn.focus();
     document.addEventListener('keydown', onKeydown);
   }
 
   function closeModal(){
     modal.hidden = true;
+    document.body.style.overflow = ''; // RESTAURA LA BARRA DE SCROLL DE LA PÁGINA
     document.removeEventListener('keydown', onKeydown);
     if(lastFocused) lastFocused.focus();
   }
@@ -183,24 +184,3 @@
     if(e.target === modal) closeModal();
   });
 })();
-
-document.addEventListener("DOMContentLoaded", function() {
-    const footerHTML = `
-      <div class="container footer-content">
-        <div class="footer-logo">
-          <a href="https://www.fundacion451.com/" target="_blank" rel="noopener noreferrer">
-            <img src="IMAGENES/LOGOS/FUNDFAH.png" alt="Fundación Fahrenheit 451">
-          </a>
-        </div>
-        <div class="footer-text">
-          <p>Organización cultural independiente sin ánimo de lucro.</p>
-          <p>&copy; 2026 Festival de Literatura de Bogotá. Todos los derechos reservados.</p>
-        </div>
-      </div>
-    `;
-
-    const existingFooter = document.querySelector("footer");
-    if (existingFooter) {
-        existingFooter.innerHTML = footerHTML;
-    }
-});
