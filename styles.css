@@ -897,3 +897,16 @@ footer {
   text-decoration: none;
   font-weight: bold;
 }
+
+/* Estilo exclusivo para que la tarjeta de talleres mantenga su formato 4:3 sin afectar a las demás */
+.card .thumb.talleres-thumb {
+  height: auto !important;
+  padding: 0 !important;
+}
+
+.card .thumb.talleres-thumb img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: cover !important;
+}
