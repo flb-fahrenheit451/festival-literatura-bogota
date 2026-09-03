@@ -567,7 +567,16 @@ nav{
   color: var(--text-dimmer);
 }
 
-.modal-box h3{ font-size: 1.3rem; margin-bottom: 6px; }
+.modal-box h3{
+  font-family: 'AudexRegular', sans-serif;
+  font-size: 1.3rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
 .modal-role{
   font-family: var(--font-body);
   font-size: 0.85rem;
@@ -576,7 +585,30 @@ nav{
   letter-spacing: 0.08em;
   margin-bottom: 18px;
 }
-.modal-bio{ color: var(--text-dim); font-size: 0.95rem; text-align: justify; }
+
+.modal-bio {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  text-align: justify;
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+.modal-bio ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-bio ul li {
+  color: var(--text-dim);
+  font-family: var(--font-body);
+  margin-bottom: 8px;
+}
+
+.modal-bio b {
+  color: var(--text);
+  font-weight: 600;
+}
 
 .note-box{
   background: rgba(57,100,73,0.12);
@@ -837,10 +869,5 @@ footer {
   padding: 2px 8px;
   border-radius: 4px;
 }
-
-/* Estilos para la ventana emergente (modal) */
-/* Nota: se ha eliminado la definición duplicada/conflictiva que forzaba visibilidad
-   y la variante por :target. Este archivo usa ahora un único enfoque: el overlay
-   se muestra/oculta mediante el atributo [hidden] que controla el JavaScript. */
 
 /* --- FIN DE ARCHIVO --- */
