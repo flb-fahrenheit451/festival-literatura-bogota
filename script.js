@@ -204,3 +204,85 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 });
+
+// ---- Cronograma interactivo y modal (usado en edicion-xv.html) ----
+(function(){
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll(".cronograma-item");
+    const modal = document.getElementById("modal-cronograma");
+    if (!modal || items.length === 0) return;
+
+    const btnCerrar = document.getElementById("modal-cerrar");
+    const btnPrev = document.getElementById("modal-prev");
+    const btnNext = document.getElementById("modal-next");
+
+    const modalTitulo = document.getElementById("modal-titulo");
+    const modalFechaTxt = document.getElementById("modal-fecha-txt");
+    const modalParticipanteLink = document.getElementById("modal-participante-link");
+    const modalDesc = document.getElementById("modal-desc");
+    const modalLugar = document.getElementById("modal-lugar");
+    const modalHora = document.getElementById("modal-hora");
+
+    let currentIndex = 0;
+
+    function actualizarModal(index) {
+      const item = items[index];
+      modalTitulo.textContent = item.getAttribute("data-titulo");
+      modalFechaTxt.textContent = item.getAttribute("data-fecha");
+      
+      const nombreParticipante = item.getAttribute("data-participante");
+      const urlParticipante = item.getAttribute("data-participante-url");
+      modalParticipanteLink.textContent = nombreParticipante;
+      modalParticipanteLink.setAttribute("href", urlParticipante);
+      
+      modalDesc.textContent = item.getAttribute("data-desc");
+      modalLugar.textContent = item.getAttribute("data-lugar");
+      modalHora.textContent = item.getAttribute("data-hora");
+      
+      currentIndex = index;
+    }
+
+    items.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        actualizarModal(index);
+        modal.style.display = "flex";
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function cerrarModalCronograma() {
+      modal.style.display = "none";
+      document.body.style.overflow = '';
+    }
+
+    if (btnCerrar) {
+      btnCerrar.addEventListener("click", cerrarModalCronograma);
+    }
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) cerrarModalCronograma();
+    });
+
+    if (btnPrev) {
+      btnPrev.addEventListener("click", () => {
+        let newIndex = currentIndex - 1;
+        if (newIndex < 0) newIndex = items.length - 1;
+        actualizarModal(newIndex);
+      });
+    }
+
+    if (btnNext) {
+      btnNext.addEventListener("click", () => {
+        let newIndex = currentIndex + 1;
+        if (newIndex >= items.length) newIndex = 0;
+        actualizarModal(newIndex);
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.style.display === 'flex') {
+        cerrarModalCronograma();
+      }
+    });
+  });
+})();
