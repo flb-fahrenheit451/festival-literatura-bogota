@@ -20,59 +20,11 @@
   setInterval(updateCountdown, 1000);
 })();
 
-// ---- Línea de tiempo interactiva (usada en sobre-el-festival.html) ----
-(function(){
-  const track = document.getElementById('timeline-track');
-  const detail = document.getElementById('timeline-detail');
-  if(!track || !detail) return;
-
-  const romans = ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV"];
-  const timelineData = romans.map((r) => {
-    const isCurrent = r === "XV";
-    return {
-      roman: r,
-      year: "2026",
-      title: isCurrent ? "Vendrán Lluvias Suaves" : "[Título pendiente]",
-      text: isCurrent
-        ? "Edición dedicada a la ciencia ficción, en homenaje al cuento de Ray Bradbury \"Vendrán lluvias suaves\"."
-        : "[Espacio reservado para reseña de esta edición: tema, hitos y actividades destacadas.]",
-      link: isCurrent ? "edicion-15.html" : null
-    };
-  });
-
-  function renderDetail(idx){
-    const item = timelineData[idx];
-    detail.innerHTML = `
-      <div class="td-head">
-        <span class="td-roman">Edición ${item.roman}</span>
-        <span class="td-year">${item.year}</span>
-      </div>
-      <h3 style="margin-bottom:10px;">${item.title}</h3>
-      <p>${item.text}</p>
-      ${item.link ? `<a class="td-link" href="${item.link}">Ver edición completa →</a>` : ''}
-    `;
-    document.querySelectorAll('.timeline-node').forEach((n, i) => {
-      n.classList.toggle('active', i === idx);
-    });
-  }
-
-  timelineData.forEach((item, idx) => {
-    const btn = document.createElement('button');
-    btn.className = 'timeline-node';
-    btn.innerHTML = `<span class="dot"></span><span class="roman-label">${item.roman}</span>`;
-    btn.addEventListener('click', () => renderDetail(idx));
-    track.appendChild(btn);
-  });
-
-  renderDetail(timelineData.length - 1);
-})();
-
 // ---- Avatares de participantes ----
 (function(){
   window.getParticipantAvatarElement = function(name, size = 84){
     if(!name) return null;
     
-    // Mapeo exacto para los nombres compuestos que requieren archivos específicos
     let fileName = '';
     const cleanName = name.trim().toLowerCase();
     
@@ -107,7 +59,6 @@
       const avatarDiv = card.querySelector('.avatar');
       if(!avatarDiv) return;
       
-      // Si el HTML ya tiene una imagen adentro, la respetamos y estilizamos
       const existingImg = avatarDiv.querySelector('img');
       if(existingImg){
         existingImg.style.width = '100%';
@@ -118,7 +69,6 @@
         return;
       }
 
-      // Si no la tiene, el script la genera usando el mapeo
       const img = window.getParticipantAvatarElement(name, 84);
       if(img){
         avatarDiv.textContent = '';
@@ -163,14 +113,14 @@
 
     lastFocused = document.activeElement;
     modal.hidden = false;
-    document.body.style.overflow = 'hidden'; // Bloquea scroll de fondo
-    closeBtn.focus();
+    document.body.style.overflow = 'hidden';
+    if(closeBtn) closeBtn.focus();
     document.addEventListener('keydown', onKeydown);
   }
 
   function closeModal(){
     modal.hidden = true;
-    document.body.style.overflow = ''; // RESTAURA LA BARRA DE SCROLL DE LA PÁGINA
+    document.body.style.overflow = '';
     document.removeEventListener('keydown', onKeydown);
     if(lastFocused) lastFocused.focus();
   }
@@ -179,8 +129,30 @@
     card.addEventListener('click', () => openModal(card));
   });
 
-  closeBtn.addEventListener('click', closeModal);
+  if(closeBtn) closeBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => {
     if(e.target === modal) closeModal();
   });
 })();
+
+// ---- Footer dinámico ----
+document.addEventListener("DOMContentLoaded", function() {
+    const footerHTML = `
+      <div class="container footer-content">
+        <div class="footer-logo">
+          <a href="https://www.fundacion451.com/" target="_blank" rel="noopener noreferrer">
+            <img src="IMAGENES/LOGOS/FUNDFAH.png" alt="Fundación Fahrenheit 451">
+          </a>
+        </div>
+        <div class="footer-text">
+          <p>Organización cultural independiente sin ánimo de lucro.</p>
+          <p>&copy; 2026 Festival de Literatura de Bogotá. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    `;
+
+    const existingFooter = document.querySelector("footer");
+    if (existingFooter) {
+        existingFooter.innerHTML = footerHTML;
+    }
+});
