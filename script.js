@@ -158,7 +158,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // --- Control JS para el modal de "talleres" en index.html (abre/cierra sin :target) ---
-(function(){
+// Ejecutar después de que el DOM esté listo para asegurar que el elemento #modal-talleres existe
+document.addEventListener('DOMContentLoaded', function(){
   const modal = document.getElementById('modal-talleres');
   if (!modal) return;
 
@@ -202,4 +203,4 @@ document.addEventListener("DOMContentLoaded", function() {
       try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
     }
   });
-})();
+});
