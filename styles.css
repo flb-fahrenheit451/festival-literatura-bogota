@@ -193,19 +193,6 @@ nav{
   text-align: center;
 }
 
-.eyebrow{
-  display: inline-block;
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--accent-2);
-  border: 1px solid rgba(217,168,78,0.35);
-  padding: 6px 14px;
-  border-radius: 999px;
-  margin-bottom: 22px;
-}
-
 .hero h1{
   font-size: clamp(2rem, 5vw, 3.4rem);
   font-weight: 700;
@@ -852,112 +839,8 @@ footer {
 }
 
 /* Estilos para la ventana emergente (modal) */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-  padding: 20px;
-}
+/* Nota: se ha eliminado la definición duplicada/conflictiva que forzaba visibilidad
+   y la variante por :target. Este archivo usa ahora un único enfoque: el overlay
+   se muestra/oculta mediante el atributo [hidden] que controla el JavaScript. */
 
-/* Hace que se abra cuando la URL tenga el #modal-talleres */
-.modal-overlay:target {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal-content {
-  background: #111; /* Ajusta según el fondo oscuro de tu web */
-  color: #fff;
-  padding: 30px;
-  max-width: 600px;
-  width: 100%;
-  max-height: 85vh;
-  overflow-y: auto;
-  border-radius: 8px;
-  position: relative;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
-
-.modal-close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 28px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Estilo exclusivo para que la tarjeta de talleres mantenga su formato 4:3 sin afectar a las demás */
-.card .thumb.talleres-thumb {
-  height: auto !important;
-  padding: 0 !important;
-}
-
-.card .thumb.talleres-thumb img {
-  width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 4 / 3 !important;
-  object-fit: cover !important;
-}
-
-/* --- MODAL DE BIOGRAFÍA CORREGIDO Y FORZADO A VISIBLE --- */
-.modal-overlay {
-  position: fixed !important;
-  inset: 0 !important;
-  background: rgba(11, 27, 42, 0.85) !important;
-  backdrop-filter: blur(4px) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 24px !important;
-  z-index: 99999 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  transition: none !important;
-}
-
-/* Cuando tenga el atributo hidden, se oculta de verdad */
-.modal-overlay[hidden] {
-  display: none !important;
-}
-
-.modal-box {
-  position: relative !important;
-  background: var(--surface) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: 16px !important;
-  padding: 40px 32px 32px !important;
-  max-width: 480px !important;
-  width: 100% !important;
-  max-height: 85vh !important;
-  overflow-y: auto !important;
-  text-align: center !important;
-  z-index: 100000 !important;
-}
-
-.modal-close {
-  position: absolute !important;
-  top: 14px !important;
-  right: 14px !important;
-  width: 32px !important;
-  height: 32px !important;
-  border-radius: 50% !important;
-  border: 1px solid var(--border) !important;
-  background: var(--surface-2) !important;
-  color: var(--text-dim) !important;
-  font-size: 1.1rem !important;
-  line-height: 1 !important;
-  cursor: pointer !important;
-  z-index: 100001 !important;
-}
+/* --- FIN DE ARCHIVO --- */
