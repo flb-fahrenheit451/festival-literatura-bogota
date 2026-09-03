@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edición XV — Vendrán Lluvias Suaves</title>
+<title>Edición XV — Vendrán Lluvias Suaves | Festival de Literatura de Bogotá</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Tomorrow:wght@600;700&display=swap" rel="stylesheet">
@@ -29,49 +29,167 @@
 <main class="container section-pad">
   <a href="ediciones.html" class="back-link">← Volver a Ediciones</a>
 
-  <div class="edicion-detail edicion-actual">
-    <span class="badge">Edición XV · Actual</span>
-    
-    <!-- Título con la fuente futurística -->
-   <h1>Vendrán <em>Lluvias Suaves</em></h1>
-    
-    <span class="subtitle-tag" style="margin-top: 8px;">Ciencia ficción — en honor al cuento de Ray Bradbury "There Will Come Soft Rains" ("Vendrán lluvias suaves")</span>
-
-    <div class="fecha-pill">
-      📅 5 de octubre al 12 de noviembre de 2026
-    </div>
+  <article class="edicion-detail edicion-actual">
+    <header class="edicion-header">
+      <span class="badge">Edición XV · Actual</span>
+      <h1>Vendrán <em>Lluvias Suaves</em></h1>
+      <p class="subtitle-tag">Ciencia ficción — en honor al cuento de Ray Bradbury "There Will Come Soft Rains" ("Vendrán lluvias suaves")</p>
+      <div class="fecha-pill">
+        📅 5 de octubre al 12 de noviembre de 2026
+      </div>
+    </header>
 
     <div class="ea-grid">
-      <div class="ea-block">
-        <h4>Tema e inspiración</h4>
+      <section class="ea-block" style="grid-column: 1 / -1;">
+        <h2>Tema e inspiración</h2>
         <p>La edición XV toma su nombre y temática del célebre cuento de ciencia ficción de Ray Bradbury, que imagina una casa automatizada que sigue funcionando después de la desaparición de sus habitantes. El festival explora, a partir de esta inspiración, la ciencia ficción como género literario: sus autores, su relación con la tecnología, el futuro y la condición humana.</p>
-      </div>
-      <div class="ea-block">
-        <h4>Invitados</h4>
-        <div class="invitados-grid">
-          <div class="invitado-mini"><div class="avatar"></div><span>[Invitado pendiente]</span></div>
-          <div class="invitado-mini"><div class="avatar"></div><span>[Invitado pendiente]</span></div>
-          <div class="invitado-mini"><div class="avatar"></div><span>[Invitado pendiente]</span></div>
-        </div>
+      </section>
+    </div>
+
+ <!-- CRONOGRAMA INTERACTIVO -->
+    <section class="ea-block cronograma-seccion-completa">
+      <h2>Cronograma del Festival</h2>
+      <p class="instruccion-cronograma">Haz clic en cualquier actividad para ver los detalles completos.</p>
+      
+      <ul class="cronograma-list-interactive">
+        <!-- Actividad 1 -->
+        <li class="cronograma-item" data-dia="1" 
+            data-titulo="Instalación y Apertura: Ambientación del Exterior de la Konrad" 
+            data-fecha="5 de Octubre"
+            data-hora="Hora por definir"
+            data-lugar="Universidad Konrad Lorenz"
+            data-desc="Interpretación en lengua de señas y ambientación especial del exterior de la Konrad inspirada en la atmósfera de Ray Bradbury."
+            data-participante="Sonia Fajardo"
+            data-participante-url="participantes.html">
+          <div class="cronograma-linea-main">
+            <span class="day-tag">5 de Octubre</span>
+            <span class="cronograma-titulo-text">Instalación y Apertura: Ambientación del Exterior de la Konrad</span>
+            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Sonia Fajardo</a>
+          </div>
+          <span class="ver-mas-ico">+</span>
+        </li>
+
+        <!-- Actividad 2 -->
+        <li class="cronograma-item" data-dia="2" 
+            data-titulo="Taller Virtual: Poesía Especulativa… o Cuento" 
+            data-fecha="6 de Octubre"
+            data-hora="6:00 P.M."
+            data-lugar="Modalidad Virtual"
+            data-desc="Primer taller virtual enfocado en Crónicas Marcianas, explorando enfoques de escritura especulativa y poesía."
+            data-participante="Angélica Caballero"
+            data-participante-url="participantes.html">
+          <div class="cronograma-linea-main">
+            <span class="day-tag">6 de Octubre</span>
+            <span class="cronograma-titulo-text">Taller Virtual: Poesía Especulativa… o Cuento</span>
+            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Angélica Caballero</a>
+          </div>
+          <span class="ver-mas-ico">+</span>
+        </li>
+
+        <!-- Actividad 3 -->
+        <li class="cronograma-item" data-dia="3" 
+            data-titulo="Taller Virtual: Cuento El Cohete (Para Niños)" 
+            data-fecha="8 de Octubre"
+            data-hora="6:00 P.M."
+            data-lugar="Modalidad Virtual"
+            data-desc="Taller orientado al cuento 'El cohete' de Bradbury, enfocado en público infantil y narrativas espaciales."
+            data-participante="Daniel E. Monje"
+            data-participante-url="participantes.html">
+          <div class="cronograma-linea-main">
+            <span class="day-tag">8 de Octubre</span>
+            <span class="cronograma-titulo-text">Taller Virtual: Cuento El Cohete (Para Niños)</span>
+            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Daniel E. Monje</a>
+          </div>
+          <span class="ver-mas-ico">+</span>
+        </li>
+
+        <!-- Actividad 4 -->
+        <li class="cronograma-item" data-dia="4" 
+            data-titulo="Taller Virtual: Ciclo de Creación Marciana" 
+            data-fecha="13 de Octubre"
+            data-hora="6:00 P.M."
+            data-lugar="Modalidad Virtual"
+            data-desc="Segundo martes de talleres virtuales. 4 sesiones, 4 experiencias en conexión con el universo literario de Bradbury."
+            data-participante="Karonlains Alarcón"
+            data-participante-url="participantes.html">
+          <div class="cronograma-linea-main">
+            <span class="day-tag">13 de Octubre</span>
+            <span class="cronograma-titulo-text">Taller Virtual: Ciclo de Creación Marciana</span>
+            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Karonlains Alarcón</a>
+          </div>
+          <span class="ver-mas-ico">+</span>
+        </li>
+
+        <!-- Actividad 5 -->
+        <li class="cronograma-item" data-dia="5" 
+            data-titulo="Mesa Sectorial Bogotá: Ciencia Ficción y Territorio" 
+            data-fecha="Mes de Octubre"
+            data-hora="Horario por confirmar"
+            data-lugar="Auditorio Principal"
+            data-desc="Mesa sectorial con autores y proyectos editoriales que desde Bogotá abordan la ciencia ficción y el pensamiento especulativo."
+            data-participante="Luis Carlos Barragán"
+            data-participante-url="participantes.html">
+          <div class="cronograma-linea-main">
+            <span class="day-tag">Mes de Octubre</span>
+            <span class="cronograma-titulo-text">Mesa Sectorial Bogotá: Ciencia Ficción y Territorio</span>
+            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Luis Carlos Barragán</a>
+          </div>
+          <span class="ver-mas-ico">+</span>
+        </li>
+
+        <!-- Actividad 6 -->
+        <li class="cronograma-item" data-dia="6" 
+            data-titulo="Clausura: Lecturas Dramatizadas y Entrega de Relatos" 
+            data-fecha="12 de Noviembre"
+            data-hora="Horario por confirmar"
+            data-lugar="Auditorio Principal"
+            data-desc="Gran cierre del festival con la lectura en voz alta y dramatizada de los relatos seleccionados en los talleres."
+            data-participante="Rodrigo Bastidas"
+            data-participante-url="participantes.html">
+          <div class="cronograma-linea-main">
+            <span class="day-tag">12 de Noviembre</span>
+            <span class="cronograma-titulo-text">Clausura: Lecturas Dramatizadas y Entrega de Relatos</span>
+            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Rodrigo Bastidas</a>
+          </div>
+          <span class="ver-mas-ico">+</span>
+        </li>
+      </ul>
+    </section>
+
+<!-- MODAL / POP-UP ESTILO TARJETA CON FLECHAS -->
+<div id="modal-cronograma" class="modal-overlay" style="display: none;">
+  <div class="modal-content-card">
+    <button class="modal-close" id="modal-cerrar">&times;</button>
+    
+    <!-- Icono o Avatar superior simulando el diseño de participantes -->
+    <div class="modal-avatar-top">
+      <span>📅</span>
+    </div>
+
+    <!-- Título con la tipografía futurística -->
+    <h3 id="modal-titulo" class="modal-card-title">Título de la Actividad</h3>
+    
+    <!-- Subtítulo: Fecha y Participante hipervinculado -->
+    <div id="modal-subtitulo" class="modal-card-subtitle">
+      <span id="modal-fecha-txt">Fecha</span> · <a id="modal-participante-link" href="#">Participante</a>
+    </div>
+
+    <!-- Bloque de texto con Descripción, Lugar y Hora -->
+    <div class="modal-card-body">
+      <p id="modal-desc">Descripción completa...</p>
+      <div class="modal-detalles-extra">
+        <p><strong>Lugar:</strong> <span id="modal-lugar">Lugar del evento</span></p>
+        <p><strong>Hora:</strong> <span id="modal-hora">Hora del evento</span></p>
       </div>
     </div>
 
-    <div class="ea-grid" style="margin-bottom: 0;">
-      <div class="ea-block">
-        <h4>Cronograma</h4>
-        <ul class="cronograma-list">
-          <li><span class="day-tag">Día 1</span> [Actividad pendiente]</li>
-          <li><span class="day-tag">Día 2</span> [Actividad pendiente]</li>
-          <li><span class="day-tag">Día 3</span> [Actividad pendiente]</li>
-        </ul>
-      </div>
-      <div class="ea-block">
-        <h4>Participantes</h4>
-        <p>Consulta el listado completo de escritores y ponentes de esta edición en la sección <a href="participantes.html">Participantes</a>.</p>
-      </div>
+    <!-- Flechitas de navegación -->
+    <div class="modal-navegacion">
+      <button id="modal-prev" class="nav-flecha">← Anterior</button>
+      <button id="modal-next" class="nav-flecha">Siguiente →</button>
     </div>
   </div>
-</main>
+</div>
 
 <footer>
   <div class="container">
