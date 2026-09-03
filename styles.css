@@ -61,8 +61,6 @@ p {
   --maroon: #833D3B;      /* Burnt Rose */
   --cream: #D9C499;       /* Soft Fawn */
   --text: #f4ecd8;
-  --text-dim: rgba(217,196,153,0.78);
-  --text-dimmer: rgba(217,196,153,0.52);
   --font-body: 'Barlow', sans-serif;
   --font-lema-1: 'Tomorrow', sans-serif; /* Fuente robótica exclusiva para la Edición 15 */
   --font-lema-2: 'Barlow', sans-serif;
