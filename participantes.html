@@ -149,6 +149,58 @@ Actualmente es editora en Máktaba Fundación Cultural y tallerista en la Escuel
   </div>
 </div>
 
-<script src="script.js"></script>
+<!-- SCRIPT DIRECTO Y FUNCIONAL PARA LOS POP-UPS -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('bio-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalAvatar = document.getElementById('modal-avatar');
+    const modalName = document.getElementById('modal-name');
+    const modalRole = document.getElementById('modal-role');
+    const modalBio = document.getElementById('modal-bio');
+
+    if (!modal) return;
+
+    // Escuchar clic en cada tarjeta de participante
+    document.querySelectorAll('.participant-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const name = card.getAttribute('data-name');
+        const role = card.getAttribute('data-role');
+        const bio = card.getAttribute('data-bio');
+        const imgElement = card.querySelector('.avatar img');
+        const imgSrc = imgElement ? imgElement.src : '';
+
+        // Rellenar los datos en el modal
+        modalAvatar.innerHTML = imgSrc ? `<img src="${imgSrc}" alt="${name}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">` : (name ? name.charAt(0) : '?');
+        modalName.textContent = name || '';
+        modalRole.textContent = role || '';
+        modalBio.textContent = bio || '';
+
+        // Mostrar modal y bloquear scroll de la página de fondo
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // Función para cerrar el modal y restaurar el scroll
+    function closeModal() {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    
+    // Cerrar haciendo clic fuera de la cajita del modal
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Cerrar presionando la tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  });
+</script>
+
 </body>
 </html>
