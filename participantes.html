@@ -149,35 +149,6 @@ Actualmente es editora en Máktaba Fundación Cultural y tallerista en la Escuel
   </div>
 </div>
 
-<!-- SCRIPT PARA ACTIVAR LOS POP-UPS -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('bio-modal');
-    const modalClose = document.getElementById('modal-close');
-    const modalAvatar = document.getElementById('modal-avatar');
-    const modalName = document.getElementById('modal-name');
-    const modalRole = document.getElementById('modal-role');
-    const modalBio = document.getElementById('modal-bio');
-
-    if (!modal) return;
-
-    document.querySelectorAll('.participant-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const name = card.getAttribute('data-name');
-        const role = card.getAttribute('data-role');
-        const bio = card.getAttribute('data-bio');
-        const avatarImg = card.querySelector('.avatar img').src;
-
-        modalAvatar.innerHTML = `<img src="${avatarImg}" alt="${name}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
-        modalName.textContent = name;
-        modalRole.textContent = role;
-        modalBio.textContent = bio;
-
-        modal.hidden = false;
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
