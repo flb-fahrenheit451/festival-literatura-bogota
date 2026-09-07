@@ -511,8 +511,16 @@ nav{
   max-height: 75%;
 }
 
+.aliados-grid-2 .logo-clean{
+  height: 110px;
+}
+
 .logo-clean.logo-shrink-oficial img{
-  max-width: 65%;
+  max-width: 55%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
 }
 
 .aliado-card h4{ font-size: 0.98rem; line-height: 1.3; }
