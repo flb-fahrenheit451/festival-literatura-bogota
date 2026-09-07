@@ -53,16 +53,21 @@ p {
 }
 
 :root{
-  --bg: #0b1b2a;          /* Ink Black */
-  --surface: #10202f;     /* (Un tono derivado para tarjetas) */
-  --accent: #CC753C;      /* Chocolate */
-  --accent-2: #DAA84E;    /* Honey Bronze */
-  --accent-3: #396449;    /* Hunter Green */
-  --maroon: #833D3B;      /* Burnt Rose */
-  --cream: #D9C499;       /* Soft Fawn */
+  --bg: #0b1b2a;
+  --surface: #10202f;
+  --surface-2: #17293a;
+  --border: rgba(217,196,153,0.15);
+  --text-dim: rgba(244,236,216,0.75);
+  --text-dimmer: rgba(244,236,216,0.5);
+  --bg-alt: #0f1f2e;
+  --accent: #CC753C;
+  --accent-2: #DAA84E;
+  --accent-3: #396449;
+  --maroon: #833D3B;
+  --cream: #D9C499;
   --text: #f4ecd8;
   --font-body: 'Barlow', sans-serif;
-  --font-lema-1: 'Tomorrow', sans-serif; /* Fuente robótica exclusiva para la Edición 15 */
+  --font-lema-1: 'Tomorrow', sans-serif;
   --font-lema-2: 'Barlow', sans-serif;
   --font-long: 'Barlow', sans-serif;
   --font-name: 'Barlow', sans-serif;
