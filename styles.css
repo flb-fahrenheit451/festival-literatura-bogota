@@ -551,11 +551,7 @@ nav{
 .participant-card:hover{ transform: translateY(-3px); border-color: rgba(203,117,60,0.5); }
 .participant-card:focus-visible{ outline: 2px solid var(--accent-2); outline-offset: 2px; }
 .participant-card .avatar{
-  aspect-ratio: 1/1;
-  max-width: 140px;
-  margin: 16px auto 0;
-  border-radius: 50%;
-  overflow: hidden;
+  aspect-ratio: 4/3;
   background: var(--surface-2);
   display: flex;
   align-items: center;
@@ -563,6 +559,7 @@ nav{
   font-family: var(--font-body);
   font-size: 1.6rem;
   color: rgba(217,196,153,0.25);
+  overflow: hidden;
 }
 
 .participant-card .avatar img{
@@ -571,7 +568,7 @@ nav{
   object-fit: cover;
   display: block;
 }
-}
+
 .participant-card .info{ padding: 16px; }
 .participant-card .name{ font-family:var(--font-body); font-size:0.92rem; margin-bottom: 4px; }
 .participant-card .role{ font-size: 0.8rem; color: var(--text-dimmer); }
