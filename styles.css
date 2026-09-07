@@ -419,6 +419,10 @@ nav{
   display: block;
 }
 
+.bio-fundacion{
+  text-align: justify;
+}
+
 .org-main h3{ font-size: 1.3rem; margin-bottom: 10px; }
 .placeholder-text{
   color: var(--text-dimmer);
@@ -505,6 +509,10 @@ nav{
 
 .logo-clean.logo-zoom-urapan img {
   max-height: 75%;
+}
+
+.logo-clean.logo-shrink-oficial img{
+  max-width: 65%;
 }
 
 .aliado-card h4{ font-size: 0.98rem; line-height: 1.3; }
