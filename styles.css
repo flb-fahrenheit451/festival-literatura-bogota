@@ -550,7 +550,7 @@ nav{
 .participant-card:hover{ transform: translateY(-3px); border-color: rgba(203,117,60,0.5); }
 .participant-card:focus-visible{ outline: 2px solid var(--accent-2); outline-offset: 2px; }
 .participant-card .avatar{
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/4;
   background: var(--surface-2);
   display: flex;
   align-items: center;
