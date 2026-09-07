@@ -712,6 +712,11 @@ nav{
   padding: 44px;
   margin-bottom: 70px;
 }
+
+.edicion-detail p{
+  color: var(--text-dim);
+}
+
 @media (max-width: 640px){ .edicion-detail{ padding: 26px; } }
 
 .edicion-detail.edicion-actual{
@@ -776,6 +781,166 @@ a.edicion-detail{ display:block; color: inherit; transition: transform .2s ease,
   letter-spacing: 0.06em;
   color: var(--accent-2);
   font-weight: 600;
+}
+
+/* ---------- EDICIÓN DETALLE: TEMA E INSPIRACIÓN ---------- */
+.ea-grid{
+  display: grid;
+  gap: 24px;
+  margin: 36px 0;
+}
+.ea-block h2{
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  color: var(--accent-2);
+}
+.edicion-detail p{
+  color: var(--text-dim);
+}
+
+/* ---------- CRONOGRAMA ---------- */
+.instruccion-cronograma{
+  font-size: 0.88rem;
+  color: var(--text-dimmer);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.cronograma-list-interactive{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cronograma-item{
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.cronograma-item:hover{
+  border-color: rgba(203,117,60,0.5);
+  transform: translateX(4px);
+}
+.cronograma-linea-main{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.day-tag{
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--bg);
+  background: var(--accent-2);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.cronograma-titulo-text{
+  flex: 1;
+  min-width: 200px;
+  font-size: 0.98rem;
+  color: var(--text);
+}
+.cronograma-part-link{
+  font-size: 0.82rem;
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.cronograma-part-link:hover{ text-decoration: underline; }
+.ver-mas-ico{
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dimmer);
+  font-size: 1rem;
+  margin-left: auto;
+}
+.cronograma-item:hover .ver-mas-ico{
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+}
+
+/* ---------- MODAL DEL CRONOGRAMA ---------- */
+.modal-content-card{
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px 32px 32px;
+  max-width: 460px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  text-align: center;
+}
+.modal-avatar-top{
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  font-size: 1.6rem;
+}
+.modal-card-title{
+  font-family: 'AudexRegular', sans-serif;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.modal-card-subtitle{
+  font-size: 0.85rem;
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+}
+.modal-card-subtitle a{ color: var(--accent-2); }
+.modal-card-body{ text-align: left; }
+.modal-card-body p{
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.modal-detalles-extra p{ margin-bottom: 6px; font-size: 0.85rem; }
+.modal-detalles-extra strong{ color: var(--text); }
+.modal-navegacion{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  gap: 10px;
+}
+.nav-flecha{
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease;
+}
+.nav-flecha:hover{
+  border-color: var(--accent-2);
+  color: var(--accent-2);
 }
 
 /* ---------- FOOTER ---------- */
