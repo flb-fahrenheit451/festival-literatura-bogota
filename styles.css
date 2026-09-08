@@ -348,7 +348,7 @@ nav{
   color: var(--accent);
   -webkit-text-stroke: 2px var(--maroon);
   paint-order: stroke fill;
-  text-shadow: 4px 4px 0 var(--text);
+  text-shadow: 2px 2px 0 var(--text);
 }
 
 /* ---------- CARD GRID (news) ---------- */
