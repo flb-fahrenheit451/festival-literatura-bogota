@@ -343,6 +343,13 @@ nav{
   margin: 0 auto;
 }
 
+.lema-festival{
+  font-family: 'AudexRegular', sans-serif;
+  font-weight: normal;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+
 /* ---------- CARD GRID (news) ---------- */
 .grid-3{
   display: grid;
