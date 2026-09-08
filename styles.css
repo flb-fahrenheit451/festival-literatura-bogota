@@ -1044,3 +1044,8 @@ footer .container {
     text-align: center;
   }
 }
+
+.sobre-copy{
+  text-align: justify;
+  color: var(--text-dim);
+}
