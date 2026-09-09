@@ -355,6 +355,7 @@ nav{
   font-family: 'AudexRegular', sans-serif !important;
   font-weight: normal;
   letter-spacing: 2px;
+  color: var (--text);
 }
 
 /* ---------- CARD GRID (news) ---------- */
