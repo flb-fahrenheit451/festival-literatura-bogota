@@ -351,6 +351,12 @@ nav{
   text-shadow: 2px 2px 0 var(--text);
 }
 
+.font-audex{
+  font-family: 'AudexRegular', sans-serif !important;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
 /* ---------- CARD GRID (news) ---------- */
 .grid-3{
   display: grid;
@@ -381,6 +387,15 @@ nav{
   text-align: center;
   padding: 10px;
 }
+
+.card .thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .card .body{ padding: 20px; flex: 1; display:flex; flex-direction:column; }
 .card .date{
   font-family: var(--font-body);
