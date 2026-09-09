@@ -346,7 +346,7 @@ nav{
   font-weight: normal;
   letter-spacing: 2px;
   color: var(--accent);
-  -webkit-text-stroke: 2px var(--maroon);
+  -webkit-text-stroke: 2px var(--text);
   paint-order: stroke fill;
   text-shadow: 2px 2px 0 var(--text);
 }
