@@ -976,11 +976,12 @@ footer .container {
 
 .footer-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
   width: 100%;
+  text-align: center;
 }
 
 .footer-logo {
@@ -1003,7 +1004,7 @@ footer .container {
 
 .footer-logo img {
   display: block;
-  height: 60px;
+  height: 75px;
   width: auto;
   object-fit: contain;
 }
@@ -1015,8 +1016,7 @@ footer .container {
 }
 
 .footer-text {
-  flex: 1;
-  min-width: 200px;
+  width: 100%;
 }
 
 .footer-text p {
