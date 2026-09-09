@@ -233,8 +233,7 @@ document.addEventListener('DOMContentLoaded', function(){
       const nombreParticipante = item.getAttribute("data-participante");
       const urlParticipante = item.getAttribute("data-participante-url");
       modalParticipanteLink.textContent = nombreParticipante;
-      modalParticipanteLink.setAttribute("href", urlParticipante);
-      
+  modalParticipanteLink.setAttribute("href", urlParticipante + "?bio=" + encodeURIComponent(nombreParticipante));      
       modalDesc.textContent = item.getAttribute("data-desc");
       modalLugar.textContent = item.getAttribute("data-lugar");
       modalHora.textContent = item.getAttribute("data-hora");
