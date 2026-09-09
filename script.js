@@ -133,8 +133,15 @@
   modal.addEventListener('click', (e) => {
     if(e.target === modal) closeModal();
   });
+  // Si llega con ?bio=Nombre en la URL, abrir ese popup automáticamente
+  const params = new URLSearchParams(window.location.search);
+  const bioParam = params.get('bio');
+  if (bioParam) {
+    const tarjetaCoincidente = Array.from(document.querySelectorAll('.participant-card'))
+      .find(card => (card.dataset.name || '') === bioParam);
+    if (tarjetaCoincidente) openModal(tarjetaCoincidente);
+  }
 })();
-
 // ---- Footer dinámico ----
 document.addEventListener("DOMContentLoaded", function() {
     const footerHTML = `
