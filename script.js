@@ -220,33 +220,45 @@ document.addEventListener('DOMContentLoaded', function(){
     if (!modal || items.length === 0) return;
 
     const btnCerrar = document.getElementById("modal-cerrar");
-    const btnPrev = document.getElementById("modal-prev");
-    const btnNext = document.getElementById("modal-next");
+const btnPrev = document.getElementById("modal-prev");
+const btnNext = document.getElementById("modal-next");
+const modalTitulo = document.getElementById("modal-titulo");
+const modalFechaTxt = document.getElementById("modal-fecha-txt");
+const modalSeparador = document.getElementById("modal-separador");
+const modalParticipanteLink = document.getElementById("modal-participante-link");
+const modalDesc = document.getElementById("modal-desc");
+const modalParticipantesMulti = document.getElementById("modal-participantes-multi");
+const modalLugar = document.getElementById("modal-lugar");
+const modalHora = document.getElementById("modal-hora");
+let currentIndex = 0;
 
-    const modalTitulo = document.getElementById("modal-titulo");
-    const modalFechaTxt = document.getElementById("modal-fecha-txt");
-    const modalParticipanteLink = document.getElementById("modal-participante-link");
-    const modalDesc = document.getElementById("modal-desc");
-    const modalLugar = document.getElementById("modal-lugar");
-    const modalHora = document.getElementById("modal-hora");
+function actualizarModal(index) {
+  const item = items[index];
+  modalTitulo.textContent = item.getAttribute("data-titulo");
+  modalFechaTxt.textContent = item.getAttribute("data-fecha");
+  const nombreParticipante = item.getAttribute("data-participante");
+  const urlParticipante = item.getAttribute("data-participante-url");
+  const esMultiple = item.getAttribute("data-multi") === "true";
 
-    let currentIndex = 0;
+  if (esMultiple) {
+    modalSeparador.style.display = "none";
+    modalParticipanteLink.style.display = "none";
+    modalParticipantesMulti.hidden = false;
+    modalParticipantesMulti.textContent = "Participantes: " + nombreParticipante;
+  } else {
+    modalSeparador.style.display = "";
+    modalParticipanteLink.style.display = "";
+    modalParticipanteLink.textContent = nombreParticipante;
+    modalParticipanteLink.setAttribute("href", urlParticipante + "?bio=" + encodeURIComponent(nombreParticipante));
+    modalParticipantesMulti.hidden = true;
+    modalParticipantesMulti.textContent = "";
+  }
 
-    function actualizarModal(index) {
-      const item = items[index];
-      modalTitulo.textContent = item.getAttribute("data-titulo");
-      modalFechaTxt.textContent = item.getAttribute("data-fecha");
-      
-      const nombreParticipante = item.getAttribute("data-participante");
-      const urlParticipante = item.getAttribute("data-participante-url");
-      modalParticipanteLink.textContent = nombreParticipante;
-  modalParticipanteLink.setAttribute("href", urlParticipante + "?bio=" + encodeURIComponent(nombreParticipante));      
-      modalDesc.textContent = item.getAttribute("data-desc");
-      modalLugar.textContent = item.getAttribute("data-lugar");
-      modalHora.textContent = item.getAttribute("data-hora");
-      
-      currentIndex = index;
-    }
+  modalDesc.textContent = item.getAttribute("data-desc");
+  modalLugar.textContent = item.getAttribute("data-lugar");
+  modalHora.textContent = item.getAttribute("data-hora");
+  currentIndex = index;
+}
 
     items.forEach((item, index) => {
       item.addEventListener("click", () => {
