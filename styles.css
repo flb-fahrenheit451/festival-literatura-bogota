@@ -950,6 +950,14 @@ a.edicion-detail{ display:block; color: inherit; transition: transform .2s ease,
   line-height: 1.6;
   margin-bottom: 14px;
 }
+
+.modal-participantes-multi{
+  color: var(--accent-2);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
 .modal-detalles-extra p{ margin-bottom: 6px; font-size: 0.85rem; }
 .modal-detalles-extra strong{ color: var(--text); }
 .modal-navegacion{
