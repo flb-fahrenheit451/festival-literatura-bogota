@@ -910,12 +910,20 @@ a.edicion-detail{ display:block; color: inherit; transition: transform .2s ease,
   border-radius: 999px;
 }
 
-.cronograma-item.is-realizado{
-  opacity: 0.6;
+.cronograma-item.is-realizado .day-tag{
+  position: relative;
+  overflow: visible;
+  background: rgba(218,168,78,0.3);
+  color: rgba(244,236,216,0.5);
 }
-.cronograma-item.is-realizado:hover{
-  opacity: 0.85;
+.cronograma-item.is-realizado .cronograma-titulo-text{
+  color: rgba(244,236,216,0.55);
 }
+.cronograma-item.is-realizado .cronograma-part-link,
+.cronograma-item.is-realizado .ver-mas-ico{
+  opacity: 0.55;
+}
+
 .cronograma-item.is-realizado .day-tag{
   position: relative;
   overflow: visible;
