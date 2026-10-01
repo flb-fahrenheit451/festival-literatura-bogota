@@ -909,6 +909,25 @@ a.edicion-detail{ display:block; color: inherit; transition: transform .2s ease,
   padding: 4px 10px;
   border-radius: 999px;
 }
+
+.cronograma-item.is-realizado{
+  opacity: 0.6;
+}
+.cronograma-item.is-realizado:hover{
+  opacity: 0.85;
+}
+.badge-realizado{
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  background: var(--accent-3);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
 .cronograma-titulo-text{
   flex: 1;
   min-width: 200px;
