@@ -304,3 +304,52 @@ function actualizarModal(index) {
     });
   });
 })();
+// ---- Slideshow del hero (usado en index.html) ----
+(function(){
+  const slideshow = document.getElementById('hero-slideshow');
+  if (!slideshow) return;
+
+  const slides = Array.from(slideshow.querySelectorAll('.hero-slide'));
+  if (slides.length < 2) return;
+
+  const dotsWrap = document.getElementById('hero-dots');
+  const intervalMs = 6000;
+  let current = slides.findIndex(s => s.classList.contains('is-active'));
+  if (current < 0) current = 0;
+  let timer = null;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', 'Ir a la diapositiva ' + (i + 1));
+    if (i === current) dot.classList.add('is-active');
+    dot.addEventListener('click', () => {
+      goTo(i);
+      resetTimer();
+    });
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function goTo(index){
+    slides[current].classList.remove('is-active');
+    dots[current].classList.remove('is-active');
+    current = index;
+    slides[current].classList.add('is-active');
+    dots[current].classList.add('is-active');
+  }
+
+  function next(){
+    goTo((current + 1) % slides.length);
+  }
+
+  function resetTimer(){
+    clearInterval(timer);
+    timer = setInterval(next, intervalMs);
+  }
+
+  slideshow.addEventListener('mouseenter', () => clearInterval(timer));
+  slideshow.addEventListener('mouseleave', resetTimer);
+
+  resetTimer();
+})();
