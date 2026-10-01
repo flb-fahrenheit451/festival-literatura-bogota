@@ -164,54 +164,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// --- Control JS para el modal de "talleres" en index.html (abre/cierra sin :target) ---
-// Ejecutar después de que el DOM esté listo para asegurar que el elemento #modal-talleres existe
-document.addEventListener('DOMContentLoaded', function(){
-  const modal = document.getElementById('modal-talleres');
-  if (!modal) return;
-
-  // Abre desde enlaces que apuntan a #modal-talleres
-  document.querySelectorAll('a[href="#modal-talleres"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      modal.hidden = false;
-      document.body.style.overflow = 'hidden';
-      // limpiar fragmento de URL (no dependemos de :target)
-      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
-      const close = modal.querySelector('.modal-close');
-      if (close && typeof close.focus === 'function') close.focus();
-    });
-  });
-
-  // Cerrar desde los botones/enlaces con clase .modal-close dentro del modal
-  modal.querySelectorAll('.modal-close').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      modal.hidden = true;
-      document.body.style.overflow = '';
-      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
-    });
-  });
-
-  // Cerrar al hacer click fuera del .modal-content
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.hidden = true;
-      document.body.style.overflow = '';
-      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
-    }
-  });
-
-  // Cerrar con Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal.hidden) {
-      modal.hidden = true;
-      document.body.style.overflow = '';
-      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
-    }
-  });
-});
-
 // --- Control JS para el modal del artículo de La Nueva Prensa ---
 document.addEventListener('DOMContentLoaded', function(){
   const modal = document.getElementById('modal-prensa');
