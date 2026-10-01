@@ -931,7 +931,7 @@ a.edicion-detail{ display:block; color: inherit; transition: transform .2s ease,
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text);
-  background: var(--maroon);
+  background: var(--accent-3);
   padding: 2px 12px;
   border-top: 1px solid rgba(244,236,216,0.5);
   border-bottom: 1px solid rgba(244,236,216,0.5);
