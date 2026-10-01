@@ -313,21 +313,16 @@ function actualizarModal(index) {
       if (!fechaIso) return;
       const fechaEvento = new Date(fechaIso + 'T00:00:00');
 
-      if (fechaEvento < hoy) {
-        item.classList.add('is-realizado');
-        const lineaMain = item.querySelector('.cronograma-linea-main');
-        if (lineaMain && !lineaMain.querySelector('.badge-realizado')) {
-          const dayTag = lineaMain.querySelector('.day-tag');
-          const badge = document.createElement('span');
-          badge.className = 'badge-realizado';
-          badge.textContent = 'Realizado';
-          if (dayTag) {
-            dayTag.insertAdjacentElement('afterend', badge);
-          } else {
-            lineaMain.prepend(badge);
-          }
-        }
-      }
+     if (fechaEvento < hoy) {
+  item.classList.add('is-realizado');
+  const dayTag = item.querySelector('.day-tag');
+  if (dayTag && !dayTag.querySelector('.badge-realizado')) {
+    const badge = document.createElement('span');
+    badge.className = 'badge-realizado';
+    badge.textContent = 'Realizado';
+    dayTag.appendChild(badge);
+  }
+}
     });
   });
 })();
