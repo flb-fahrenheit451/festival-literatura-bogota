@@ -212,6 +212,48 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 
+// --- Control JS para el modal del artículo de La Nueva Prensa ---
+document.addEventListener('DOMContentLoaded', function(){
+  const modal = document.getElementById('modal-prensa');
+  if (!modal) return;
+
+  document.querySelectorAll('a[href="#modal-prensa"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+      const close = modal.querySelector('.modal-close');
+      if (close && typeof close.focus === 'function') close.focus();
+    });
+  });
+
+  modal.querySelectorAll('.modal-close').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+    });
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.hidden) {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+    }
+  });
+});
+
 // ---- Cronograma interactivo y modal (usado en edicion-xv.html) ----
 (function(){
   document.addEventListener('DOMContentLoaded', () => {
