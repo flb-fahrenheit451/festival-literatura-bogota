@@ -954,6 +954,29 @@ a.edicion-detail{ display:block; color: inherit; transition: transform .2s ease,
   font-size: 1rem;
   margin-left: auto;
 }
+
+.btn-descarga-cronograma{
+  display: inline-block;
+  margin: 28px 0 0;
+  padding: 12px 28px;
+  background: var(--accent);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+.btn-descarga-cronograma:hover{
+  transform: translateY(-2px);
+  background: var(--accent-2);
+  color: var(--bg);
+  text-decoration: none;
+}
+
 .cronograma-item:hover .ver-mas-ico{
   border-color: var(--accent-2);
   color: var(--accent-2);
