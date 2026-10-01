@@ -346,6 +346,40 @@ function actualizarModal(index) {
     });
   });
 })();
+
+// ---- Sello "Realizado" automático según la fecha (usado en edicion-15.html) ----
+(function(){
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.cronograma-item[data-fecha-iso]');
+    if (!items.length) return;
+
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+
+    items.forEach(item => {
+      const fechaIso = item.getAttribute('data-fecha-iso');
+      if (!fechaIso) return;
+      const fechaEvento = new Date(fechaIso + 'T00:00:00');
+
+      if (fechaEvento < hoy) {
+        item.classList.add('is-realizado');
+        const lineaMain = item.querySelector('.cronograma-linea-main');
+        if (lineaMain && !lineaMain.querySelector('.badge-realizado')) {
+          const dayTag = lineaMain.querySelector('.day-tag');
+          const badge = document.createElement('span');
+          badge.className = 'badge-realizado';
+          badge.textContent = 'Realizado';
+          if (dayTag) {
+            dayTag.insertAdjacentElement('afterend', badge);
+          } else {
+            lineaMain.prepend(badge);
+          }
+        }
+      }
+    });
+  });
+})();
+
 // ---- Slideshow del hero (usado en index.html) ----
 (function(){
   const slideshow = document.getElementById('hero-slideshow');
