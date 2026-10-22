@@ -205,6 +205,62 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.hidden) {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+    }
+  });
+});
+
+// --- Control JS para el modal de la entrevista Doble Vía ---
+document.addEventListener('DOMContentLoaded', function(){
+  const modal = document.getElementById('modal-doblevia');
+  if (!modal) return;
+
+  document.querySelectorAll('a[href="#modal-doblevia"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+      const close = modal.querySelector('.modal-close');
+      if (close && typeof close.focus === 'function') close.focus();
+    });
+  });
+
+  modal.querySelectorAll('.modal-close').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+      const video = modal.querySelector('video');
+      if (video) video.pause();
+    });
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+      const video = modal.querySelector('video');
+      if (video) video.pause();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.hidden) {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+      const video = modal.querySelector('video');
+      if (video) video.pause();
+    }
+  });
+});
 
 // ---- Cronograma interactivo y modal (usado en edicion-xv.html) ----
 (function(){
