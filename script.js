@@ -205,14 +205,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   });
 });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal.hidden) {
-      modal.hidden = true;
-      document.body.style.overflow = '';
-      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
-    }
-  });
-});
 
 // --- Control JS para el modal de la entrevista Doble Vía ---
 document.addEventListener('DOMContentLoaded', function(){
