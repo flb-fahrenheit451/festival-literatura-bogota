@@ -32,6 +32,32 @@
     <h1>Vendrán <em>Lluvias Suaves</em></h1>
     <p class="lede">Un homenaje a la ciencia ficción y al cuento de Ray Bradbury que le da nombre a esta edición del Festival de Literatura de Bogotá.</p>
 
+    <!-- EVENTO DESTACADO: ISABEL ALLENDE (se oculta solo después del evento) -->
+    <section class="evento-destacado" id="evento-allende" data-fin="2026-11-10T19:00:00-05:00" aria-label="Evento destacado: Isabel Allende">
+      <div class="ev-media">
+        <span class="ev-badge">Clausura</span>
+        <img src="IMAGENES/NOVEDADES/ALLENDEVIRTUAL.png" alt="Ilustración de Isabel Allende">
+      </div>
+      <div class="ev-body">
+        <p class="ev-eyebrow" id="ev-cuando">Este martes 10 de noviembre</p>
+        <h2 class="ev-title">Conéctate con <em>Isabel Allende</em></h2>
+        <p class="ev-desc"><strong>El vino del estío: la ciencia ficción en la obra de Isabel Allende.</strong> La autora chilena conversa en teleconferencia con la periodista Laura Arévalo (El Espectador) en el encuentro que cierra el festival.</p>
+        <dl class="ev-datos">
+          <div>
+            <dt>Hora</dt>
+            <dd>5:30 p. m. – 7:00 p. m.</dd>
+          </div>
+          <div>
+            <dt>Lugar</dt>
+            <dd>Gimnasio Moderno, Biblioteca de Los Fundadores · Carrera 9 # 74-99, Bogotá</dd>
+          </div>
+        </dl>
+        <div class="ev-actions">
+          <a href="#modal-allende" class="ev-btn ev-btn-primary">Lee la nota →</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Gimnasio+Moderno+Carrera+9+%2374-99+Bogot%C3%A1" target="_blank" rel="noopener noreferrer" class="ev-btn ev-btn-ghost">Cómo llegar</a>
+        </div>
+      </div>
+    </section>
         <div class="hero-slideshow" id="hero-slideshow">
       <a href="edicion-15.html" class="hero-visual hero-slide is-active">
         <img src="IMAGENES/LOGOS/VLS2026.jpg" alt="Vendrán Lluvias Suaves - Edición 15">
@@ -503,6 +529,59 @@
     </video>
   </div>
 </div>
+
+<!-- VENTANA EMERGENTE: NOTA ISABEL ALLENDE -->
+<div id="modal-allende" class="modal-overlay" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-allende-title">
+    <button type="button" class="modal-close" aria-label="Cerrar">×</button>
+    <h3 id="modal-allende-title">Conéctate con Isabel Allende</h3>
+    <div class="modal-role">Clausura · Martes 10 de noviembre, 2026</div>
+    <p class="modal-bio">Más allá del realismo mágico y la memoria que definen su obra, narrar implica rozar el asombro y lo insólito. En este encuentro de clausura, la aclamada autora chilena dialoga en teleconferencia con la periodista Laura Arévalo (El Espectador) sobre la imaginación especulativa y los destellos de anticipación que nutren su proceso creativo.</p>
+    <!--
+      Si Isabel Allende envía un mensaje propio para el festival, pégalo aquí
+      (quita las marcas de comentario) y déjalo con su nombre como firma:
+      <p class="modal-bio" style="margin-top:16px; font-style:italic;">"TEXTO DEL MENSAJE"</p>
+      <div class="modal-role" style="margin-top:8px;">— Isabel Allende</div>
+    -->
+    <p class="modal-bio" style="margin-top:16px;"><strong>Hora:</strong> 5:30 p. m. – 7:00 p. m.<br><strong>Lugar:</strong> Gimnasio Moderno, Biblioteca de Los Fundadores, Carrera 9 # 74-99.</p>
+    <p style="margin-top:18px;"><a href="edicion-15.html" class="ev-btn ev-btn-primary">Ver el cronograma completo →</a></p>
+  </div>
+</div>
+
+<script>
+// Evento destacado de Isabel Allende: ocultar después del evento, ajustar etiqueta del día y controlar el popup
+(function(){
+  var banner = document.getElementById('evento-allende');
+  if (!banner) return;
+
+  var fin = new Date(banner.getAttribute('data-fin'));
+  if (new Date() > fin) { banner.hidden = true; return; }
+
+  var hoy = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Bogota' });
+  var cuando = document.getElementById('ev-cuando');
+  if (cuando && hoy === '2026-11-10') cuando.textContent = 'Hoy martes 10 de noviembre';
+
+  var modal = document.getElementById('modal-allende');
+  if (!modal) return;
+
+  function abrir(e){
+    e.preventDefault();
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    var cerrar = modal.querySelector('.modal-close');
+    if (cerrar) cerrar.focus();
+  }
+  function cerrar(){
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('a[href="#modal-allende"]').forEach(function(a){ a.addEventListener('click', abrir); });
+  modal.querySelector('.modal-close').addEventListener('click', cerrar);
+  modal.addEventListener('click', function(e){ if (e.target === modal) cerrar(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) cerrar(); });
+})();
+</script>
   
 </body>
 </html>
