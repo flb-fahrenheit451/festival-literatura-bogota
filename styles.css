@@ -1175,3 +1175,145 @@ footer .container {
   text-align: justify;
   color: var(--text-dim);
 }
+
+/* ---------- EVENTO DESTACADO EN PORTADA (Isabel Allende) ---------- */
+.evento-destacado[hidden]{ display: none; }
+
+.evento-destacado{
+  display: grid;
+  grid-template-columns: 3fr 4fr;
+  max-width: 980px;
+  margin: 0 auto 56px;
+  text-align: left;
+  border: 1px solid rgba(218,168,78,0.35);
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(115deg, rgba(218,168,78,0.06) 0 2px, transparent 2px 26px),
+    linear-gradient(160deg, #10202f 0%, #2c1f27 45%, #4a2a26 100%);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+}
+
+.ev-media{
+  position: relative;
+  background: var(--bg);
+}
+.ev-media img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+.ev-badge{
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 1;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--accent-2);
+  color: var(--bg);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ev-body{
+  padding: 40px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ev-eyebrow{
+  color: var(--accent-2);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.ev-title{
+  font-family: 'AudexRegular', sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+.ev-title em{
+  display: block;
+  font-family: 'AudexItalic', sans-serif;
+  font-style: normal;
+  color: var(--accent);
+}
+
+.ev-desc{
+  color: var(--cream);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+.ev-desc strong{ color: var(--text); }
+
+.ev-datos{
+  display: grid;
+  gap: 12px;
+  border-left: 2px solid var(--accent-2);
+  padding-left: 16px;
+  margin-bottom: 26px;
+}
+.ev-datos dt{
+  color: var(--accent-2);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.ev-datos dd{
+  color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.ev-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.ev-btn{
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.ev-btn:hover{ transform: translateY(-2px); text-decoration: none; }
+.ev-btn-primary{ background: var(--accent); color: var(--text); }
+.ev-btn-primary:hover{ background: var(--accent-2); color: var(--bg); }
+.ev-btn-ghost{
+  border: 1px solid rgba(217,196,153,0.45);
+  color: var(--text);
+  background: transparent;
+}
+.ev-btn-ghost:hover{ border-color: var(--accent-2); color: var(--accent-2); }
+
+@media (max-width: 760px){
+  .evento-destacado{ grid-template-columns: 1fr; margin-bottom: 40px; }
+  .ev-media{ height: 340px; }
+  .ev-body{ padding: 28px 24px 30px; }
+}
