@@ -24,10 +24,10 @@
 (function(){
   window.getParticipantAvatarElement = function(name, size = 84){
     if(!name) return null;
-    
+
     let fileName = '';
     const cleanName = name.trim().toLowerCase();
-    
+
     if(cleanName.includes('andrea salgado')) fileName = 'ANDREASALGADO';
     else if(cleanName.includes('andrea chapela')) fileName = 'ANDREACHAPELA';
     else if(cleanName.includes('fernanda')) fileName = 'FERNANDA';
@@ -44,11 +44,11 @@
     img.height = size;
     img.style.objectFit = 'cover';
     img.style.borderRadius = '50%';
-    
+
     img.onerror = function(){
       this.remove();
     };
-    
+
     img.src = pathPng;
     return img;
   };
@@ -58,7 +58,7 @@
       const name = card.dataset.name || '';
       const avatarDiv = card.querySelector('.avatar');
       if(!avatarDiv) return;
-      
+
       const existingImg = avatarDiv.querySelector('img');
       if(existingImg){
         existingImg.style.width = '100%';
@@ -100,7 +100,7 @@
     modalName.textContent = card.dataset.name || '';
     modalRole.textContent = card.dataset.role || '';
     modalBio.textContent = card.dataset.bio || '';
-    
+
     modalAvatar.innerHTML = '';
     const avatarEl = window.getParticipantAvatarElement(card.dataset.name || '', 84);
     if(avatarEl){
@@ -170,7 +170,9 @@ document.addEventListener('DOMContentLoaded', function(){
     const modal = document.getElementById(id);
     if (!modal) return;
 
-    document.querySelectorAll(`a[href="#${id}"]`).forEach(link => {
+    // Compatibilidad con el enlace antiguo del carrusel de El Espectador.
+    const triggerHash = id === 'modal-prensa-1' ? 'modal-prensa-2' : id;
+    document.querySelectorAll(`a[href="#${id}"], a[href="#${triggerHash}"]`).forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         modal.hidden = false;
@@ -256,45 +258,45 @@ document.addEventListener('DOMContentLoaded', function(){
     if (!modal || items.length === 0) return;
 
     const btnCerrar = document.getElementById("modal-cerrar");
-const btnPrev = document.getElementById("modal-prev");
-const btnNext = document.getElementById("modal-next");
-const modalTitulo = document.getElementById("modal-titulo");
-const modalFechaTxt = document.getElementById("modal-fecha-txt");
-const modalSeparador = document.getElementById("modal-separador");
-const modalParticipanteLink = document.getElementById("modal-participante-link");
-const modalDesc = document.getElementById("modal-desc");
-const modalParticipantesMulti = document.getElementById("modal-participantes-multi");
-const modalLugar = document.getElementById("modal-lugar");
-const modalHora = document.getElementById("modal-hora");
-let currentIndex = 0;
+    const btnPrev = document.getElementById("modal-prev");
+    const btnNext = document.getElementById("modal-next");
+    const modalTitulo = document.getElementById("modal-titulo");
+    const modalFechaTxt = document.getElementById("modal-fecha-txt");
+    const modalSeparador = document.getElementById("modal-separador");
+    const modalParticipanteLink = document.getElementById("modal-participante-link");
+    const modalDesc = document.getElementById("modal-desc");
+    const modalParticipantesMulti = document.getElementById("modal-participantes-multi");
+    const modalLugar = document.getElementById("modal-lugar");
+    const modalHora = document.getElementById("modal-hora");
+    let currentIndex = 0;
 
-function actualizarModal(index) {
-  const item = items[index];
-  modalTitulo.textContent = item.getAttribute("data-titulo");
-  modalFechaTxt.textContent = item.getAttribute("data-fecha");
-  const nombreParticipante = item.getAttribute("data-participante");
-  const urlParticipante = item.getAttribute("data-participante-url");
-  const esMultiple = item.getAttribute("data-multi") === "true";
+    function actualizarModal(index) {
+      const item = items[index];
+      modalTitulo.textContent = item.getAttribute("data-titulo");
+      modalFechaTxt.textContent = item.getAttribute("data-fecha");
+      const nombreParticipante = item.getAttribute("data-participante");
+      const urlParticipante = item.getAttribute("data-participante-url");
+      const esMultiple = item.getAttribute("data-multi") === "true";
 
-  if (esMultiple) {
-    modalSeparador.style.display = "none";
-    modalParticipanteLink.style.display = "none";
-    modalParticipantesMulti.hidden = false;
-    modalParticipantesMulti.textContent = "Participantes: " + nombreParticipante;
-  } else {
-    modalSeparador.style.display = "";
-    modalParticipanteLink.style.display = "";
-    modalParticipanteLink.textContent = nombreParticipante;
-    modalParticipanteLink.setAttribute("href", urlParticipante + "?bio=" + encodeURIComponent(nombreParticipante));
-    modalParticipantesMulti.hidden = true;
-    modalParticipantesMulti.textContent = "";
-  }
+      if (esMultiple) {
+        modalSeparador.style.display = "none";
+        modalParticipanteLink.style.display = "none";
+        modalParticipantesMulti.hidden = false;
+        modalParticipantesMulti.textContent = "Participantes: " + nombreParticipante;
+      } else {
+        modalSeparador.style.display = "";
+        modalParticipanteLink.style.display = "";
+        modalParticipanteLink.textContent = nombreParticipante;
+        modalParticipanteLink.setAttribute("href", urlParticipante + "?bio=" + encodeURIComponent(nombreParticipante));
+        modalParticipantesMulti.hidden = true;
+        modalParticipantesMulti.textContent = "";
+      }
 
-  modalDesc.textContent = item.getAttribute("data-desc");
-  modalLugar.textContent = item.getAttribute("data-lugar");
-  modalHora.textContent = item.getAttribute("data-hora");
-  currentIndex = index;
-}
+      modalDesc.textContent = item.getAttribute("data-desc");
+      modalLugar.textContent = item.getAttribute("data-lugar");
+      modalHora.textContent = item.getAttribute("data-hora");
+      currentIndex = index;
+    }
 
     items.forEach((item, index) => {
       item.addEventListener("click", () => {
@@ -355,16 +357,16 @@ function actualizarModal(index) {
       if (!fechaIso) return;
       const fechaEvento = new Date(fechaIso + 'T00:00:00');
 
-     if (fechaEvento < hoy) {
-  item.classList.add('is-realizado');
-  const dayTag = item.querySelector('.day-tag');
-  if (dayTag && !dayTag.querySelector('.badge-realizado')) {
-    const badge = document.createElement('span');
-    badge.className = 'badge-realizado';
-    badge.textContent = 'Realizado';
-    dayTag.appendChild(badge);
-  }
-}
+      if (fechaEvento < hoy) {
+        item.classList.add('is-realizado');
+        const dayTag = item.querySelector('.day-tag');
+        if (dayTag && !dayTag.querySelector('.badge-realizado')) {
+          const badge = document.createElement('span');
+          badge.className = 'badge-realizado';
+          badge.textContent = 'Realizado';
+          dayTag.appendChild(badge);
+        }
+      }
     });
   });
 })();
