@@ -164,49 +164,47 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// --- Control JS para el modal del artículo de La Nueva Prensa ---
+// --- Control JS para los modales de prensa ---
 document.addEventListener('DOMContentLoaded', function(){
-  const modal = document.getElementById('modal-prensa');
-  if (!modal) return;
+  ['modal-prensa', 'modal-prensa-1'].forEach(id => {
+    const modal = document.getElementById(id);
+    if (!modal) return;
 
-  document.querySelectorAll('a[href="#modal-prensa"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      modal.hidden = false;
-      document.body.style.overflow = 'hidden';
-      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
-      const close = modal.querySelector('.modal-close');
-      if (close && typeof close.focus === 'function') close.focus();
+    document.querySelectorAll(`a[href="#${id}"]`).forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+        const close = modal.querySelector('.modal-close');
+        if (close && typeof close.focus === 'function') close.focus();
+      });
     });
-  });
 
-  modal.querySelectorAll('.modal-close').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      modal.hidden = true;
-      document.body.style.overflow = '';
-      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
+    modal.querySelectorAll('.modal-close').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.hidden = true;
+        document.body.style.overflow = '';
+      });
     });
-  });
 
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.hidden = true;
-      document.body.style.overflow = '';
-      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
-    }
-  });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.hidden = true;
+        document.body.style.overflow = '';
+      }
+    });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal.hidden) {
-      modal.hidden = true;
-      document.body.style.overflow = '';
-      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
-    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.hidden) {
+        modal.hidden = true;
+        document.body.style.overflow = '';
+      }
+    });
   });
 });
 
-// --- Control JS para el modal de la entrevista Doble Vía ---
+// --- Control JS para la entrevista Doble Vía ---
 document.addEventListener('DOMContentLoaded', function(){
   const modal = document.getElementById('modal-doblevia');
   if (!modal) return;
@@ -216,7 +214,6 @@ document.addEventListener('DOMContentLoaded', function(){
       e.preventDefault();
       modal.hidden = false;
       document.body.style.overflow = 'hidden';
-      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
       const close = modal.querySelector('.modal-close');
       if (close && typeof close.focus === 'function') close.focus();
     });
@@ -227,7 +224,6 @@ document.addEventListener('DOMContentLoaded', function(){
       e.preventDefault();
       modal.hidden = true;
       document.body.style.overflow = '';
-      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
       const video = modal.querySelector('video');
       if (video) video.pause();
     });
@@ -237,7 +233,6 @@ document.addEventListener('DOMContentLoaded', function(){
     if (e.target === modal) {
       modal.hidden = true;
       document.body.style.overflow = '';
-      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
       const video = modal.querySelector('video');
       if (video) video.pause();
     }
@@ -247,7 +242,6 @@ document.addEventListener('DOMContentLoaded', function(){
     if (e.key === 'Escape' && !modal.hidden) {
       modal.hidden = true;
       document.body.style.overflow = '';
-      try { history.replaceState(null, '', location.pathname + location.search); } catch(e){}
       const video = modal.querySelector('video');
       if (video) video.pause();
     }
