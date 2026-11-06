@@ -1,8 +1,672 @@
-<iframe
-  src="https://www.youtube.com/embed/VUevDgnjC8M?si=XzZdcmO9c6h3VMG_"
-  title="Transmisión en directo del Festival de Literatura de Bogotá"
-  style="width: 100%; height: 100%; border: 0;"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen>
-</iframe>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Festival de Literatura de Bogotá</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Tomorrow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="brand" aria-label="Festival de Literatura de Bogotá">
+      <img src="IMAGENES/LOGOS/LOGO FESTIVAL (letra blanca).svg" alt="Festival de Literatura de Bogotá — logotipo">
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="organizadores.html">Organizadores</a>
+      <a href="participantes.html">Participantes</a>
+      <a href="ediciones.html">Ediciones</a>
+      <a href="sobre-el-festival.html">Sobre el festival</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container hero">
+    <span class="eyebrow">XV Edición · 2026</span>
+    <h1>Vendrán <em>Lluvias Suaves</em></h1>
+    <p class="lede">Un homenaje a la ciencia ficción y al cuento de Ray Bradbury que le da nombre a esta edición del Festival de Literatura de Bogotá.</p>
+
+    <!-- EVENTO DESTACADO: ISABEL ALLENDE (se oculta solo después del evento) -->
+    <section class="evento-destacado" id="evento-allende" data-fin="2026-11-10T19:00:00-05:00" aria-label="Evento destacado: Isabel Allende">
+      <div class="ev-media">
+        <span class="ev-badge">Clausura</span>
+        <img src="IMAGENES/PARTICIPANTES/ISABEL.png" alt="Isabel Allende">
+      </div>
+      <div class="ev-body">
+        <p class="ev-eyebrow" id="ev-cuando">Este martes 10 de noviembre</p>
+        <h2 class="ev-title">Conéctate con <em>Isabel Allende</em></h2>
+        <p class="ev-desc"><strong>El vino del estío: la ciencia ficción en la obra de Isabel Allende.</strong> La autora chilena conversa en teleconferencia con la periodista Laura Arévalo (El Espectador) en el encuentro que cierra el festival.</p>
+        <dl class="ev-datos">
+          <div>
+            <dt>Hora</dt>
+            <dd>5:30 p. m. – 7:00 p. m.</dd>
+          </div>
+          <div>
+            <dt>Lugar</dt>
+            <dd>Gimnasio Moderno, Biblioteca de Los Fundadores · Carrera 9 # 74-99, Bogotá</dd>
+          </div>
+        </dl>
+        <div class="ev-actions">
+          <a href="#modal-allende" class="ev-btn ev-btn-primary">Lee la nota →</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Gimnasio+Moderno+Carrera+9+%2374-99+Bogot%C3%A1" target="_blank" rel="noopener noreferrer" class="ev-btn ev-btn-ghost">Cómo llegar</a>
+        </div>
+      </div>
+      
+    </section>
+        <div class="hero-slideshow" id="hero-slideshow">
+      <a href="edicion-15.html" class="hero-visual hero-slide is-active">
+        <img src="IMAGENES/LOGOS/VLS2026.jpg" alt="Vendrán Lluvias Suaves - Edición 15">
+        <div class="rain" aria-hidden="true">
+          <span style="left:8%; animation-delay:0s;"></span>
+          <span style="left:22%; animation-delay:1.1s;"></span>
+          <span style="left:37%; animation-delay:0.4s;"></span>
+          <span style="left:53%; animation-delay:2s;"></span>
+          <span style="left:68%; animation-delay:0.8s;"></span>
+          <span style="left:81%; animation-delay:1.6s;"></span>
+          <span style="left:92%; animation-delay:0.2s;"></span>
+        </div>
+        <span class="caption">
+          <span class="tag">Edición XV - 2026</span>
+          <strong>Vendrán Lluvias Suaves →</strong>
+        </span>
+      </a>
+
+          <a href="#modal-prensa" class="hero-visual hero-slide">
+          <img src="IMAGENES/NOVEDADES/PRENSA.jpeg" alt="Artículo La Nueva Prensa">
+        <div class="rain" aria-hidden="true">
+          <span style="left:8%; animation-delay:0s;"></span>
+          <span style="left:22%; animation-delay:1.1s;"></span>
+          <span style="left:37%; animation-delay:0.4s;"></span>
+          <span style="left:53%; animation-delay:2s;"></span>
+          <span style="left:68%; animation-delay:0.8s;"></span>
+          <span style="left:81%; animation-delay:1.6s;"></span>
+          <span style="left:92%; animation-delay:0.2s;"></span>
+        </div>
+        <span class="caption">
+          <span class="tag">Prensa</span>
+          <strong>"La ciencia ficción es el lugar donde nuestra imaginación se puede proyectar y organizar"</strong>
+        </span>
+      </a>
+
+     <a href="IMAGENES/NOVEDADES/CRONOGRAMA2026.pdf" download class="hero-visual hero-slide">
+          <img src="IMAGENES/NOVEDADES/CRONOGRAMA.jpeg" alt="Programación 2026">
+        <div class="rain" aria-hidden="true">
+          <span style="left:8%; animation-delay:0s;"></span>
+          <span style="left:22%; animation-delay:1.1s;"></span>
+          <span style="left:37%; animation-delay:0.4s;"></span>
+          <span style="left:53%; animation-delay:2s;"></span>
+          <span style="left:68%; animation-delay:0.8s;"></span>
+          <span style="left:81%; animation-delay:1.6s;"></span>
+          <span style="left:92%; animation-delay:0.2s;"></span>
+        </div>
+        <span class="caption">
+          <span class="tag">Programación</span>
+          <strong>Descarga la programación completa haciendo clic en la imagen</strong>
+        </span>
+      </a>
+      <a href="#modal-doblevia" class="hero-visual hero-slide">
+          <img src="IMAGENES/NOVEDADES/PRENSA.jpeg" alt="Entrevista en el programa Doble Vía">
+        <div class="rain" aria-hidden="true">
+          <span style="left:8%; animation-delay:0s;"></span>
+          <span style="left:22%; animation-delay:1.1s;"></span>
+          <span style="left:37%; animation-delay:0.4s;"></span>
+          <span style="left:53%; animation-delay:2s;"></span>
+          <span style="left:68%; animation-delay:0.8s;"></span>
+          <span style="left:81%; animation-delay:1.6s;"></span>
+          <span style="left:92%; animation-delay:0.2s;"></span>
+        </div>
+        <span class="caption">
+          <span class="tag">Doble Vía</span>
+          <strong>Mira la entrevista aquí →</strong>
+        </span>
+      </a>
+
+      <div class="hero-dots" id="hero-dots"></div>
+    </div>
+
+    <a href="IMAGENES/NOVEDADES/CRONOGRAMA2026.pdf" download class="btn-descarga-cronograma">📅 Descargar programación completa</a>
+  </div>
+
+    <section style="padding: 40px 20px; text-align: center;">
+    <h2>Transmisión en directo: 6 de noviembre</h2>
+    <div class="video-responsive" style="max-width: 900px; margin: 0 auto; aspect-ratio: 16 / 9;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/VUevDgnjC8M?si=WTf6pnqcuFyTXwc-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <div class="container section-pad" style="padding-top:20px;">
+    <div class="section-head">
+      <span class="eyebrow">Actualidad</span>
+<h2 class="font-audex">Novedades</h2>
+    </div>
+   <div class="grid-3">
+     <div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/ANDREA2.png" alt="Andrea Chapela">
+  </div>
+  <div class="body">
+    <span class="date">4 de Noviembre</span>
+    <h3>Sobre Andrea Chapela</h3>
+    <p>¿Qué tienen que ver la química y la ciencia ficción? Mucho más de lo que imaginamos. Para Andrea Chapela, estudiar química fue una forma de acercarse a otras ideas y experiencias que hoy alimentan su escritura. </p>
+    <a href="https://www.instagram.com/p/DfVXZPhM4gb/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+     <div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/INVITACION.jpeg" alt="EVENTOS CONCENTRADOS">
+  </div>
+  <div class="body">
+    <span class="date">4 de Noviembre</span>
+    <h3>¿Ya te registraste a los eentos concentrados?</h3>
+    <p>Quienes nos conocen saben el rigor y el cariño que le ponemos a cada detalle desde la Fundación. Por eso, este 6 y 7 de noviembre queremos que nos acompañen en el @auditoriosff Sonia Fajardo Forero para vivir una inmersión total en la ciencia ficción y el universo visionario de Ray Bradbury.</p>
+    <a href="https://www.instagram.com/p/DfUqG8VMFZE/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+      <div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/fahrenheit-12.jpg" alt="Adoradas Yllas">
+  </div>
+  <div class="body">
+    <span class="date">4 de Noviembre</span>
+    <h3>Así se vivió Adoradas Yllas</h3>
+    <p>El 29 de octubre la Universidad Central fue este cruce entre mujeres, literatura y universos posibles; una de las jornadas más especiales que tuvimos del XV Festival de Literatura de Bogotá.</p>
+    <a href="https://www.instagram.com/p/DfSXTWZsKEk/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+       <div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/MANZANA.jpeg" alt="Dorada manzana">
+  </div>
+  <div class="body">
+    <span class="date">4 de Noviembre</span>
+    <h3>El cuento: Una dorada manzana del Sol</h3>
+    <p>Este 5 de noviembre, acompáñanos al conversatorio con la invitada internacional Andrea Chapela (México) y Paula Castillo, donde se explorarán los aportes y retos del relato breve en la ciencia ficción.</p>
+    <a href="https://www.instagram.com/p/DfSRhles6D5/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+      <div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/OBRA.png" alt="Obra de teatro">
+  </div>
+  <div class="body">
+    <span class="date">3 de Noviembre</span>
+    <h3>Obra de teatro: La Victoria de Goliat</h3>
+    <p>¡La ciencia ficción también tiene mucho que decir sobre nuestro presente! Regístrate para ver la obra de Púrpura Creactivo este 6 de noviembre en el Auditorio Sonia Fajardo Forero.</p>
+    <a href="https://www.instagram.com/p/DfR1O6ajFUQ/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+     <div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/MARULOMBARDO.png" alt="Maru Lombardo">
+  </div>
+  <div class="body">
+    <span class="date">3 de Noviembre</span>
+    <h3>Encuentro con Maru Lombardo</h3>
+    <p>Este sábado 7 de noviembre, tendremos una charla/club de escucha sobre las ciencias ficciones sonoras con la directora de Cero Setenta, Maru Lombardo.</p>
+    <a href="https://www.instagram.com/p/DfQB4WQNpB0/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+     <div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/ANDREA1.png" alt="Andrea Chapela">
+  </div>
+  <div class="body">
+    <span class="date">31 de Octubre</span>
+    <h3>Encuentros con Andrea Chapela</h3>
+    <p>Este 5 y 7 de noviembre tendremos dos encuentros para explorar otros mundos a través de los cuentos, conversar sobre ciencia ficción y descubrir un poco más sobre la obra de Ray Bradbury.</p>
+    <a href="https://www.instagram.com/p/DfIXsuSMfMi/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+        <div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/PROGCONCENTRADA.png" alt="EVENTOS CONCENTRADOS">
+  </div>
+  <div class="body">
+    <span class="date">30 de Octubre</span>
+    <h3>Regístrate a los Eventos Concentrados</h3>
+    <p>Acompáñanos en dos días de inmersión total con esta programación destacada. Aunque el acceso es de entrada libre, el aforo del auditorio es limitado. Busca el evento y aparta tu cupo hoy para que no te quedes por fuera de esta experiencia🛸</p>
+    <a href="https://www.instagram.com/p/DfIOZLplWmS/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+<div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/YLLAS.jpg" alt="ADORADAS YLLAS">
+  </div>
+  <div class="body">
+    <span class="date">27 de Octubre</span>
+    <h3>Adoradas Yllas</h3>
+    <p>¿Y si el futuro que estamos construyendo tiene voz de mujer? Descubre la programación de “Adoradas Yllas: Encuentro entre mujeres y ciencia ficción”, una jornada ineludible de la 15ª edición del Festival de Literatura de Bogotá. 📚</p>
+    <a href="https://www.instagram.com/p/De-FzHbHHCZ/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+   <div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/ALLENDEVIRTUAL.png" alt="ALLENDEVIRTUAL">
+  </div>
+  <div class="body">
+    <span class="date">25 de Octubre</span>
+    <h3>Encuentro con Isabel Allende</h3>
+    <p>¿Cuánto escribes en las servilletas aquello que no te atreves a decir en voz alta? ¿Cuánto entrenas tu pluma para encontrar las palabras precisas? ¿A cuántos personajes les has prestado tu voz para darles vida más allá de tu imaginación?</p>
+    <a href="https://www.instagram.com/p/De5SJA-o530/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+   <div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/ENCUENTROFABIAN.jpeg" alt="ENCUENTRO FABIAN">
+  </div>
+  <div class="body">
+    <span class="date">25 de Octubre</span>
+    <h3>Encuentros con Fabián Martínez</h3>
+    <p>¿Y si la llave para abrir mil y un puertas estuviera en tu inconsciente? 🧠 En el marco del 15.º Festival de Literatura de Bogotá: Vendrán lluvias suaves, te invitamos a dos encuentros con Fabián Mauricio Martínez para explorar los vínculos entre la imaginación, la escritura y aquello que habita más allá de lo consciente.</p>
+    <a href="https://www.instagram.com/p/De4ufKjDhI-/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+      <div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/ALLENDE.jpg" alt="ALLENDE">
+  </div>
+  <div class="body">
+    <span class="date">24 de Octubre</span>
+    <h3>Invitada especial: Isabel Allende</h3>
+    <p>Cerramos la presentación de nuestros invitados con una figura inigualable de la literatura latinoamericana. Una voz que ha convertido la memoria, la identidad y las experiencias de las mujeres en historias que han viajado por todo el mundo.</p>
+    <a href="https://www.instagram.com/p/De2gWhqDqtX/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+     <div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/ESTEREOSCOPIO.png" alt="Estereoscopio">
+  </div>
+  <div class="body">
+    <span class="date">21 de Octubre</span>
+    <h3>Mesa Sectorial: Canal Estereoscopio</h3>
+    <p>Daniel Monje, artista visual y creador del Estereoscopio, lleva más de 300 episodios explorando los universos de la ciencia ficción. Nos acompañará a pensar cómo circulan las historias y qué posibilidades abren para imaginar otros futuros.</p>
+    <a href="https://www.instagram.com/fundacionfahrenheit451/p/DexHLiJnIqP/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/22OCT.jpeg" alt="El país de octubre: difundir ciencia ficción en Colombia">
+  </div>
+  <div class="body">
+    <span class="date">20 de Octubre</span>
+    <h3>El país de octubre: difundir ciencia ficción en Colombia</h3>
+    <p>Crear y hacer circular la ciencia ficción en nuestro país requiere más que buenas ideas… Necesita comunidad, gestión y alianzas que mantengan vivos los mundos posibles</p>
+    <a href="https://www.instagram.com/fundacionfahrenheit451/p/DesEVGqnMYv/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+<div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/PRENSA.jpeg" alt="Entrevista en el programa Doble Vía">
+  </div>
+  <div class="body">
+    <span class="date">17 de Octubre</span>
+    <h3>Entrevista en el programa Doble Vía</h3>
+    <p>Javier Osuna conversó con el periodista Otilio López en el programa de Caracol TV sobre esta edición del festival.</p>
+    <a href="#modal-doblevia" class="readmore">Ver la entrevista →</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/CREACTIVO.png" alt="Púrpura Creactivo">
+  </div>
+  <div class="body">
+    <span class="date">17 de Octubre</span>
+    <h3>Mesa Sectorial: Púrpura Creactivo</h3>
+    <p> En el 15.º Festival de Literatura de Bogotá también habrá espacio para la creación escénica con Púrpura Creactivo, un colectivo teatral y audiovisual colombiano que desde 1999 explora la fantasía y la ciencia ficción para hablar de aquello que nos hace humanos.</p>
+    <a href="https://www.instagram.com/fundacionfahrenheit451/p/DekV4NBji9d/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/VASCO.png" alt="Irene Vasco">
+  </div>
+  <div class="body">
+    <span class="date">16 de Octubre</span>
+    <h3>Mesa Sectorial: Irene Vasco</h3>
+    <p>Irene Vasco ha dedicado su vida a acercar la literatura a niños y comunidades de Colombia, demostrando que leer también es una forma de comprender la realidad e imaginar otros futuros.</p>
+    <a href="https://www.instagram.com/fundacionfahrenheit451/p/DehO60_gu92/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/MADEJA.png" alt="Colectivo Madeja Literaria">
+  </div>
+  <div class="body">
+    <span class="date">15 de Octubre</span>
+    <h3>Mesa Sectorial: Colectivo Madeja Literaria</h3>
+    <p>¿De qué están hechas las historias cuando dejamos de escribirlas a solas? Madeja Literaria es ese espacio donde escribir también significa escuchar, leer, intervenir y dejarse transformar. </p>
+    <a href="https://www.instagram.com/fundacionfahrenheit451/p/DefM9stlQZS/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/TALLERCOHETE.jpeg" alt="Taller de Ciencia Ficción">
+  </div>
+  <div class="body">
+    <span class="date">14 de Octubre</span>
+    <h3>Taller de ciencia ficción para las infancias</h3>
+    <p>La niñez está llena de preguntas sin respuestas cortas, mundos por descubrir y futuros que todavía no tienen nombre. Te invitamos a compartir tres talleres de creación donde la imaginación de niñas, niños y adolescentes será protagonista.</p>
+    <a href="https://www.instagram.com/fundacionfahrenheit451/p/DeeX1dVDo1t/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="thumb thumb-tall">
+    <img src="IMAGENES/NOVEDADES/TRIAS.png" alt="Fernanda Trías">
+  </div>
+  <div class="body">
+    <span class="date">11 de Octubre</span>
+    <h3>Mesa Sectorial: Fernanda Trías</h3>
+    <p>La extraordinaria autora uruguaya llega al XV Festival de Literatura de Bogotá para explorar las distopías, el cuerpo, la naturaleza y las formas en que imaginamos la vida después del desastre.</p>
+    <a href="https://www.instagram.com/fundacionfahrenheit451/p/DeXeZL7nIiG/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+  </div>
+</div>
+      <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/4L3PH.jpg" alt="Maru Lombardo">
+    </div>
+    <div class="body">
+      <span class="date">7 de Octubre</span>
+      <h3>Mesa Sectorial: 4L3PH</h3>
+     <p>4L3PH trabaja en ese territorio donde la imaginación deja de ser únicamente una idea y se convierte en experimento, interacción y creación colectiva. </p>
+      <a href="https://www.instagram.com/p/DeNRqIPjt8o/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+      <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/LOMBARDO.jpg" alt="Maru Lombardo">
+    </div>
+    <div class="body">
+      <span class="date">7 de Octubre</span>
+      <h3>Mesa Sectorial: Maru Lombardo</h3>
+     <p>Seguimos presentando las voces del 15.º Festival de Literatura de Bogotá 🖋️ Maru Lombardo es periodista, escritora, guionista y productora multimedia argentina radicada en Bogotá. </p>
+      <a href="https://www.instagram.com/p/DeKRWNpjoTB/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+      <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/FATUO.jpg" alt="Fuego Fatuo">
+    </div>
+    <div class="body">
+      <span class="date">6 de Octubre</span>
+      <h3>Mesa Sectorial: Fuego Fatuo</h3>
+     <p>Paula Rubiano, Alisson Quiroga y Paula Alejandra Castillo llegan al 15.º Festival de Literatura de Bogotá desde la edición, la poesía y la creación para preguntarnos qué historias encuentran un lugar para existir y cuáles seguimos dejando fuera. </p>
+      <a href="https://www.instagram.com/p/DeIDR8OHH24/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+      <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/CARVAJAL.jpg" alt="Hover Carvajal">
+    </div>
+    <div class="body">
+      <span class="date">5 de Octubre</span>
+      <h3>Mesa Sectorial: Hover Carvajal</h3>
+     <p>Hover Carvajal, escritor vichadense, construye en su obra un puente entre la literatura contemporánea y las geografías, memorias y tradiciones de la Orinoquía colombiana. </p>
+      <a href="https://www.instagram.com/p/DeFOqCajrCO/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+      <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/BASTIDAS.jpg" alt="Rodrigo Bastidas">
+    </div>
+    <div class="body">
+      <span class="date">4 de Octubre</span>
+      <h3>Mesa Sectorial: Rodrigo Bastidas</h3>
+     <p>¿Y si el futuro no estuviera allá afuera, sino debajo de nuestros pies? 👣 Hoy presentamos a Rodrigo Bastidas: escritor, investigador, crítico y editor colombiano.
+ </p>
+      <a href="https://www.instagram.com/p/DeDHDwEjoqG/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+     <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/CHAPELA.jpg" alt="Andrea Chapela">
+    </div>
+    <div class="body">
+      <span class="date">3 de Octubre</span>
+      <h3>Mesa Sectorial: Andrea Chapela</h3>
+     <p>En el 15.º Festival de Literatura de Bogotá, Chapela se suma a una conversación sobre los futuros que empiezan, silenciosamente, en nuestra manera de mirar el presente.
+ </p>
+      <a href="https://www.instagram.com/p/DeAL2qsHBMD/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+      <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/1EVENTOS2026.jpeg" alt="Programación">
+    </div>
+    <div class="body">
+      <span class="date">1 de Octubre</span>
+      <h3>Los primeros eventos del festival</h3>
+     <p>Para arrancar con toda la energía, ¿qué mejor que hacerlo destacando a dos de las autoras colombianas más importantes del género de la Ciencia Ficción? </p>
+      <a href="https://www.instagram.com/p/Dd9nnN0lbJO/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+      <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/AMADOR.png" alt="Claudia Amador">
+    </div>
+    <div class="body">
+      <span class="date">30 de Septiembre</span>
+      <h3>Mesa Sectorial: Claudia Amador</h3>
+     <p>En la obra de Claudia Amador, el cuerpo no es solamente un lugar que habitamos. También es un territorio donde se cruzan el poder, la identidad, la tecnología y aquello que heredamos. Conócela aquí. </p>
+      <a href="https://www.instagram.com/p/Dd7J-1SHGYT/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+     <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/INAUGURACION2026.jpeg" alt="Artículo La Nueva Prensa">
+    </div>
+    <div class="body">
+      <span class="date">25 de Septiembre</span>
+      <h3>“La ciencia ficción es el lugar donde nuestra imaginación se puede proyectar y organizar”: Luis Carlos Barragán</h3>
+     <p>Lee el artículo completo en La Nueva Prensa</p>
+       <a href="#modal-prensa" class="readmore">Leer más →</a>
+    </div>
+  </div>
+      <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/MONJE.png" alt="Daniel Monje">
+    </div>
+    <div class="body">
+      <span class="date">22 de Septiembre</span>
+      <h3>Mesa Sectorial: Daniel Monje</h3>
+     <p>Daniel Monje es profesor, artista visual, performer y apasionado lector de ciencia ficción. Conócelo aquí. </p>
+      <a href="https://www.instagram.com/p/DdmmuU5gaw_/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+      <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/ANDRADE.png" alt="Jairo Andrade">
+    </div>
+    <div class="body">
+      <span class="date">21 de Septiembre</span>
+      <h3>Mesa Sectorial: Jairo Andrade</h3>
+     <p>Jairo Andrade conecta escritura, arte y nuevos medios para llevar una pregunta al límite: ¿hasta dónde puede transformarse una historia sin dejar de ser literatura?</p>
+      <a href="https://www.instagram.com/p/DdjatV9HOQy/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+      <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/MARTINEZ.png" alt="Fabián Martínez">
+    </div>
+    <div class="body">
+      <span class="date">17 de Septiembre</span>
+      <h3>Mesa Sectorial: Fabián M. Martínez</h3>
+     <p>Hay escritores que inventan mundos… Fabián Mauricio Martínez prefiere encontrar las grietas del nuestro. Conócelo aquí</p>
+      <a href="https://www.instagram.com/p/DdZkA0tjmbe/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+     <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/ALARCON.png" alt="Karonlains Alarcón">
+    </div>
+    <div class="body">
+      <span class="date">15 de Septiembre</span>
+      <h3>Mesa Sectorial: Karonlains Alarcón</h3>
+     <p>Karonlains es antropóloga, escritora, tallerista y su trayectoria de vida conecta literatura con cultura y procesos comunitarios en diversas regiones del país.
+</p>
+      <a href="https://www.instagram.com/p/DdUWBBvjusk/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+      <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/VIDEO.png" alt="Video de lanzamiento">
+    </div>
+    <div class="body">
+      <span class="date">14 de Septiembre</span>
+      <h3>Lanzamiento oficial</h3>
+     <p>El futuro ya llegó y este año nos invita a mirarlo a través de la literatura. Les presentamos la XV edición del Festival de Literatura de Bogotá.</p>
+      <a href="https://www.instagram.com/p/DdR2aEGMOu8/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/PRELANZ26.jpg" alt="Prelanzamiento XV Festival de Literatura de Bogotá - Las crónicas marcianas de Luis Carlos Barragán">
+    </div>
+    <div class="body">
+      <span class="date">2 de Septiembre</span>
+      <h3>Las crónicas marcianas de Luis Carlos Barragán</h3>
+      <p>Acompáñanos a celebrar el inicio oficial de nuestro decimoquinto festival en este gran evento de prelanzamiento en la Universidad El Bosque.</p>
+      <a href="https://www.instagram.com/p/Dcy3fZOMW-Q/" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/BARRAGAN.jpg" alt="Revelación de invitados 2026 - Luis Carlos Barragán">
+    </div>
+    <div class="body">
+      <span class="date">31 de Agosto</span>
+      <h3>¡Inicia la revelación oficial de invitados 2026!</h3>
+      <p>Arrancamos a presentar a los artistas que nos acompañarán en el Festival de Literatura de Bogotá, y qué mejor manera de abrir camino que con Luis Carlos Barragán.</p>
+      <a href="https://www.instagram.com/p/Dct5VHMDoyZ/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/PREDICCIONES.jpg" alt="Las predicciones cumplidas del 2026 según las Crónicas Marcianas de Ray Bradbury">
+    </div>
+    <div class="body">
+      <span class="date">6 de Agosto</span>
+      <h3>Las predicciones cumplidas del 2026 según las Crónicas Marcianas de Ray Bradbury</h3>
+      <p>En este carrusel, te mostramos algunas predicciones que se cumplieron 76 años después.</p>
+      <a href="https://www.instagram.com/p/DbtjH5PHC0S/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="thumb thumb-tall">
+      <img src="IMAGENES/NOVEDADES/4AGO.png" alt="Vendrán lluvias suaves - la casa ha vuelto a despertar">
+    </div>
+    <div class="body">
+      <span class="date">4 de Agosto</span>
+      <h3>Tic tac, tic tac... la casa ha vuelto a despertar.</h3>
+      <p>Durante décadas, esta fue solo una fecha escrita en un cuento de Ray Bradbury. Hoy, esa predicción deja de ser ficción o futuro para convertirse en nuestro presente.</p>
+      <a href="https://www.instagram.com/p/DboSs9OnHxZ/?img_index=1" target="_blank" rel="noopener noreferrer" class="readmore">Leer más →</a>
+    </div>
+  </div>
+</div>
+     
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    Festival de Literatura de Bogotá · Organizado por la Fundación Fahrenheit 451
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+  <!-- VENTANA EMERGENTE 1 (ARTÍCULO LA NUEVA PRENSA) -->
+<div id="modal-prensa" class="modal-overlay" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-prensa-title">
+    <button type="button" class="modal-close" aria-label="Cerrar">×</button>
+    <h3 id="modal-prensa-title">"La ciencia ficción es el lugar donde nuestra imaginación se puede proyectar y organizar": Luis Carlos Barragán</h3>
+    <div class="modal-role">La Nueva Prensa · 25 de Septiembre, 2026</div>
+    <p class="modal-bio">El 11 de septiembre, la Fundación Fahrenheit 451 realizó el prelanzamiento de la XV edición del Festival de Literatura de Bogotá, titulado Vendrán lluvias suaves. Allí, se introdujo el sitio web del festival, homónimo al cuento de Ray Bradbury, y se llevó a cabo un conversatorio con el autor Luis Carlos Barragán, una de las voces más reconocidas de la ciencia ficción latinoamericana.</p>
+    <p style="margin-top:18px;"><a href="https://www.lanuevaprensa.com.co/component/k2/la-ciencia-ficcion-es-el-lugar-donde-nuestra-imaginacion-se-puede-proyectar-y-organizar-luis-carlos-barragan" target="_blank" rel="noopener noreferrer" class="readmore" style="display:inline-block; padding:10px 20px; background:#CC753C; color:#f4ecd8; text-decoration:none;">Lee el artículo completo en La Nueva Prensa →</a></p>
+  </div>
+</div>
+
+  <!-- VENTANA EMERGENTE: ENTREVISTA DOBLE VÍA -->
+<div id="modal-doblevia" class="modal-overlay" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-doblevia-title">
+    <button type="button" class="modal-close" aria-label="Cerrar">×</button>
+    <h3 id="modal-doblevia-title">Entrevista en el programa Doble Vía</h3>
+    <div class="modal-role">Caracol TV · 17 de Octubre, 2026</div>
+    <p class="modal-bio">Javier Osuna conversó con el periodista Otilio López en el programa de Caracol TV sobre esta edición del festival.</p>
+    <video controls style="width:100%; border-radius:10px; margin-top:18px; display:block;">
+      <source src="IMAGENES/NOVEDADES/DOBLEVIA_CARACOL.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<!-- VENTANA EMERGENTE: NOTA ISABEL ALLENDE -->
+<div id="modal-allende" class="modal-overlay" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-allende-title">
+    <button type="button" class="modal-close" aria-label="Cerrar">×</button>
+    <h3 id="modal-allende-title">Conéctate con Isabel Allende</h3>
+    <div class="modal-role">Clausura · Martes 10 de noviembre, 2026</div>
+    <p class="modal-bio">Más allá del realismo mágico y la memoria que definen su obra, narrar implica rozar el asombro y lo insólito. En este encuentro de clausura, la aclamada autora chilena dialoga en teleconferencia con la periodista Laura Arévalo (El Espectador) sobre la imaginación especulativa y los destellos de anticipación que nutren su proceso creativo.</p>
+    <!--
+      Si Isabel Allende envía un mensaje propio para el festival, pégalo aquí
+      (quita las marcas de comentario) y déjalo con su nombre como firma:
+      <p class="modal-bio" style="margin-top:16px; font-style:italic;">"TEXTO DEL MENSAJE"</p>
+      <div class="modal-role" style="margin-top:8px;">— Isabel Allende</div>
+    -->
+    <p class="modal-bio" style="margin-top:16px;"><strong>Hora:</strong> 5:30 p. m. – 7:00 p. m.<br><strong>Lugar:</strong> Gimnasio Moderno, Biblioteca de Los Fundadores, Carrera 9 # 74-99.</p>
+    <p style="margin-top:18px;"><a href="edicion-15.html" class="ev-btn ev-btn-primary">Ver el cronograma completo →</a></p>
+  </div>
+</div>
+
+<script>
+// Evento destacado de Isabel Allende: ocultar después del evento, ajustar etiqueta del día y controlar el popup
+(function(){
+  var banner = document.getElementById('evento-allende');
+  if (!banner) return;
+
+  var fin = new Date(banner.getAttribute('data-fin'));
+  if (new Date() > fin) { banner.hidden = true; return; }
+
+  var hoy = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Bogota' });
+  var cuando = document.getElementById('ev-cuando');
+  if (cuando && hoy === '2026-11-10') cuando.textContent = 'Hoy martes 10 de noviembre';
+
+  var modal = document.getElementById('modal-allende');
+  if (!modal) return;
+
+  function abrir(e){
+    e.preventDefault();
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    var cerrar = modal.querySelector('.modal-close');
+    if (cerrar) cerrar.focus();
+  }
+  function cerrar(){
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('a[href="#modal-allende"]').forEach(function(a){ a.addEventListener('click', abrir); });
+  modal.querySelector('.modal-close').addEventListener('click', cerrar);
+  modal.addEventListener('click', function(e){ if (e.target === modal) cerrar(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) cerrar(); });
+})();
+</script>
+  
+</body>
+</html>
