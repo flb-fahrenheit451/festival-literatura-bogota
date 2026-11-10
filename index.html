@@ -32,7 +32,7 @@
     <h1>Vendrán <em>Lluvias Suaves</em></h1>
     <p class="lede">Un homenaje a la ciencia ficción y al cuento de Ray Bradbury que le da nombre a esta edición del Festival de Literatura de Bogotá.</p>
 
-    <!-- EVENTO DESTACADO: ISABEL ALLENDE (se oculta solo después del evento) -->
+   <!-- EVENTO DESTACADO: ISABEL ALLENDE (se oculta solo después del evento) -->
     <section class="evento-destacado" id="evento-allende" data-fin="2026-11-10T19:00:00-05:00" aria-label="Evento destacado: Isabel Allende">
       <div class="ev-media">
         <span class="ev-badge">Clausura</span>
@@ -54,8 +54,17 @@
         </dl>
         <div class="ev-actions">
           <a href="https://www.google.com/maps/search/?api=1&query=Gimnasio+Moderno+Carrera+9+%2374-99+Bogot%C3%A1" target="_blank" rel="noopener noreferrer" class="ev-btn ev-btn-ghost">Cómo llegar</a>
+          <button type="button" class="ev-btn ev-btn-live" id="ev-live-btn" aria-expanded="false" aria-controls="ev-live">Unirme a la transmisión</button>
         </div>
       </div>
+
+      <div class="ev-live" id="ev-live" hidden>
+        <div class="ev-live-video">
+          <iframe id="ev-live-frame" data-src="https://www.youtube.com/embed/3sa3iOUFw7I?autoplay=1&rel=0" title="Transmisión en directo: Isabel Allende" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p class="ev-live-note">¿No carga? <a href="https://www.youtube.com/watch?v=3sa3iOUFw7I" target="_blank" rel="noopener noreferrer">Míralo directamente en YouTube</a></p>
+      </div>
+    </section>
 
           <section style="padding: 40px 20px; text-align: center;">
     <h2>Transmisión en directo: 10 de noviembre</h2>
@@ -690,6 +699,32 @@
   modal.querySelector('.modal-close').addEventListener('click', cerrar);
   modal.addEventListener('click', function(e){ if (e.target === modal) cerrar(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) cerrar(); });
+})();
+</script>
+
+<script>
+// Transmisión en vivo dentro del evento destacado de Isabel Allende
+(function(){
+  var btn = document.getElementById('ev-live-btn');
+  var panel = document.getElementById('ev-live');
+  var frame = document.getElementById('ev-live-frame');
+  if (!btn || !panel || !frame) return;
+
+  btn.addEventListener('click', function(){
+    var abrir = panel.hidden;
+    if (abrir) {
+      if (!frame.getAttribute('src')) frame.setAttribute('src', frame.getAttribute('data-src'));
+      panel.hidden = false;
+      btn.textContent = 'Ocultar transmisión';
+      btn.setAttribute('aria-expanded', 'true');
+      setTimeout(function(){ panel.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 60);
+    } else {
+      panel.hidden = true;
+      frame.removeAttribute('src');
+      btn.textContent = 'Unirme a la transmisión';
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
 })();
 </script>
   
