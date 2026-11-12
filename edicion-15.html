@@ -8,6 +8,318 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Tomorrow:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+/* ---------- BIBLIOTECA DE LAS CHARLAS ---------- */
+.biblioteca{ margin-top: 72px; scroll-margin-top: 90px; }
+.bib-eyebrow{
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin-bottom: 12px;
+}
+.biblioteca .bib-title{
+  font-family: 'AudexRegular', sans-serif;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 3.4vw, 2.2rem);
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.bib-lede{
+  max-width: 680px;
+  color: rgba(244,236,216,0.78);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 26px;
+}
+
+.bib-controles{ display: grid; gap: 14px; margin-bottom: 18px; }
+.bib-buscar{
+  width: 100%;
+  max-width: 460px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(217,196,153,0.3);
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+.bib-buscar::placeholder{ color: rgba(244,236,216,0.5); }
+.bib-buscar:focus{ outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+.bib-chips{
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.bib-chips-charlas{
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+}
+.bib-chip{
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(217,196,153,0.3);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.bib-chip:hover{ border-color: var(--accent-2); color: var(--accent-2); }
+.bib-chip[aria-pressed="true"]{
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  color: var(--bg);
+}
+.bib-chip:focus-visible{ outline: 2px solid var(--accent-2); outline-offset: 2px; }
+.bib-chips-label{
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(244,236,216,0.55);
+  margin-bottom: 6px;
+}
+
+.bib-count{
+  font-size: 0.85rem;
+  color: rgba(244,236,216,0.65);
+  margin: 4px 0 8px;
+}
+
+.bib-grupo{ margin-top: 40px; }
+.bib-grupo-head{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 20px;
+  flex-wrap: wrap;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid rgba(218,168,78,0.3);
+}
+.biblioteca .bib-grupo-titulo{
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--text);
+  margin: 0;
+}
+.bib-grupo-fecha{
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+.bib-grupo-link{
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+.bib-grupo-link:hover{ text-decoration: underline; }
+
+.bib-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 22px 18px;
+}
+@media (max-width: 480px){
+  .bib-grid{ grid-template-columns: repeat(2, 1fr); gap: 18px 12px; }
+}
+
+.bib-card{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.bib-card:focus-visible{ outline: 2px solid var(--accent-2); outline-offset: 4px; border-radius: 10px; }
+
+.bib-cover{
+  position: relative;
+  aspect-ratio: 2 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background:
+    repeating-linear-gradient(115deg, rgba(218,168,78,0.07) 0 2px, transparent 2px 22px),
+    linear-gradient(160deg, #17293a 0%, #2c1f27 55%, #4a2a26 100%);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.bib-card:hover .bib-cover{
+  transform: translateY(-4px);
+  border-color: rgba(218,168,78,0.6);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.45);
+}
+.bib-cover img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.bib-cover img.ok{ opacity: 1; }
+.bib-fallback{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  text-align: center;
+}
+.bib-fallback b{
+  font-family: 'AudexRegular', sans-serif;
+  font-weight: normal;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--accent);
+}
+.bib-fallback i{
+  font-style: normal;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.bib-card-titulo{
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.92rem;
+  line-height: 1.25;
+  color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.bib-card-meta{
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: rgba(244,236,216,0.65);
+  margin-top: -6px;
+}
+.bib-card-tipo{
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(218,168,78,0.45);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+.bib-vacio{
+  margin-top: 36px;
+  color: rgba(244,236,216,0.75);
+  font-size: 1rem;
+}
+.bib-vacio[hidden]{ display: none; }
+
+/* Ventana de detalle */
+.bib-modal{ max-width: 460px; }
+.bib-m-cover{
+  position: relative;
+  width: 160px;
+  aspect-ratio: 2 / 3;
+  margin: 0 auto 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background:
+    repeating-linear-gradient(115deg, rgba(218,168,78,0.07) 0 2px, transparent 2px 22px),
+    linear-gradient(160deg, #17293a 0%, #2c1f27 55%, #4a2a26 100%);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+}
+.bib-m-cover img{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.bib-m-tipo{
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin-bottom: 8px;
+}
+.bib-m-autor{
+  color: var(--cream);
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+}
+.bib-m-label{
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(244,236,216,0.55);
+  margin-bottom: 10px;
+}
+.bib-m-charlas{ display: grid; gap: 10px; }
+.bib-m-charla{
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(218,168,78,0.4);
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease;
+}
+.bib-m-charla:hover{ border-color: var(--accent-2); background: #1d3246; }
+.bib-m-charla small{
+  display: block;
+  margin-top: 3px;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+.bib-m-charla-plana{ cursor: default; }
+.bib-m-charla-plana:hover{ border-color: rgba(218,168,78,0.4); background: var(--surface-2); }
+</style>
 </head>
 <body>
 
@@ -46,457 +358,37 @@
       </section>
     </div>
 
- <!-- CRONOGRAMA INTERACTIVO -->
+ <!-- CRONOGRAMA (solo descargable) -->
     <section class="ea-block cronograma-seccion-completa">
       <h2>Cronograma del Festival</h2>
-<p class="instruccion-cronograma">Haz clic en cualquier actividad para ver los detalles completos.</p>
 <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center;">
   <a href="IMAGENES/NOVEDADES/CRONOGRAMA2026.pdf" download class="btn-descarga-cronograma">📅 Descargar programación completa</a>
   <a href="https://forms.gle/ARgheFxBhFUnup9L8" target="_blank" rel="noopener noreferrer" class="btn-descarga-cronograma">📝 Inscríbete a los eventos concentrados del 6 y 7 de noviembre</a>
+  <a href="#biblioteca" class="btn-descarga-cronograma">📚 Biblioteca de las charlas</a>
 </div>
-    <ul class="cronograma-list-interactive">
-        <!-- 1 -->
-        <li class="cronograma-item" data-dia="1" data-fecha-iso="2026-09-11"
-            data-titulo="Las Crónicas marcianas de Luis Carlos Barragán"
-            data-fecha="11 de Septiembre"
-            data-hora="6:00 P.M. - 8:00 P.M."
-            data-lugar="Auditorio Hub IEX, Universidad El Bosque, Cra. 7b Bis #132-28"
-            data-desc="Conversación entre Luis Carlos Barragán y Javier Osuna Sarmiento sobre los rastros de Ray Bradbury en la obra de una de las voces más representativas de la ciencia ficción de nuestro país. Este fue el evento de prelanzamiento de la XV edición del festival."
-            data-participante="Luis Carlos Barragán y Javier Osuna Sarmiento"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">11 de Septiembre</span>
-            <span class="cronograma-titulo-text">Las Crónicas marcianas de Luis Carlos Barragán</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Luis Carlos Barragán</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
+    </section>
 
-        <!-- 2 -->
-        <li class="cronograma-item" data-dia="2" data-fecha-iso="2026-10-05"
-            data-titulo="Bosa 3036"
-            data-fecha="5 de Octubre"
-            data-hora="2:00 P.M. - 4:00 P.M."
-            data-lugar="Auditorio Rogelio Salmona, Centro Cultural Gabriel García Márquez, Cl. 11 #5-60"
-            data-desc="¿Cómo sería un robot diseñado para las calles de Bosa? ¿Qué formas de vida surgirían en sus periferias dentro de mil años? Estas preguntas dieron origen al libro Bosa 3036, una obra colectiva que imaginó futuros desde la experiencia comunitaria."
-            data-participante="Karonlains Alarcón, Yara Cruz y Mar Tunjo"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">5 de Octubre</span>
-            <span class="cronograma-titulo-text">Bosa 3036</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Karonlains Alarcón y más</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
+    <!-- BIBLIOTECA DE LAS CHARLAS -->
+    <section class="ea-block biblioteca" id="biblioteca" aria-labelledby="bib-titulo">
+      <span class="bib-eyebrow">Para seguir leyendo, escuchando y viendo</span>
+      <h2 class="bib-title" id="bib-titulo">Biblioteca de las charlas</h2>
+      <p class="bib-lede">Libros, cuentos, podcasts, series y películas que se mencionaron en los eventos concentrados y en otras charlas del festival. Toca una portada para ver en qué charla apareció.</p>
 
-        <!-- 3 -->
-        <li class="cronograma-item" data-dia="3" data-fecha-iso="2026-10-06"
-            data-titulo="¿Y si hacemos un planetaaaaa?"
-            data-fecha="6 de Octubre"
-            data-hora="6:00 P.M. - 8:00 P.M."
-            data-lugar="Modalidad Virtual"
-            data-desc="Taller de construcción de mundos guiado por la profesora y editora Angélica Caballero e inspirado en Bradbury, donde cada participante imagina un elemento de un planeta colectivo. Una olla comunitaria de ideas con una sola regla: inventar algo que aún no existe."
-            data-participante="Angélica Caballero"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">6 de Octubre</span>
-            <span class="cronograma-titulo-text">¿Y si hacemos un planetaaaaa?</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Angélica Caballero</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
+      <div class="bib-controles">
+        <input type="search" class="bib-buscar" id="bib-buscar" placeholder="Buscar por título o autor" aria-label="Buscar en la biblioteca">
+        <div>
+          <p class="bib-chips-label">Tipo</p>
+          <div class="bib-chips" id="bib-chips-tipo"></div>
+        </div>
+        <div>
+          <p class="bib-chips-label">Charla</p>
+          <div class="bib-chips bib-chips-charlas" id="bib-chips-charla"></div>
+        </div>
+      </div>
 
-        <!-- 4 -->
-        <li class="cronograma-item" data-dia="4" data-fecha-iso="2026-10-07"
-            data-titulo="Dispositivos mínimos e insomnes"
-            data-fecha="7 de Octubre"
-            data-hora="3:00 P.M. - 5:00 P.M."
-            data-lugar="Casa de la Memoria, Cra. 125b #131a-35"
-            data-desc="Taller de microrrelato de ciencia ficción a partir de 'Todo el verano en un día' de Bradbury y otros microrrelatos, donde se explora el concepto de novum: el elemento que transforma las reglas de un mundo posible, imaginando futuros desde la ausencia o transformación de algo cotidiano."
-            data-participante="Claudia Amador"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">7 de Octubre</span>
-            <span class="cronograma-titulo-text">Dispositivos mínimos e insomnes</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Claudia Amador</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 5 -->
-        <li class="cronograma-item" data-dia="5" data-fecha-iso="2026-10-08"
-            data-titulo="Las ilustraciones de la Soyuz según Ray Bradbury"
-            data-fecha="8 de Octubre"
-            data-hora="6:00 P.M. - 8:00 P.M."
-            data-lugar="Modalidad Virtual"
-            data-desc="Charla-taller virtual en la que el profesor Daniel Monje analiza la «anatomía» del cohete en la obra de Ray Bradbury. Un recorrido que va desde la promesa científica de progreso del siglo XX hasta los cohetes nigrománticos que conquistan Marte: máquinas concebidas no desde la física criogénica, sino como objetos poético-técnicos nutridos por la alquimia, el cine mudo y el pulso político de su tiempo."
-            data-participante="Daniel E. Monje"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">8 de Octubre</span>
-            <span class="cronograma-titulo-text">Las ilustraciones de la Soyuz según Ray Bradbury</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Daniel E. Monje</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 6 -->
-        <li class="cronograma-item" data-dia="6" data-fecha-iso="2026-10-13"
-            data-titulo="Voces que no son nuestras"
-            data-fecha="13 de Octubre"
-            data-hora="6:00 P.M. - 8:00 P.M."
-            data-lugar="Modalidad Virtual"
-            data-desc="La escritora Karonlains Alarcón realiza un taller sobre narrar desde una conciencia no humana, inspirado en 'Vendrán lluvias suaves' de Bradbury, donde cada participante elige un narrador imposible y explora qué puede ver, sentir o callar una voz que percibe el mundo de forma distinta a la nuestra."
-            data-participante="Karonlains Alarcón"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">13 de Octubre</span>
-            <span class="cronograma-titulo-text">Voces que no son nuestras</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Karonlains Alarcón</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 7 -->
-        <li class="cronograma-item" data-dia="7" data-fecha-iso="2026-10-15"
-            data-titulo="Ce-efe dadaísta"
-            data-fecha="15 de Octubre"
-            data-hora="6:00 P.M. - 8:00 P.M."
-            data-lugar="Modalidad Virtual"
-            data-desc="El escritor Jairo Andrade plantea un ejercicio de escritura colectiva en web inspirado en Crónicas marcianas, combinando cadáver exquisito con armado aleatorio dadaísta. La composición puede incluir imágenes, video o audio; solo se necesita computador con internet y ganas de escribir en colectivo."
-            data-participante="Jairo Andrade"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">15 de Octubre</span>
-            <span class="cronograma-titulo-text">Ce-efe dadaísta</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Jairo Andrade</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 8 -->
-        <li class="cronograma-item" data-dia="8" data-fecha-iso="2026-10-16"
-            data-titulo="Suaves lluvias sinápticas"
-            data-fecha="16 de Octubre"
-            data-hora="3:00 P.M. - 5:00 P.M."
-            data-lugar="CREA Salamanca, Calle 63D #28A-32"
-            data-desc="Performance donde el público genera narrativa y material audiovisual con sus ondas cerebrales. Inspirado en la ciencia ficción del sur global y el legado de Bradbury, es un laboratorio vivo de 80 minutos en tres actos: lectura expandida con visualización neuronal, oráculo algorítmico y creación poética colectiva sobre futuros e identidades urbanas en Bogotá."
-            data-participante="Jairo Andrade"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">16 de Octubre</span>
-            <span class="cronograma-titulo-text">Suaves lluvias sinápticas</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Jairo Andrade</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 9 -->
-        <li class="cronograma-item" data-dia="9" data-fecha-iso="2026-10-17"
-            data-titulo="Bogotá, entre ciberpunk, letras y distopías"
-            data-fecha="17 de Octubre"
-            data-hora="10:00 A.M. - 12:00 P.M."
-            data-lugar="CREA Castilla, Cra. 75 #8b-89"
-            data-desc="El novelista Stiv Vélez, autor de Sanadius (2022), SAS (2024) y Sintonía 22 (2026), conversará con el público sobre su visión de la ciencia ficción y cómo esta narra a Bogotá, sus tensiones y matices, tocando temas de distopía, tecnología y condición humana."
-            data-participante="Stiv Vélez"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">17 de Octubre</span>
-            <span class="cronograma-titulo-text">Bogotá, entre ciberpunk, letras y distopías</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Stiv Vélez</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 10 -->
-        <li class="cronograma-item" data-dia="10" data-fecha-iso="2026-10-20"
-            data-titulo="Fanzine y ciencia ficción barrial: imaginando el porvenir"
-            data-fecha="20 de Octubre"
-            data-hora="3:00 P.M. - 5:00 P.M."
-            data-lugar="Colegio San Pablo de Bosa, Cl. 66 Sur #78-2"
-            data-desc="Taller práctico de fanzines comunitarios, donde papel, dibujo y palabra se combinan para hackear las narrativas de ciencia ficción desde lo cotidiano y el territorio, dialogando con estéticas como el solarpunk para imaginar futuros posibles desde el propio barrio."
-            data-participante="Karonlains Alarcón"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">20 de Octubre</span>
-            <span class="cronograma-titulo-text">Fanzine y ciencia ficción barrial: imaginando el porvenir</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Karonlains Alarcón</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 11 -->
-        <li class="cronograma-item" data-dia="11" data-fecha-iso="2026-10-22"
-            data-titulo="El país de octubre: difundir ciencia ficción en Colombia"
-            data-fecha="22 de Octubre"
-            data-hora="4:30 P.M. - 7:30 P.M."
-            data-lugar="Librería Urapán, Calle 118A # 11A-10"
-            data-desc="Diálogo entre Angélica Caballero (Mirabilia Libros) y Daniel Monje (Estereoscopio) sobre el reto de impulsar y sostener la ciencia ficción en Colombia. Este evento contará con la participación del colectivo Madeja Literaria (Santiago Ucros y Daniel Salas)."
-            data-participante="Daniel E. Monje y Angélica Caballero"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">22 de Octubre</span>
-            <span class="cronograma-titulo-text">El país de octubre: difundir ciencia ficción en Colombia</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Daniel E. Monje y Angélica Caballero</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 12 -->
-        <li class="cronograma-item" data-dia="12" data-fecha-iso="2026-10-23"
-            data-titulo="Chirow: La Rebelión de Monte Trueno"
-            data-fecha="23 de Octubre"
-            data-hora="3:00 P.M. - 5:00 P.M."
-            data-lugar="CREA Gustavo Restrepo (Grupo Colores de la Poética), Calle 27A Sur # 13 - 51"
-            data-desc="Conversatorio con Hover Carvajal, escritor de La Primavera (Vichada), sobre su más reciente libro Chirow: La Rebelión de Monte Trueno, donde en un futuro de esclavitud humana, un grupo de jóvenes rebeldes lucha por destruir Ciudad Cumbre desde sus entrañas."
-            data-participante="Hover Carvajal"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">23 de Octubre</span>
-            <span class="cronograma-titulo-text">Chirow: La Rebelión de Monte Trueno</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Hover Carvajal</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 13 -->
-        <li class="cronograma-item" data-dia="13" data-fecha-iso="2026-10-26"
-            data-titulo="La llave de las mil y un puertas: Conferencia performativa"
-            data-fecha="26 de Octubre"
-            data-hora="9:00 A.M. - 11:00 A.M."
-            data-lugar="Auditorio Porfirio Barba Jacob, Centro Cultural Gabriel García Márquez, Cl. 11 #5-60"
-            data-desc="Una exploración de la relación entre el inconsciente y la creación literaria, partiendo de reflexiones de Bradbury en Zen en el arte de escribir sobre la importancia de conocer el propio inconsciente, leídas a la luz de nociones de la psicóloga Marly Kuenerz en El inconsciente cuántico."
-            data-participante="Fabián M. Martínez"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">26 de Octubre</span>
-            <span class="cronograma-titulo-text">La llave de las mil y un puertas: Conferencia performativa</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Fabián M. Martínez</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 14 -->
-        <li class="cronograma-item" data-dia="14" data-fecha-iso="2026-10-28"
-            data-titulo="La llave de las mil y un puertas: Conferencia performativa"
-            data-fecha="28 de Octubre"
-            data-hora="7:00 P.M. - 9:00 P.M."
-            data-lugar="Universidad Kónrad Lórenz, Carrera 9 Bis # 62 - 43"
-            data-desc="Una exploración de la relación entre el inconsciente y la creación literaria. El propósito de este encuentro es observar textos de Ray Bradbury a la luz de algunas nociones planteadas por la psicóloga brasilera Marly Kuenerz, en el libro El inconsciente cuántico."
-            data-participante="Fabián M. Martínez"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">28 de Octubre</span>
-            <span class="cronograma-titulo-text">La llave de las mil y un puertas: Conferencia performativa (repetición)</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Fabián M. Martínez</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 15 -->
-        <li class="cronograma-item" data-dia="15" data-fecha-iso="2026-10-29"
-            data-titulo="Lo humano en disputa: relatos entre la IA y la ficción especulativa"
-            data-fecha="29 de Octubre"
-            data-hora="9:00 A.M. - 10:30 A.M."
-            data-lugar="Universidad de La Sabana, Auditorio K2, Km. 7 Autopista Norte de Bogotá"
-            data-desc="Diálogo del colectivo 4L3PH sobre los cruces entre inteligencia artificial, ciencia ficción y cultura contemporánea, en torno a cómo las tecnologías emergentes transforman la creación y a la pregunta de quién narra cuando interviene la máquina."
-            data-participante="Guillermo Zúñiga, cofundador del Colectivo 4L3PH"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">29 de Octubre</span>
-            <span class="cronograma-titulo-text">Lo humano en disputa: relatos entre la IA y la ficción especulativa</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Guillermo Zúñiga (4L3PH)</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 16 -->
-        <li class="cronograma-item" data-dia="16" data-fecha-iso="2026-10-29" data-multi="true"
-            data-titulo="Adoradas Yllas: una galaxia de escritoras colombianas"
-            data-fecha="29 de Octubre"
-            data-hora="3:00 P.M. - 8:00 P.M."
-            data-lugar="Plazoleta Cultural, Campus de la Universidad Central, Cra. 5 # 21-38"
-            data-desc="¿Un oráculo de escritoras? ¿Postales para habitar mundos y libros desconocidos? Disfruta de esta potente franja de encuentro, difusión y conversación que congrega a varias de las más reconocidas autoras colombianas de ciencia ficción de nuestro país."
-            data-participante="Andrea Salgado, Angélica Caballero, Karonlains Alarcón, Paula Rubiano, Alisson Quiroga y Paula Castillo"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">29 de Octubre</span>
-            <span class="cronograma-titulo-text">Adoradas Yllas: una galaxia de escritoras colombianas</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Varios participantes</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 17 -->
-        <li class="cronograma-item" data-dia="17" data-fecha-iso="2026-10-31"
-            data-titulo="Evento infantil: El bazar del terror con Irene Vasco"
-            data-fecha="31 de Octubre"
-            data-hora="11:00 A.M. - 12:00 P.M."
-            data-lugar="Librería Urapán, Calle 118A # 11A-10"
-            data-desc="Prepárate para la noche de brujas con el libro 'El bazar del terror' de Irene Vasco. Acompaña a Circe, una gata bruja que traerá entre sus pelos un terrible deseo. Lectura en voz alta."
-            data-participante="Irene Vasco"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">31 de Octubre</span>
-            <span class="cronograma-titulo-text">Evento infantil: El bazar del terror con Irene Vasco</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Irene Vasco</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 18 -->
-        <li class="cronograma-item" data-dia="18" data-fecha-iso="2026-11-05"
-            data-titulo="El cuento: una dorada manzana del sol"
-            data-fecha="5 de Noviembre"
-            data-hora="2 a 5 p.m."
-            data-lugar="Sala de Arte Bancolombia - Torre Norte del Edificio Atrio - Cl. 28 #13A - 75"
-            data-desc="En esta conversación entre Paula Castillo y Andrea Chapela (México), exploraremos los aportes y retos del cuento en la ciencia ficción a partir de los libros Ansibles, perfiladores y otras máquinas de ingenio y Un año de servicio a la habitación."
-            data-participante="Andrea Chapela y Paula Castillo"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">5 de Noviembre</span>
-            <span class="cronograma-titulo-text">El cuento: una dorada manzana del sol</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Andrea Chapela y Paula Castillo</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 19 -->
-        <li class="cronograma-item" data-dia="19" data-fecha-iso="2026-11-06" data-multi="true"
-            data-titulo="Fantasmas por siempre: cuatro miradas sobre Ray Bradbury"
-            data-fecha="6 de Noviembre"
-            data-hora="6:00 P.M. - 7:30 P.M."
-            data-lugar="Auditorio Sonia Fajardo Forero, Universidad Kónrad Lórenz"
-            data-desc="Los artistas Karonlains Alarcón, Angélica Caballero, Jairo Andrade y Daniel Monje se reúnen para compartir los hallazgos de los talleres y experiencias virtuales dedicados al universo de Ray Bradbury. El espacio contará con lecturas en voz alta y una muestra de los textos y productos nacidos en estos laboratorios de creación colectiva del FLB."
-            data-participante="Karonlains Alarcón, Angélica Caballero, Jairo Andrade y Daniel E. Monje"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">6 de Noviembre</span>
-            <span class="cronograma-titulo-text">Fantasmas por siempre: cuatro miradas sobre Ray Bradbury</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Varios participantes</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 20 -->
-        <li class="cronograma-item" data-dia="20" data-fecha-iso="2026-11-06"
-            data-titulo="La victoria de Goliat: obra de teatro"
-            data-fecha="6 de Noviembre"
-            data-hora="7:30 P.M. - 9:00 P.M."
-            data-lugar="Auditorio Sonia Fajardo Forero, Universidad Kónrad Lórenz"
-            data-desc="¿Qué haría hoy si sabe que un asteroide gigante viene hacia nosotros y no hay como evitarlo? ¿Qué es de lo que más sentiría nostalgia de nuestro planeta y nuestra especie? Estas son algunas de las preguntas de las cuales nace este monólogo, un monólogo coral a cuatro voces."
-            data-participante="Púrpura Creactivo"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">6 de Noviembre</span>
-            <span class="cronograma-titulo-text">La victoria de Goliat: obra de teatro</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Púrpura Creactivo</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 21 -->
-        <li class="cronograma-item" data-dia="21" data-fecha-iso="2026-11-07"
-            data-titulo="Conduciendo a ciegas: Ciencia ficciones sonoras"
-            data-fecha="7 de Noviembre"
-            data-hora="2:00 P.M. - 3:30 P.M."
-            data-lugar="Auditorio Sonia Fajardo Forero, Universidad Kónrad Lórenz"
-            data-desc="¿Por qué la ciencia ficción encontró en el audio su mejor aliada para narrar el futuro? Fenómenos como El gran apagón y Caso 63 demuestran que las ficciones sonoras son hoy una pieza central de la cultura digital. En esta charla y club de escucha guiado por Maru Lombardo, retomamos la iniciativa del proyecto Conduciendo a ciegas: «Ven a leer con tus oídos»."
-            data-participante="Maru Lombardo"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">7 de Noviembre</span>
-            <span class="cronograma-titulo-text">Conduciendo a ciegas: Ciencia ficciones sonoras</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Maru Lombardo (Argentina)</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 22 -->
-        <li class="cronograma-item" data-dia="22" data-fecha-iso="2026-11-07"
-            data-titulo="Mugre rosa: la ciencia ficción en la obra de Fernanda Trías"
-            data-fecha="7 de Noviembre"
-            data-hora="3:30 P.M. - 5:00 P.M."
-            data-lugar="Auditorio Sonia Fajardo Forero, Universidad Kónrad Lórenz"
-            data-desc="¿Cómo narra la ciencia ficción los colapsos íntimos y colectivos de nuestro tiempo? En esta mesa central, la aclamada escritora uruguaya Fernanda Trías dialoga con la autora colombiana Lady Lyra en torno a su universo literario y su influyente incursión en la ficción especulativa y distópica."
-            data-participante="Fernanda Trías y Lady Lyra"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">7 de Noviembre</span>
-            <span class="cronograma-titulo-text">Mugre rosa: la ciencia ficción en la obra de Fernanda Trías</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Fernanda Trías y Lady Lyra</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 23 -->
-        <li class="cronograma-item" data-dia="23" data-fecha-iso="2026-11-07"
-            data-titulo="Todos los fines del mundo: la ciencia ficción frente a la incertidumbre"
-            data-fecha="7 de Noviembre"
-            data-hora="5:00 P.M. - 6:30 P.M."
-            data-lugar="Auditorio Sonia Fajardo Forero, Universidad Kónrad Lórenz"
-            data-desc="La escritora mexicana Andrea Chapela dialogará con el escritor e investigador colombiano Rodrigo Bastidas alrededor de su más reciente novela, Todos los fines del mundo. Una conversación para profundizar en los dilemas afectivos ante el colapso y las nuevas corrientes de la ciencia ficción en América Latina."
-            data-participante="Andrea Chapela y Rodrigo Bastidas"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">7 de Noviembre</span>
-            <span class="cronograma-titulo-text">Todos los fines del mundo: la ciencia ficción frente a la incertidumbre</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Andrea Chapela y Rodrigo Bastidas</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 24 -->
-        <li class="cronograma-item" data-dia="24" data-fecha-iso="2026-11-07"
-            data-titulo="Suaves lluvias sinápticas"
-            data-fecha="7 de Noviembre"
-            data-hora="6:30 P.M. - 8:00 P.M."
-            data-lugar="Auditorio Sonia Fajardo Forero, Universidad Kónrad Lórenz"
-            data-desc="Performance donde el público genera narrativa y material audiovisual con sus ondas cerebrales. Inspirado en la ciencia ficción del sur global y el legado de Bradbury, es un laboratorio vivo de 80 minutos en tres actos: lectura expandida con visualización neuronal, oráculo algorítmico y creación poética colectiva sobre futuros e identidades urbanas en Bogotá."
-            data-participante="Jairo Andrade"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">7 de Noviembre</span>
-            <span class="cronograma-titulo-text">Suaves lluvias sinápticas (repetición)</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Jairo Andrade</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 25 -->
-        <li class="cronograma-item" data-dia="25" data-fecha-iso="2026-11-10"
-            data-titulo="El vino del estío: la ciencia ficción en la obra de Isabel Allende"
-            data-fecha="10 de Noviembre"
-            data-hora="5:30 P.M. - 7:00 P.M."
-            data-lugar="Gimnasio Moderno, Biblioteca de Los Fundadores, Carrera 9 # 74-99"
-            data-desc="Más allá del realismo mágico y la memoria que definen su obra, narrar implica rozar el asombro y lo insólito. En este encuentro de clausura, la aclamada autora chilena dialoga en teleconferencia con la periodista Laura Arévalo (El Espectador) sobre la imaginación especulativa y los destellos de anticipación que nutren su proceso creativo."
-            data-participante="Isabel Allende y Laura Arévalo"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">10 de Noviembre</span>
-            <span class="cronograma-titulo-text">El vino del estío: la ciencia ficción en la obra de Isabel Allende</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Isabel Allende y Laura Arévalo</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-
-        <!-- 26 -->
-        <li class="cronograma-item" data-dia="26" data-fecha-iso="2026-11-10"
-            data-titulo="451° Fahrenheit: El eco del fuego"
-            data-fecha="10 de Noviembre"
-            data-hora="7:00 P.M. - 8:00 P.M."
-            data-lugar="Gimnasio Moderno, Biblioteca de Los Fundadores, Carrera 9 # 74-99"
-            data-desc="A modo de epílogo de la decimoquinta versión del FLB, disfruta de esta amena charla sobre las predicciones y advertencias con las que la obra de Ray Bradbury continúa interpelándonos 73 años después de la publicación de Fahrenheit 451."
-            data-participante="Federico Díaz-Granados y Javier Osuna"
-            data-participante-url="participantes.html">
-          <div class="cronograma-linea-main">
-            <span class="day-tag">10 de Noviembre</span>
-            <span class="cronograma-titulo-text">451° Fahrenheit: El eco del fuego</span>
-            <a href="participantes.html" class="cronograma-part-link" onclick="event.stopPropagation();">Federico Díaz-Granados y Javier Osuna</a>
-          </div>
-          <span class="ver-mas-ico">+</span>
-        </li>
-    </ul>
+      <p class="bib-count" id="bib-count" aria-live="polite"></p>
+      <div id="bib-grupos"></div>
+      <p class="bib-vacio" id="bib-vacio" hidden>No encontramos nada con esa búsqueda. Prueba con otra palabra o quita los filtros.</p>
     </section>
     </article>
     </main>
@@ -544,5 +436,318 @@
 </footer>
 
 <script src="script.js"></script>
+
+<!-- VENTANA EMERGENTE: DETALLE DE LA BIBLIOTECA -->
+<div id="modal-biblioteca" class="modal-overlay" hidden>
+  <div class="modal-box bib-modal" role="dialog" aria-modal="true" aria-labelledby="bib-m-titulo">
+    <button type="button" class="modal-close" aria-label="Cerrar">×</button>
+    <div class="bib-m-cover" id="bib-m-cover"></div>
+    <p class="bib-m-tipo" id="bib-m-tipo"></p>
+    <h3 id="bib-m-titulo"></h3>
+    <p class="bib-m-autor" id="bib-m-autor"></p>
+    <p class="bib-m-label">Se mencionó en</p>
+    <div class="bib-m-charlas" id="bib-m-charlas"></div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// BIBLIOTECA DE LAS CHARLAS
+// Para agregar una pieza: copia una línea de LIBROS, cámbiale los datos
+// y pégala al final de la lista (antes del "];").
+//   t: título · a: autor o país · y: año · tipo: tipo de pieza
+//   c: charla(s) donde se mencionó (claves de CHARLAS, abajo)
+//   img: nombre del archivo subido a IMAGENES/BIBLIOTECA/ (ej. 'fahrenheit-451.jpg')
+//   rem: enlace externo de respaldo, por si el archivo aún no está subido
+//        (si ninguno carga, se muestra una tarjeta con la inicial)
+// ============================================================
+(function(){
+  var CHARLAS = {
+    obra:       { corto: 'Obras centrales',          titulo: 'Obras centrales del festival', fecha: 'Ray Bradbury y el cuento que da nombre a esta edición', dia: null },
+    ia:         { corto: 'IA y ficción especulativa', titulo: 'Lo humano en disputa: relatos entre la IA y la ficción especulativa', fecha: '29 de octubre', dia: null },
+    yllas:      { corto: 'Adoradas Yllas',            titulo: 'Adoradas Yllas: una galaxia de escritoras colombianas', fecha: '29 de octubre', dia: null },
+    fantasmas:  { corto: 'Fantasmas por siempre',     titulo: 'Fantasmas por siempre: cuatro miradas sobre Ray Bradbury', fecha: '6 de noviembre', dia: null },
+    ciegas:     { corto: 'Conduciendo a ciegas',      titulo: 'Conduciendo a ciegas: ciencia ficciones sonoras', fecha: '7 de noviembre', dia: null },
+    mugre:      { corto: 'Mugre rosa',                titulo: 'Mugre rosa: la ciencia ficción en la obra de Fernanda Trías', fecha: '7 de noviembre', dia: null },
+    fines:      { corto: 'Todos los fines del mundo', titulo: 'Todos los fines del mundo: la ciencia ficción frente a la incertidumbre', fecha: '7 de noviembre', dia: null },
+    sinapticas: { corto: 'Suaves lluvias sinápticas', titulo: 'Suaves lluvias sinápticas', fecha: '7 de noviembre', dia: null },
+    epilogo:    { corto: 'Epílogo',                   titulo: '451° Fahrenheit: el eco del fuego', fecha: '10 de noviembre', dia: null },
+    allende:    { corto: 'Isabel Allende',            titulo: 'El vino del estío: la ciencia ficción en la obra de Isabel Allende', fecha: '10 de noviembre', dia: null }
+  };
+
+  var GRUPOS_TIPO = {
+    libros:    { nombre: 'Libros',            tipos: ['Relatos','Cuento','Cuentos','Novela','Ensayo','Ensayos','Libro','Poesía'] },
+    revistas:  { nombre: 'Revistas',          tipos: ['Revista'] },
+    podcasts:  { nombre: 'Podcasts',          tipos: ['Podcast'] },
+    pantalla:  { nombre: 'Películas y series', tipos: ['Película','Serie','Videojuego y serie'] }
+  };
+
+  var LIBROS = [
+    { t:'Crónicas marcianas', a:'Ray Bradbury', y:1950, tipo:'Relatos', c:['obra'], img:'01-cronicas-marcianas-relatos.jpg', rem:'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/The_Martian_Chronicles_%281950%29_front_cover%2C_first_edition.jpg/500px-The_Martian_Chronicles_%281950%29_front_cover%2C_first_edition.jpg' },
+    { t:'Vendrán lluvias suaves', a:'Ray Bradbury', y:1950, tipo:'Cuento', c:['obra'], img:'02-vendran-lluvias-suaves-cuento.jpg', rem:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEZjms7NqpyTf2RGjOwPayQijT4UMSxLV6kqJygcWqjqL0qJVoYcvDqhGA&s=10' },
+    { t:'Fahrenheit 451', a:'Ray Bradbury', y:1953, tipo:'Novela', c:['fantasmas','ia'], img:'03-fahrenheit-451-novela.jpg', rem:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt2BY6oW7uEqFgiOPhwKOOMxtBV_kGQL0EHtKvr4iB0SpQe0O3wbtr5zc&s=10' },
+    { t:'El hombre ilustrado', a:'Ray Bradbury', y:1951, tipo:'Relatos', c:['fantasmas'], img:'04-el-hombre-ilustrado-relatos.jpg', rem:'https://images.cdn1.buscalibre.com/fit-in/360x360/9d/64/9d64db46a07b8d2f81e76e9e17b7c248.jpg' },
+    { t:'Zen en el arte de escribir', a:'Ray Bradbury', y:1990, tipo:'Ensayos', c:['fantasmas'], img:'05-zen-en-el-arte-de-escribir-ensayos.jpg', rem:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9BPYu6PqlNvUWCoc2KIrrO4Mlk2S-eWb4ahjTqHp7Wa3YkNG8Vio63k-e&s=10' },
+    { t:'Fantasmas de lo nuevo (conocido como Fantasmas Para Siempre)', a:'Ray Bradbury', y:1969, tipo:'Relatos', c:['fantasmas'], img:'06-fantasmas-de-lo-nuevo-conocido-como-fantasmas-para-siempre-relatos.jpg', rem:'https://http2.mlstatic.com/D_NQ_NP_676802-MLA89954849255_082025-O.webp' },
+    { t:'La tercera expedición', a:'Ray Bradbury', y:1948, tipo:'Cuento', c:['fantasmas'], img:'07-la-tercera-expedicion-cuento.jpg', rem:'https://boutiquedezothique.es/8863-large_default/la-tercera-expedicion-el-marciano.jpg' },
+    { t:'La noche de los muertos vivientes', a:'Estados Unidos', y:1968, tipo:'Película', c:['fantasmas'], img:'08-la-noche-de-los-muertos-vivientes-pelicula.jpg', rem:'https://images.justwatch.com/poster/223356049/s718/la-noche-de-los-muertos-vivientes.jpg' },
+
+    { t:'La cita de tu vida', a:'España', y:2025, tipo:'Podcast', c:['ciegas'], img:'09-la-cita-de-tu-vida-podcast.jpg', rem:'https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/67/46/5f/67465ff5-4b3a-5e7c-599a-148a0f1fc5a7/mza_8828598044833792362.jpg/1200x1200bf-60.jpg' },
+    { t:'Yerbamala', a:'Colombia', y:2024, tipo:'Podcast', c:['ciegas'], img:'10-yerbamala-podcast.jpg', rem:'https://rtvcplay-v2.s3-accelerate.amazonaws.com/s3fs-public/field/image-networks/production/Y-Yerbamala-Redes.jpg' },
+    { t:'Recursos humanos', a:'España', y:2023, tipo:'Podcast', c:['ciegas'], img:'11-recursos-humanos-podcast.jpg', rem:'https://is1-ssl.mzstatic.com/image/thumb/Podcasts126/v4/32/fe/28/32fe286e-6468-5d3d-6091-c7710b92a6e6/mza_14322034607362047459.jpg/500x500bb.webp' },
+    { t:'Taupé, el Guardián del Amazonas', a:'Bolivia', y:2023, tipo:'Podcast', c:['ciegas'], img:'12-taupe-el-guardian-del-amazonas-podcast.jpg', rem:'https://felinaestudio.com/wp-content/uploads/2023/07/TAUPE-e1732588649354.jpg' },
+    { t:'6 minutos', a:'Adaptación al español', y:2022, tipo:'Podcast', c:['ciegas'], img:'13-6-minutos-podcast.jpg', rem:'https://production.listennotes.com/podcasts/seis-minutos-gen-z-media-wondery-ZWaIogT7n50-HjBvlIsp64F.1400x1400.jpg' },
+    { t:'Tripulación Atucha', a:'Argentina', y:1996, tipo:'Podcast', c:['ciegas'], img:'' },
+    { t:'Caso 63', a:'Chile', y:2020, tipo:'Podcast', c:['ciegas'], img:'15-caso-63-podcast.jpg', rem:'https://i.scdn.co/image/ab6765630000ba8a222c470a223d7e56b1b68d08' },
+    { t:'El gran apagón', a:'España', y:2016, tipo:'Podcast', c:['ciegas'], img:'16-el-gran-apagon-podcast.jpg', rem:'https://static.eldiario.es/clip/5a168308-d1f7-4639-897f-c02520da6a08_16-9-discover-aspect-ratio_default_0.jpg' },
+    { t:'Conduciendo a ciegas', a:'Ray Bradbury', y:1997, tipo:'Relatos', c:['ciegas'], img:'17-conduciendo-a-ciegas-relatos.jpg', rem:'https://jackmoreno.com/wp-content/uploads/2020/11/conduciendo-a-ciegas.jpg?w=648' },
+    { t:'Rick & Morty', a:'Estados Unidos', y:2013, tipo:'Serie', c:['ciegas'], img:'18-rick-morty-serie.jpg', rem:'https://static1.colliderimages.com/wordpress/wp-content/uploads/sharedimages/2024/04/rick-and-morty-poster.jpg' },
+    { t:'The Last of Us', a:'Estados Unidos', y:2013, tipo:'Videojuego y serie', c:['ciegas'], img:'19-the-last-of-us-videojuego-y-serie.jpg', rem:'https://cdnb.artstation.com/p/assets/images/images/058/368/759/large/issa-al-jawx-last-of-us.jpg?1673997759' },
+    { t:'Severance', a:'Estados Unidos', y:2022, tipo:'Serie', c:['ciegas'], img:'20-severance-serie.jpg', rem:'https://image.tmdb.org/t/p/w1280/pPHpeI2X1qEd1CS1SeyrdhZ4qnT.jpg' },
+    { t:'Apagón', a:'España', y:2022, tipo:'Serie', c:['ciegas'], img:'21-apagon-serie.jpg', rem:'https://images.justwatch.com/poster/304560471/s718/temporada-1.%7Bformat%7D' },
+    { t:'Soy leyenda', a:'Estados Unidos', y:2007, tipo:'Película', c:['ciegas'], img:'22-soy-leyenda-pelicula.jpg', rem:'https://images.justwatch.com/poster/74659445/s718/soy-leyenda.jpg' },
+    { t:'Soy leyenda', a:'Richard Matheson', y:1954, tipo:'Libro', c:['ciegas'], img:'23-soy-leyenda-libro.jpg', rem:'https://1.bp.blogspot.com/-I3BD_XUz-Bc/X5twWZ1IR2I/AAAAAAABjGQ/DtBX4hVb4hAWc9YoQYeYSX8kMucAPLOtwCLcBGAsYHQ/s2048/318365_portada_soy-leyenda_richard-matheson_202001151211.jpg' },
+
+    { t:'Cuaderno para un solo ojo', a:'Fernanda Trías', y:2002, tipo:'Libro', c:['mugre'], img:'24-cuaderno-para-un-solo-ojo-libro.jpg', rem:'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1358714431i/17263943.jpg' },
+    { t:'La azotea', a:'Fernanda Trías', y:2001, tipo:'Libro', c:['mugre'], img:'25-la-azotea-libro.jpg', rem:'https://http2.mlstatic.com/D_NQ_NP_678750-MLA87332629769_072025-O.webp' },
+    { t:'La ciudad invencible', a:'Fernanda Trías', y:2014, tipo:'Libro', c:['mugre'], img:'26-la-ciudad-invencible-libro.jpg', rem:'https://m.media-amazon.com/images/I/91+vFyqd4wL._SL1500_.jpg' },
+    { t:'No soñarás flores', a:'Fernanda Trías', y:2016, tipo:'Libro', c:['mugre'], img:'27-no-sonaras-flores-libro.jpg', rem:'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1460128387i/29857169.jpg' },
+    { t:'Mugre rosa', a:'Fernanda Trías', y:2020, tipo:'Libro', c:['mugre'], img:'28-mugre-rosa-libro.jpg', rem:'https://efeminista.com/wp-content/uploads/2022/07/Fernanda-trias-mugre-rosa.jpeg' },
+    { t:'El monte de las furias', a:'Fernanda Trías', y:2025, tipo:'Libro', c:['mugre'], img:'29-el-monte-de-las-furias-libro.jpg', rem:'https://http2.mlstatic.com/D_NQ_NP_997630-MLM82355390814_022025-O.webp' },
+    { t:'La sospecha del porvenir', a:'Fernanda Trías', y:2026, tipo:'Ensayo', c:['mugre'], img:'30-la-sospecha-del-porvenir-ensayo.jpg', rem:'https://www.sura.com/arteycultura/wp-content/uploads/2026/04/26-caja-futuro.png' },
+    { t:'La máquina del tiempo', a:'H. G. Wells', y:1895, tipo:'Libro', c:['mugre'], img:'31-la-maquina-del-tiempo-libro.jpg', rem:'https://http2.mlstatic.com/D_NQ_NP_721804-MLA85423079105_052025-O.webp' },
+    { t:'Popol Vuh', a:'Guatemala', y:'1701-1703', tipo:'Libro', c:['mugre'], img:'32-popol-vuh-libro.jpg', rem:'https://cdn.zendalibros.com/wp-content/uploads/2022/10/portada-popol-vuh.jpeg' },
+    { t:'Bredunco', a:'Lady Lyra', y:2026, tipo:'Libro', c:['mugre'], img:'' },
+
+    { t:'Todos los fines del mundo', a:'Andrea Chapela', y:2025, tipo:'Libro', c:['fines'], img:'34-todos-los-fines-del-mundo-libro.jpg', rem:'https://www.penguinlibros.com/co/6009825-large_default/todos-los-fines-del-mundo.webp' },
+    { t:'Las doradas manzanas del Sol', a:'Ray Bradbury', y:1953, tipo:'Relatos', c:['fines'], img:'' },
+    { t:'Ansibles, perfiladores y otras máquinas de ingenio', a:'Andrea Chapela', y:2022, tipo:'Libro', c:['fines'], img:'36-ansibles-perfiladores-y-otras-maquinas-de-ingenio-libro.jpg', rem:'https://imagessl1.casadellibro.com/a/l/s7/21/9788412520521.webp' },
+    { t:'Pánico o peligro', a:'María Luisa Puga', y:2014, tipo:'Libro', c:['fines'], img:'37-panico-o-peligro-libro.jpg', rem:'https://images.cdn3.buscalibre.com/fit-in/660x660/57/bc/57bc9837e7338a7e0b23b2b649306563.jpg' },
+    { t:'What the Wild Sea Can Be', a:'Helen Scales', y:2024, tipo:'Libro', c:['fines'], img:'38-what-the-wild-sea-can-be-libro.jpg', rem:'https://m.media-amazon.com/images/I/51LxsqGwwIL._SY445_SX342_FMwebp_.jpg' },
+    { t:'Crítica del pensamiento amoroso', a:'Mari Luz Esteban', y:2000, tipo:'Libro', c:['fines'], img:'39-critica-del-pensamiento-amoroso-libro.jpg', rem:'https://www.bellaterra.coop/images/Articulos/CRITICA-DEL-PENSAMIENTOX.jpg' },
+    { t:'Ni pena ni miedo', a:'Raúl Zurita', y:1993, tipo:'Poesía', c:['fines'], img:'40-ni-pena-ni-miedo-poesia.jpg', rem:'https://www.cervantesvirtual.com/images/portales/raul_zurita/graf/foto_poemas/raul_zurita_guy_wenborne_escritura_desierto_s.jpg' },
+
+    { t:'2666', a:'Roberto Bolaño', y:2004, tipo:'Novela', c:['sinapticas'], img:'41-2666-novela.jpg', rem:'https://m.media-amazon.com/images/I/71kLuq1tfxL._SL1500_.jpg' },
+
+    { t:'Bosa 3036', a:'Karonlains Alarcón', y:2026, tipo:'Cuentos', c:['yllas'], img:'42-bosa-3036-cuentos.jpg', rem:'https://tse2.mm.bing.net/th/id/OIP.1LZ4A7w9cOmgM_ZgKfLIbgAAAA?r=0&pid=Api' },
+    { t:'Las ciclistas', a:'Varias autoras', y:2024, tipo:'Cuentos', c:['yllas'], img:'43-las-ciclistas-cuentos.jpg', rem:'https://ladiligencialibros.com/wp-content/uploads/2024/04/Las-ciclistas-fbl-min.webp' },
+    { t:'Anjatamún', a:'Karonlains Alarcón', y:2021, tipo:'Libro', c:['yllas'], img:'44-anjatamun-libro.jpg', rem:'https://m.media-amazon.com/images/I/41thCEX8hVL._SY445_SX342_QL70_FMwebp_.jpg' },
+    { t:'No hay cielo pa tanta gente', a:'Lina González', y:2022, tipo:'Libro', c:['yllas'], img:'45-no-hay-cielo-pa-tanta-gente-libro.jpg', rem:'https://www.libreriacasatomada.com/imagenes/9789584/978958494880.GIF' },
+    { t:'Neutrina 1', a:'Fuego Fatuo', y:2022, tipo:'Revista', c:['yllas'], img:'46-neutrina-1-revista.jpg', rem:'https://www.libreriacarlosfuentes.mx/sites/default/files/styles/imagen_libros_172x172_/public/productos/2025-11/978992954919.GIF?itok=9aBnL-J9' },
+    { t:'Neutrina 2', a:'Fuego Fatuo', y:2023, tipo:'Revista', c:['yllas'], img:'47-neutrina-2-revista.jpg', rem:'https://www.libreriacarlosfuentes.mx/sites/default/files/styles/imagen_libros_172x172_/public/productos/2025-11/978992954910.GIF?itok=0D9mGcpT' },
+    { t:'Neutrina 3', a:'Fuego Fatuo', y:'', tipo:'Revista', c:['yllas'], img:'48-neutrina-3-revista.jpg', rem:'https://www.tornamesa.co/imagenes/9789201/978920128794.webp' },
+
+    { t:'1984', a:'George Orwell', y:1949, tipo:'Novela', c:['epilogo'], img:'49-1984-novela.jpg', rem:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2wpFHYWrerUzG-J4b4f1sKFuJK_sS6kvcDXUE4w36aC4YSOva_wFNooQ&s=10' },
+    { t:'Ensayo sobre la ceguera', a:'José Saramago', y:1995, tipo:'Novela', c:['epilogo'], img:'50-ensayo-sobre-la-ceguera-novela.jpg', rem:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm6BKVGRFE2mGaAVXlnC99sUvHFOl3_WG7zcLhufaWTtsLRz3S_QDuFn4&s=10' },
+    { t:'El cuento de la criada', a:'Margaret Atwood', y:1985, tipo:'Novela', c:['epilogo'], img:'51-el-cuento-de-la-criada-novela.jpg', rem:'https://images.cdn1.buscalibre.com/fit-in/660x660/97/7d/977d60155ecb663e70e65f278bb375c6.jpg' },
+    { t:'Mundo feliz', a:'Aldous Huxley', y:1932, tipo:'Novela', c:['epilogo'], img:'52-mundo-feliz-novela.jpg', rem:'https://images.cdn3.buscalibre.com/fit-in/360x360/7b/ff/7bff931f0d397d6d3138cd6f398e1305.jpg' },
+    { t:'El amor en los tiempos del cólera', a:'Gabriel García Márquez', y:1985, tipo:'Novela', c:['epilogo'], img:'53-el-amor-en-los-tiempos-del-colera-novela.jpg', rem:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA_N9PSeQqny7vnhECiK4rAw0upkk5EVj_b7fsCRk_zdV7e8zE55f7urA&s=10' },
+    { t:'Todo va a mejorar', a:'Almudena Grandes', y:2022, tipo:'Novela', c:['epilogo'], img:'54-todo-va-a-mejorar-novela.jpg', rem:'https://pdlibroscol.cdnstatics2.com/usuaris/libros/thumbs/18263878-1ffd-4561-a4fe-46e7004ee0a4/d_360_620/365031_portada_todo-va-a-mejorar_almudena-grandes_202208021308.webp' },
+
+    { t:'La casa de los espíritus', a:'Isabel Allende', y:1982, tipo:'Novela', c:['allende'], img:'55-la-casa-de-los-espiritus-novela.jpg', rem:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHq4zA4uipBpnQOH0FIp_wCsZgIB3FSgzUbnL4eM0PEuGFKcn8nr_Kl-5_&s=10' }
+  ];
+
+  // Orden de las secciones en la página
+  var ORDEN = ['obra','ia','yllas','fantasmas','ciegas','mugre','fines','sinapticas','epilogo','allende'];
+
+  var contGrupos = document.getElementById('bib-grupos');
+  if (!contGrupos) return;
+  var inputBuscar = document.getElementById('bib-buscar');
+  var chipsTipo = document.getElementById('bib-chips-tipo');
+  var chipsCharla = document.getElementById('bib-chips-charla');
+  var elCount = document.getElementById('bib-count');
+  var elVacio = document.getElementById('bib-vacio');
+  var modal = document.getElementById('modal-biblioteca');
+  var ultimoFoco = null;
+
+  var estado = { q: '', tipo: 'todo', charla: 'todas' };
+
+  function norm(s){ return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
+  function grupoDeTipo(tipo){
+    for (var k in GRUPOS_TIPO){ if (GRUPOS_TIPO[k].tipos.indexOf(tipo) !== -1) return k; }
+    return 'libros';
+  }
+  function srcPortada(img){
+    if (!img) return '';
+    return /^https?:\/\//i.test(img) ? img : 'IMAGENES/BIBLIOTECA/' + img;
+  }
+  function el(tag, cls, texto){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (texto != null) n.textContent = texto;
+    return n;
+  }
+
+  // Portada con respaldo: si la imagen no existe o no carga, queda la tarjeta con la inicial
+  function armarPortada(contenedor, item){
+    var fb = el('span', 'bib-fallback');
+    fb.appendChild(el('b', null, (item.t.replace(/^[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ0-9]+/, '').charAt(0) || '·').toUpperCase()));
+    fb.appendChild(el('i', null, item.tipo));
+    contenedor.appendChild(fb);
+    // Primero busca el archivo propio (IMAGENES/BIBLIOTECA/); si no está, usa el enlace externo (rem)
+    var fuentes = [];
+    if (item.img) fuentes.push(srcPortada(item.img));
+    if (item.rem) fuentes.push(item.rem);
+    if (!fuentes.length) return;
+    var img = new Image();
+    var n = 0;
+    img.alt = '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.referrerPolicy = 'no-referrer';
+    img.onerror = function(){
+      n++;
+      if (n < fuentes.length) { img.src = fuentes[n]; }
+      else if (img.parentNode) { img.parentNode.removeChild(img); }
+    };
+    img.onload = function(){ img.className = 'ok'; };
+    img.src = fuentes[0];
+    contenedor.appendChild(img);
+  }
+
+  function metaLinea(item){
+    var partes = [];
+    if (item.a) partes.push(item.a);
+    if (item.y) partes.push(item.y);
+    return partes.join(' · ');
+  }
+
+  function coincide(item){
+    if (estado.tipo !== 'todo' && grupoDeTipo(item.tipo) !== estado.tipo) return false;
+    if (estado.q){
+      var pajar = norm(item.t + ' ' + item.a + ' ' + item.tipo + ' ' + item.y);
+      if (pajar.indexOf(norm(estado.q)) === -1) return false;
+    }
+    return true;
+  }
+
+  function abrirCronograma(dia){
+    var li = document.querySelector('.cronograma-item[data-dia="' + dia + '"]');
+    if (li) li.click();
+  }
+
+  function pintar(){
+    contGrupos.innerHTML = '';
+    var vistos = {};
+    var totalUnicos = 0;
+    ORDEN.forEach(function(clave){
+      if (estado.charla !== 'todas' && estado.charla !== clave) return;
+      var items = LIBROS.filter(function(it){ return it.c.indexOf(clave) !== -1 && coincide(it); });
+      if (!items.length) return;
+      items.forEach(function(it){ if (!vistos[it.t + '|' + it.a + '|' + it.tipo]) { vistos[it.t + '|' + it.a + '|' + it.tipo] = 1; totalUnicos++; } });
+
+      var ch = CHARLAS[clave];
+      var grupo = el('section', 'bib-grupo');
+      grupo.setAttribute('aria-label', ch.titulo);
+      var cab = el('div', 'bib-grupo-head');
+      var izq = el('div');
+      izq.appendChild(el('h3', 'bib-grupo-titulo', ch.titulo));
+      izq.appendChild(el('span', 'bib-grupo-fecha', ch.fecha));
+      cab.appendChild(izq);
+      if (ch.dia){
+        var verCharla = el('button', 'bib-grupo-link', 'Ver detalles de la charla →');
+        verCharla.type = 'button';
+        verCharla.addEventListener('click', function(){ abrirCronograma(ch.dia); });
+        cab.appendChild(verCharla);
+      }
+      grupo.appendChild(cab);
+
+      var grid = el('div', 'bib-grid');
+      items.forEach(function(it){
+        var card = el('button', 'bib-card');
+        card.type = 'button';
+        card.setAttribute('data-idx', LIBROS.indexOf(it));
+        card.setAttribute('aria-label', it.t + (it.a ? ', ' + it.a : ''));
+        var portada = el('span', 'bib-cover');
+        armarPortada(portada, it);
+        card.appendChild(portada);
+        card.appendChild(el('span', 'bib-card-titulo', it.t));
+        var meta = metaLinea(it);
+        if (meta) card.appendChild(el('span', 'bib-card-meta', meta));
+        card.appendChild(el('span', 'bib-card-tipo', it.tipo));
+        grid.appendChild(card);
+      });
+      grupo.appendChild(grid);
+      contGrupos.appendChild(grupo);
+    });
+
+    elVacio.hidden = totalUnicos !== 0;
+    elCount.textContent = totalUnicos === 0 ? '' :
+      (totalUnicos === 1 ? '1 pieza' : totalUnicos + ' piezas') +
+      (estado.q || estado.tipo !== 'todo' || estado.charla !== 'todas' ? ' con estos filtros' : ' en la biblioteca');
+  }
+
+  function crearChip(contenedor, etiqueta, valor, tipoFiltro){
+    var b = el('button', 'bib-chip', etiqueta);
+    b.type = 'button';
+    b.setAttribute('data-valor', valor);
+    b.setAttribute('aria-pressed', estado[tipoFiltro] === valor ? 'true' : 'false');
+    b.addEventListener('click', function(){
+      estado[tipoFiltro] = valor;
+      Array.prototype.forEach.call(contenedor.children, function(c){
+        c.setAttribute('aria-pressed', c.getAttribute('data-valor') === valor ? 'true' : 'false');
+      });
+      pintar();
+    });
+    contenedor.appendChild(b);
+  }
+
+  crearChip(chipsTipo, 'Todo', 'todo', 'tipo');
+  Object.keys(GRUPOS_TIPO).forEach(function(k){ crearChip(chipsTipo, GRUPOS_TIPO[k].nombre, k, 'tipo'); });
+  crearChip(chipsCharla, 'Todas', 'todas', 'charla');
+  ORDEN.forEach(function(k){ crearChip(chipsCharla, CHARLAS[k].corto, k, 'charla'); });
+
+  inputBuscar.addEventListener('input', function(){ estado.q = inputBuscar.value.trim(); pintar(); });
+
+  // ---- Ventana de detalle ----
+  function abrirDetalle(item, disparador){
+    ultimoFoco = disparador || null;
+    var cover = document.getElementById('bib-m-cover');
+    cover.innerHTML = '';
+    armarPortada(cover, item);
+    document.getElementById('bib-m-tipo').textContent = item.tipo + (item.y ? ' · ' + item.y : '');
+    document.getElementById('bib-m-titulo').textContent = item.t;
+    var autor = document.getElementById('bib-m-autor');
+    autor.textContent = item.a || '';
+    autor.hidden = !item.a;
+
+    var lista = document.getElementById('bib-m-charlas');
+    lista.innerHTML = '';
+    item.c.forEach(function(clave){
+      var ch = CHARLAS[clave];
+      var b = el(ch.dia ? 'button' : 'div', 'bib-m-charla');
+      if (ch.dia) b.type = 'button';
+      b.appendChild(document.createTextNode(ch.titulo));
+      b.appendChild(el('small', null, ch.fecha));
+      if (ch.dia){
+        b.addEventListener('click', function(){ cerrarDetalle(true); abrirCronograma(ch.dia); });
+      } else {
+        b.classList.add('bib-m-charla-plana');
+      }
+      lista.appendChild(b);
+    });
+
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    modal.querySelector('.modal-close').focus();
+  }
+  function cerrarDetalle(sinFoco){
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    if (!sinFoco && ultimoFoco && ultimoFoco.focus) ultimoFoco.focus();
+  }
+
+  contGrupos.addEventListener('click', function(e){
+    var card = e.target.closest ? e.target.closest('.bib-card') : null;
+    if (!card) return;
+    abrirDetalle(LIBROS[+card.getAttribute('data-idx')], card);
+  });
+  modal.querySelector('.modal-close').addEventListener('click', function(){ cerrarDetalle(); });
+  modal.addEventListener('click', function(e){ if (e.target === modal) cerrarDetalle(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !modal.hidden) cerrarDetalle(); });
+
+  pintar();
+})();
+</script>
 </body>
 </html>
