@@ -9,7 +9,54 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Tomorrow:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-/* ---------- BIBLIOTECA DE LAS CHARLAS (estantería) ---------- */
+  .videos-charlas {
+  margin-top: 40px;
+}
+
+.videos-charlas h2 {
+  margin-bottom: 16px;
+}
+
+.videos-charlas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 18px;
+}
+
+.video-charla {
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(217,196,153,0.3);
+  border-radius: 12px;
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform .2s ease, border-color .2s ease;
+}
+
+.video-charla:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-2);
+}
+
+.video-charla:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+}
+
+.video-charla img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.video-charla span {
+  display: block;
+  padding: 12px 16px;
+  font-weight: 600;
+
+  /* ---------- BIBLIOTECA DE LAS CHARLAS (estantería) ---------- */
 .biblioteca{ margin-top: 72px; scroll-margin-top: 90px; }
 .bib-eyebrow{
   display: block;
@@ -484,6 +531,26 @@
   <a href="#biblioteca" class="btn-descarga-cronograma">📚 Biblioteca de las charlas</a>
 </div>
     </section>
+<section class="ea-block videos-charlas" aria-labelledby="videos-titulo">
+  <h2 id="videos-titulo">Charlas en video</h2>
+  <div class="videos-charlas-grid">
+    <a
+      class="video-charla"
+      href="https://www.youtube.com/live/sKhyhBDAXyA?si=2RPdUqlg41LXM4MS"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Ver charla en YouTube (se abre en una pestaña nueva)"
+    >
+      <img
+        src="https://img.youtube.com/vi/sKhyhBDAXyA/hqdefault.jpg"
+        alt="Miniatura de la charla en YouTube"
+        loading="lazy"
+      >
+      <span>Ver charla en YouTube ↗</span>
+    </a>
+  </div>
+</section>
+    
 
     <!-- BIBLIOTECA DE LAS CHARLAS -->
     <section class="ea-block biblioteca" id="biblioteca" aria-labelledby="bib-titulo">
