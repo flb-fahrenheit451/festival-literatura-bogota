@@ -437,6 +437,146 @@
 @media (hover: none){
   .lomo:hover{ transform: none; }
 }
+/* ---------- TRANSMISIONES EN VIVO ---------- */
+.transmisiones{ margin-top: 64px; scroll-margin-top: 90px; }
+.tv-eyebrow{
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin-bottom: 12px;
+}
+.transmisiones .tv-title{
+  font-family: 'AudexRegular', sans-serif;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 3.4vw, 2.2rem);
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.transmisiones .tv-lede{
+  max-width: 680px;
+  color: rgba(244,236,216,0.78);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 26px;
+}
+.tv-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px 22px;
+}
+.tv-card{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.tv-thumb{
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface-2);
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.tv-thumb:hover{ transform: translateY(-3px); border-color: var(--accent-2); box-shadow: 0 16px 30px rgba(0,0,0,0.45); }
+.tv-thumb:focus-visible{ outline: 2px solid var(--accent-2); outline-offset: 3px; }
+.tv-thumb img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+.tv-thumb::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none;
+}
+.tv-play{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 58px;
+  height: 58px;
+  margin: -29px 0 0 -29px;
+  border-radius: 50%;
+  background: rgba(11,27,42,0.78);
+  border: 2px solid var(--accent-2);
+  transition: background .2s ease, transform .2s ease;
+}
+.tv-play::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -9px 0 0 -6px;
+  border-style: solid;
+  border-width: 9px 0 9px 15px;
+  border-color: transparent transparent transparent var(--accent-2);
+}
+.tv-thumb:hover .tv-play{ background: var(--accent-2); transform: scale(1.06); }
+.tv-thumb:hover .tv-play::before{ border-left-color: var(--bg); }
+.tv-dur{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.tv-card iframe{
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #000;
+}
+.transmisiones .tv-titulo{
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--text);
+  margin: 0 0 4px;
+}
+.transmisiones .tv-meta{
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin: 0 0 6px;
+}
+.transmisiones .tv-link,
+.transmisiones .tv-todas a{
+  font-size: 0.86rem;
+  color: var(--cream);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.transmisiones .tv-link:hover,
+.transmisiones .tv-todas a:hover{ color: var(--accent-2); }
+.transmisiones .tv-todas{ margin: 26px 0 0; }
+@media (max-width: 600px){
+  .tv-grid{ grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -481,8 +621,91 @@
       <h2>Cronograma del Festival</h2>
 <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center;">
   <a href="IMAGENES/NOVEDADES/CRONOGRAMA2026.pdf" download class="btn-descarga-cronograma">📅 Descargar programación completa</a>
+  <a href="#transmisiones" class="btn-descarga-cronograma">▶ Transmisiones en vivo</a>
   <a href="#biblioteca" class="btn-descarga-cronograma">📚 Biblioteca de las charlas</a>
 </div>
+    </section>
+
+    <!-- TRANSMISIONES EN VIVO -->
+    <!-- Para agregar una: copia un bloque <article class="tv-card">, cambia el ID del video (las 11 letras después de v= en el enlace de YouTube), el título, la fecha y la duración. -->
+    <section class="ea-block transmisiones" id="transmisiones" aria-labelledby="tv-titulo-seccion">
+      <span class="tv-eyebrow">Vuelve a verlas</span>
+      <h2 class="tv-title" id="tv-titulo-seccion">Transmisiones en vivo</h2>
+      <p class="tv-lede">Las charlas de los eventos concentrados, tal como se transmitieron en el canal de la Fundación Fahrenheit 451. Toca una miniatura para verla aquí mismo.</p>
+      <div class="tv-grid">
+        <article class="tv-card" data-id="3sa3iOUFw7I">
+          <button type="button" class="tv-thumb" aria-label="Reproducir: Isabel Allende habla sobre el regreso a “La casa de los espíritus” y la memoria como resistencia">
+            <img src="https://i.ytimg.com/vi/3sa3iOUFw7I/hqdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tv-play" aria-hidden="true"></span>
+          </button>
+          <div class="tv-info">
+            <h3 class="tv-titulo">Isabel Allende habla sobre el regreso a “La casa de los espíritus” y la memoria como resistencia</h3>
+            <p class="tv-meta">10 de noviembre</p>
+            <a class="tv-link" href="https://www.youtube.com/watch?v=3sa3iOUFw7I" target="_blank" rel="noopener noreferrer">Ver en YouTube ↗</a>
+          </div>
+        </article>
+        <article class="tv-card" data-id="ESNyot5mGq4">
+          <button type="button" class="tv-thumb" aria-label="Reproducir: Suaves lluvias sinápticas">
+            <img src="https://i.ytimg.com/vi/ESNyot5mGq4/hqdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tv-play" aria-hidden="true"></span>
+            <span class="tv-dur">1:32:53</span>
+          </button>
+          <div class="tv-info">
+            <h3 class="tv-titulo">Suaves lluvias sinápticas</h3>
+            <p class="tv-meta">7 de noviembre</p>
+            <a class="tv-link" href="https://www.youtube.com/watch?v=ESNyot5mGq4" target="_blank" rel="noopener noreferrer">Ver en YouTube ↗</a>
+          </div>
+        </article>
+        <article class="tv-card" data-id="2LlOmOVD3hw">
+          <button type="button" class="tv-thumb" aria-label="Reproducir: Todos los fines del mundo: la ciencia ficción frente a la incertidumbre">
+            <img src="https://i.ytimg.com/vi/2LlOmOVD3hw/hqdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tv-play" aria-hidden="true"></span>
+            <span class="tv-dur">1:50:56</span>
+          </button>
+          <div class="tv-info">
+            <h3 class="tv-titulo">Todos los fines del mundo: la ciencia ficción frente a la incertidumbre</h3>
+            <p class="tv-meta">7 de noviembre</p>
+            <a class="tv-link" href="https://www.youtube.com/watch?v=2LlOmOVD3hw" target="_blank" rel="noopener noreferrer">Ver en YouTube ↗</a>
+          </div>
+        </article>
+        <article class="tv-card" data-id="sKhyhBDAXyA">
+          <button type="button" class="tv-thumb" aria-label="Reproducir: El monte de las furias">
+            <img src="https://i.ytimg.com/vi/sKhyhBDAXyA/hqdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tv-play" aria-hidden="true"></span>
+            <span class="tv-dur">1:26:42</span>
+          </button>
+          <div class="tv-info">
+            <h3 class="tv-titulo">El monte de las furias</h3>
+            <p class="tv-meta">7 de noviembre</p>
+            <a class="tv-link" href="https://www.youtube.com/watch?v=sKhyhBDAXyA" target="_blank" rel="noopener noreferrer">Ver en YouTube ↗</a>
+          </div>
+        </article>
+        <article class="tv-card" data-id="sEzQQadpV8c">
+          <button type="button" class="tv-thumb" aria-label="Reproducir: Conduciendo a ciegas: Ciencia ficciones sonoras">
+            <img src="https://i.ytimg.com/vi/sEzQQadpV8c/hqdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tv-play" aria-hidden="true"></span>
+            <span class="tv-dur">1:24:07</span>
+          </button>
+          <div class="tv-info">
+            <h3 class="tv-titulo">Conduciendo a ciegas: Ciencia ficciones sonoras</h3>
+            <p class="tv-meta">7 de noviembre</p>
+            <a class="tv-link" href="https://www.youtube.com/watch?v=sEzQQadpV8c" target="_blank" rel="noopener noreferrer">Ver en YouTube ↗</a>
+          </div>
+        </article>
+        <article class="tv-card" data-id="VUevDgnjC8M">
+          <button type="button" class="tv-thumb" aria-label="Reproducir: Fantasmas por siempre: cuatro miradas sobre Ray Bradbury">
+            <img src="https://i.ytimg.com/vi/VUevDgnjC8M/hqdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tv-play" aria-hidden="true"></span>
+            <span class="tv-dur">1:37:20</span>
+          </button>
+          <div class="tv-info">
+            <h3 class="tv-titulo">Fantasmas por siempre: cuatro miradas sobre Ray Bradbury</h3>
+            <p class="tv-meta">6 de noviembre</p>
+            <a class="tv-link" href="https://www.youtube.com/watch?v=VUevDgnjC8M" target="_blank" rel="noopener noreferrer">Ver en YouTube ↗</a>
+          </div>
+        </article>
+      </div>
+      <p class="tv-todas"><a href="https://www.youtube.com/@fundacion_451/streams" target="_blank" rel="noopener noreferrer">Ver todas las transmisiones en YouTube ↗</a></p>
     </section>
 
     <!-- BIBLIOTECA DE LAS CHARLAS -->
@@ -1070,6 +1293,25 @@
   }, { passive: true });
 
   pintar();
+})();
+</script>
+<script>
+// Transmisiones en vivo: al tocar la miniatura, el video se reproduce en su lugar
+(function(){
+  var cont = document.querySelector('.tv-grid');
+  if (!cont) return;
+  cont.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('.tv-thumb') : null;
+    if (!b) return;
+    var card = b.closest('.tv-card');
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + card.getAttribute('data-id') + '?autoplay=1&rel=0';
+    f.title = b.getAttribute('aria-label') || 'Transmisión';
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.setAttribute('allowfullscreen', '');
+    f.loading = 'lazy';
+    card.replaceChild(f, b);
+  });
 })();
 </script>
 </body>
